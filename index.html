@@ -107,9 +107,9 @@
     [data-desknav] { display: none !important; }
   }
   /* Slider-Navigation: schmal mit Abstand, ab 1080px in die Komposition hochgezogen */
-  [data-themnav] { margin-top: clamp(8px, 1.2cqw, 18px) !important; }
+  [data-themnav] { margin-top: clamp(8px, 1.13cqw, 18px) !important; }
   @container (min-width: 1080px) {
-    [data-themnav] { margin-top: calc(clamp(16px, 3cqw, 52px) * -1) !important; }
+    [data-themnav] { margin-top: calc(clamp(16px, 3.25cqw, 52px) * -1) !important; }
   }
   /* Schmales Desktop-Band: Text-Einzug zur\u00fccknehmen, damit die CTAs nebeneinander bleiben */
   @container (min-width: 901px) and (max-width: 1010px) {
@@ -123,7 +123,7 @@
     #top { min-height: 0 !important; }
     [data-reelcard] { width: min(100%, 340px) !important; }
     [data-heroleft] { margin-bottom: 0 !important; }
-    [data-themnav] { margin-top: clamp(8px,1.2cqw,18px) !important; }
+    [data-themnav] { margin-top: clamp(8px,1.13cqw,18px) !important; }
     [data-reftrack] { height: auto !important; }
     [data-refsticky] { position: static !important; height: auto !important; overflow: visible !important; }
     [data-refstack] { display: flex !important; flex-direction: column; gap: 18px; flex: none !important; }
@@ -173,6 +173,7 @@
   @container (max-width: 560px) {
     [data-kmeta] { grid-template-columns: 1fr !important; }
   }
+  /* Einheitliche Skala: alle Größen proportional zur Bezugsbreite 1600px (Hero: 1440px) */
   /* ============ MOBILE PASS (nur Container <= 900px / <= 640px) ============ */
   @container (max-width: 900px) {
     /* Hero: Desktop-Texteinzug aufheben, sonst startet die Copy weit rechts */
@@ -241,9 +242,9 @@
 
   <a href="#inhalt" style="position:absolute; left:-9999px; top:0; zIndex:300; background:#15123B; color:#fff; fontSize:13px; fontWeight:700; letterSpacing:0.08em; textTransform:uppercase; padding:12px 18px" style-focus="left:8px; top:8px">Zum Inhalt springen</a>
 
-  <header data-hdr="1" ref="{{ hdrRef }}" style="position:sticky; top:0; zIndex:70; background:color-mix(in srgb, var(--paper) 94%, transparent); backdropFilter:blur(16px); borderBottom:1px solid var(--line); display:flex; alignItems:center; justifyContent:space-between; gap:20px; padding:clamp(18px,2.4cqw,28px) clamp(16px,5cqw,64px)">
+  <header data-hdr="1" ref="{{ hdrRef }}" style="position:sticky; top:0; zIndex:70; background:color-mix(in srgb, var(--paper) 94%, transparent); backdropFilter:blur(16px); borderBottom:1px solid var(--line); display:flex; alignItems:center; justifyContent:space-between; gap:20px; padding:clamp(18px,1.75cqw,28px) clamp(16px,4cqw,64px)">
     <a href="#top" style="display:block; flexShrink:0">
-      <img src="./assets/horst-logo.png" alt="Horst Malerbetriebe" width="1015" height="285" decoding="async" fetchpriority="high" style="height:clamp(36px,5cqw,52px); width:auto; display:block">
+      <img src="./assets/horst-logo.png" alt="Horst Malerbetriebe" width="1015" height="285" decoding="async" fetchpriority="high" style="height:clamp(36px,3.25cqw,52px); width:auto; display:block">
     </a>
     <nav aria-label="Hauptnavigation" style="display:flex; alignItems:center; gap:clamp(10px,2cqw,32px)">
       <sc-for list="{{ topNav }}" as="t" hint-placeholder-count="4">
@@ -259,7 +260,7 @@
   </header>
 
   <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
-    <div style="position:fixed; inset:0; zIndex:300; background:#15123B; color:#fff; padding:clamp(18px,5cqw,58px); display:grid; gridTemplateRows:auto 1fr; gap:clamp(24px,4cqw,44px); animation:v3fade .2s ease-out; overflow:auto">
+    <div style="position:fixed; inset:0; zIndex:300; background:#15123B; color:#fff; padding:clamp(18px,3.63cqw,58px); display:grid; gridTemplateRows:auto 1fr; gap:clamp(24px,2.75cqw,44px); animation:v3fade .2s ease-out; overflow:auto">
 
       <svg viewBox="0 0 1200 800" preserveAspectRatio="none" aria-hidden="true" style="position:absolute; inset:0; width:100%; height:100%; pointerEvents:none; zIndex:0">
         <path d="M -40 640 C 240 620 300 430 520 372 C 720 320 760 176 1010 132 C 1120 112 1180 104 1260 96" fill="none" stroke="#EB5D0B" stroke-width="1" stroke-linecap="round" opacity="0.42" vector-effect="non-scaling-stroke"></path>
@@ -271,10 +272,10 @@
         <button type="button" onClick="{{ closeMenu }}" aria-label="Menü schließen" style="width:46px; height:46px; border:1px solid rgba(255,255,255,.28); background:transparent; color:#fff; fontSize:23px; lineHeight:0.94; cursor:pointer; flexShrink:0; transition:all .2s ease" style-hover="background:#EB5D0B; borderColor:#EB5D0B">×</button>
       </div>
 
-      <div data-menugrid="1" style="position:relative; zIndex:1; display:grid; gridTemplateColumns:minmax(180px,.68fr) 1.32fr; gap:clamp(28px,5cqw,72px); alignItems:end">
+      <div data-menugrid="1" style="position:relative; zIndex:1; display:grid; gridTemplateColumns:minmax(180px,.68fr) 1.32fr; gap:clamp(28px,4.5cqw,72px); alignItems:end">
 
-        <div style="display:flex; flexDirection:column; gap:clamp(22px,3cqw,34px); alignSelf:end">
-          <span style="fontSize:clamp(20px,3.4cqw,30px); fontWeight:800; textTransform:uppercase; color:#EB5D0B; letterSpacing:-0.02em; lineHeight:1">Mit Herz<br>dabei.</span>
+        <div style="display:flex; flexDirection:column; gap:clamp(22px,2.13cqw,34px); alignSelf:end">
+          <span style="fontSize:clamp(20px,1.88cqw,30px); fontWeight:800; textTransform:uppercase; color:#EB5D0B; letterSpacing:-0.02em; lineHeight:1">Mit Herz<br>dabei.</span>
           <span style="fontSize:14.5px; lineHeight:1.6; color:rgba(255,255,255,.6)">Industriering Ost 56 · 47906 Kempen<br>+49 2152 510 600<br>info@horst-malerbetriebe.de</span>
           <div style="display:flex; flexDirection:column; gap:9px">
             <span style="fontSize:10px; fontWeight:700; letterSpacing:0.22em; textTransform:uppercase; color:rgba(255,255,255,.34)">Folgen</span>
@@ -289,9 +290,9 @@
           </div>
         </div>
 
-        <div style="display:flex; flexDirection:column; alignItems:flex-end; justifyContent:center; gap:clamp(14px,1.8cqw,26px); alignSelf:center; paddingRight:clamp(8px,3.4cqw,64px); paddingBottom:clamp(18px,4cqw,56px)">
+        <div style="display:flex; flexDirection:column; alignItems:flex-end; justifyContent:center; gap:clamp(14px,1.63cqw,26px); alignSelf:center; paddingRight:clamp(8px,4cqw,64px); paddingBottom:clamp(18px,3.5cqw,56px)">
           <sc-for list="{{ menuLinks }}" as="m" hint-placeholder-count="6">
-            <a href="{{ m.href }}" onClick="{{ closeMenu }}" style="display:flex; alignItems:baseline; justifyContent:flex-end; gap:16px; color:#fff; fontSize:clamp(29px,7.2cqw,57px); fontWeight:800; textTransform:uppercase; lineHeight:1; letterSpacing:-0.025em; textDecoration:none; transition:color .2s ease, transform .3s cubic-bezier(.22,1,.36,1)" style-hover="color:#EB5D0B; transform:translateX(-12px)">
+            <a href="{{ m.href }}" onClick="{{ closeMenu }}" style="display:flex; alignItems:baseline; justifyContent:flex-end; gap:16px; color:#fff; fontSize:clamp(29px,3.56cqw,57px); fontWeight:800; textTransform:uppercase; lineHeight:1; letterSpacing:-0.025em; textDecoration:none; transition:color .2s ease, transform .3s cubic-bezier(.22,1,.36,1)" style-hover="color:#EB5D0B; transform:translateX(-12px)">
               <span style="fontSize:11.5px; fontWeight:700; letterSpacing:0.16em; color:rgba(255,255,255,.35)">{{ m.no }}</span>
               <span>{{ m.label }}</span>
             </a>
@@ -306,39 +307,39 @@
 
   <div style="background:var(--paper)">
   <div ref="{{ heroRef }}" style="position:relative; containerType:inline-size; width:100%; maxWidth:1440px; margin:0 auto">
-  <section id="top" data-split="1" style="position:relative; display:grid; gridTemplateColumns:1.02fr .98fr; alignItems:center; paddingBlock:clamp(1.75rem,2.9vw,2.75rem)">
-    <div data-heroleft="1" style="position:relative; zIndex:2; display:flex; flexDirection:column; justifyContent:center; gap:clamp(18px,2.4cqw,28px); marginBottom:clamp(14px,3.4cqw,52px); padding:0 clamp(18px,5cqw,64px) 0 max(12px, calc(clamp(18px,5cqw,64px) + var(--text-inset, 0px)))">
-      <span data-reveal="1" style="display:flex; alignItems:center; gap:11px; fontSize:clamp(0.66rem,0.8cqw,0.84rem); fontWeight:700; letterSpacing:0.2em; textTransform:uppercase; color:#15123B; opacity:0; transform:translateY(16px); transition:opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1)">
+  <section id="top" data-split="1" style="position:relative; display:grid; gridTemplateColumns:1.02fr .98fr; alignItems:center; paddingBlock:clamp(1.75rem,3.06cqw,2.75rem)">
+    <div data-heroleft="1" style="position:relative; zIndex:2; display:flex; flexDirection:column; justifyContent:center; gap:clamp(18px,1.94cqw,28px); marginBottom:clamp(14px,3.61cqw,52px); padding:0 clamp(18px,4.44cqw,64px) 0 max(12px, calc(clamp(18px,4.44cqw,64px) + var(--text-inset, 0px)))">
+      <span data-reveal="1" style="display:flex; alignItems:center; gap:11px; fontSize:clamp(0.66rem,0.93cqw,0.84rem); fontWeight:700; letterSpacing:0.2em; textTransform:uppercase; color:#15123B; opacity:0; transform:translateY(16px); transition:opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1)">
         <span ref="{{ eyebrowRef }}" style="width:30px; height:3px; background:#EB5D0B; flexShrink:0"></span>
         Meister Malerbetriebe in Kempen
       </span>
 
 
-      <div data-heroh1="1" style="position:relative; zIndex:3; fontSize:clamp(2.55rem,6.7cqw,6.05rem)">
-      <h1 data-heroh1="1" data-reveal="1" data-reveal-delay="80" style="margin:0; fontSize:clamp(2.55rem,6.7cqw,6.05rem); lineHeight:1.08; fontWeight:800; letterSpacing:-0.04em; textTransform:uppercase; opacity:0; transform:translateY(24px); transition:opacity .85s cubic-bezier(.22,1,.36,1), transform .85s cubic-bezier(.22,1,.36,1)"><span style="display:block; transform:scaleY(1.12); transformOrigin:left top">Mit <span ref="{{ herzRef }}" style="color:#EB5D0B">Herz</span></span><span ref="{{ dabeiRef }}" style="display:block; transform:scaleY(1.12); transformOrigin:left top">dabei.</span></h1>
+      <div data-heroh1="1" style="position:relative; zIndex:3; fontSize:clamp(2.55rem,6.72cqw,6.05rem)">
+      <h1 data-heroh1="1" data-reveal="1" data-reveal-delay="80" style="margin:0; fontSize:clamp(2.55rem,6.72cqw,6.05rem); lineHeight:1.08; fontWeight:800; letterSpacing:-0.04em; textTransform:uppercase; opacity:0; transform:translateY(24px); transition:opacity .85s cubic-bezier(.22,1,.36,1), transform .85s cubic-bezier(.22,1,.36,1)"><span style="display:block; transform:scaleY(1.12); transformOrigin:left top">Mit <span ref="{{ herzRef }}" style="color:#EB5D0B">Herz</span></span><span ref="{{ dabeiRef }}" style="display:block; transform:scaleY(1.12); transformOrigin:left top">dabei.</span></h1>
       </div>
 
-      <p data-reveal="1" data-reveal-delay="150" ref="{{ paraRef }}" style="margin:0; maxWidth:40ch; fontSize:clamp(1rem,1.8cqw,1.25rem); lineHeight:1.62; color:#17171C; textWrap:pretty; opacity:0; transform:translateY(18px); transition:opacity .85s cubic-bezier(.22,1,.36,1), transform .85s cubic-bezier(.22,1,.36,1)">Seit 1962 streichen, spachteln und sanieren wir am Niederrhein – Familienbetrieb in dritter Generation, mit Leuten, die ihr Handwerk lieben.</p>
+      <p data-reveal="1" data-reveal-delay="150" ref="{{ paraRef }}" style="margin:0; maxWidth:40ch; fontSize:clamp(1rem,1.39cqw,1.25rem); lineHeight:1.62; color:#17171C; textWrap:pretty; opacity:0; transform:translateY(18px); transition:opacity .85s cubic-bezier(.22,1,.36,1), transform .85s cubic-bezier(.22,1,.36,1)">Seit 1962 streichen, spachteln und sanieren wir am Niederrhein – Familienbetrieb in dritter Generation, mit Leuten, die ihr Handwerk lieben.</p>
 
-      <div data-reveal="1" data-reveal-delay="210" style="display:flex; flexWrap:wrap; alignItems:stretch; justifyContent:flex-start; maxWidth:40ch; gap:clamp(10px,1.1cqw,14px); opacity:0; transform:translateY(18px); transition:opacity .85s cubic-bezier(.22,1,.36,1), transform .85s cubic-bezier(.22,1,.36,1)">
-        <a href="#kontakt" style="background:#EB5D0B; border:1px solid #EB5D0B; display:flex; alignItems:center; color:#fff; fontSize:clamp(0.8rem,0.97cqw,0.95rem); fontWeight:700; letterSpacing:0.09em; textTransform:uppercase; padding:clamp(15px,1.25cqw,20px) clamp(24px,2.08cqw,34px); transition:all .25s ease" style-hover="background:#15123B; color:#fff; transform:translateY(-2px)">Beratung anfragen</a>
+      <div data-reveal="1" data-reveal-delay="210" style="display:flex; flexWrap:wrap; alignItems:stretch; justifyContent:flex-start; maxWidth:40ch; gap:clamp(10px,0.97cqw,14px); opacity:0; transform:translateY(18px); transition:opacity .85s cubic-bezier(.22,1,.36,1), transform .85s cubic-bezier(.22,1,.36,1)">
+        <a href="#kontakt" style="background:#EB5D0B; border:1px solid #EB5D0B; display:flex; alignItems:center; color:#fff; fontSize:clamp(0.8rem,1.06cqw,0.95rem); fontWeight:700; letterSpacing:0.09em; textTransform:uppercase; padding:clamp(15px,1.39cqw,20px) clamp(24px,2.36cqw,34px); transition:all .25s ease" style-hover="background:#15123B; color:#fff; transform:translateY(-2px)">Beratung anfragen</a>
       </div>
 
-      <div data-herofacts="1" data-reveal="1" data-reveal-delay="270" style="display:flex; flexWrap:wrap; justifyContent:{{ factsAlign }}; maxWidth:40ch; gap:clamp(32px,5.2cqw,72px); paddingTop:clamp(14px,2cqw,22px); borderTop:1px solid var(--line); opacity:0; transform:translateY(16px); transition:opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1)">
+      <div data-herofacts="1" data-reveal="1" data-reveal-delay="270" style="display:flex; flexWrap:wrap; justifyContent:{{ factsAlign }}; maxWidth:40ch; gap:clamp(32px,5cqw,72px); paddingTop:clamp(14px,1.53cqw,22px); borderTop:1px solid var(--line); opacity:0; transform:translateY(16px); transition:opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1)">
         <sc-for list="{{ heroFacts }}" as="f" hint-placeholder-count="3">
           <div style="display:flex; flexDirection:column; gap:1px">
-            <span style="fontSize:clamp(1.375rem,2.9cqw,2.125rem); fontWeight:800; letterSpacing:-0.02em; lineHeight:1.05; color:#15123B">{{ f.value }}</span>
-            <span style="fontSize:clamp(0.66rem,0.8cqw,0.84rem); fontWeight:600; letterSpacing:0.14em; textTransform:uppercase; color:#8C889F">{{ f.label }}</span>
+            <span style="fontSize:clamp(1.375rem,2.36cqw,2.125rem); fontWeight:800; letterSpacing:-0.02em; lineHeight:1.05; color:#15123B">{{ f.value }}</span>
+            <span style="fontSize:clamp(0.66rem,0.93cqw,0.84rem); fontWeight:600; letterSpacing:0.14em; textTransform:uppercase; color:#8C889F">{{ f.label }}</span>
           </div>
         </sc-for>
       </div>
     </div>
 
-    <div style="position:relative; zIndex:2; display:flex; alignItems:center; justifyContent:center; height:100%; padding:0 clamp(20px,3cqw,44px)">
-      <svg data-arrowm="1" viewBox="0 0 400 82" preserveAspectRatio="none" aria-hidden="true" style="display:none; position:absolute; left:0; top:calc(-1 * clamp(24px,6cqw,38px)); width:100%; height:78px; zIndex:0; pointerEvents:none; overflow:visible">
+    <div style="position:relative; zIndex:2; display:flex; alignItems:center; justifyContent:center; height:100%; padding:0 clamp(20px,3.06cqw,44px)">
+      <svg data-arrowm="1" viewBox="0 0 400 82" preserveAspectRatio="none" aria-hidden="true" style="display:none; position:absolute; left:0; top:calc(-1 * clamp(24px,2.64cqw,38px)); width:100%; height:78px; zIndex:0; pointerEvents:none; overflow:visible">
         <path d="M -70 70 C 46 62 118 26 214 20 C 300 15 348 32 470 66" fill="none" stroke="#EB5D0B" stroke-width="1.6" stroke-linecap="round" opacity="0.34" vector-effect="non-scaling-stroke"></path>
       </svg>
-      <div data-reveal="1" data-reelcard="1" ref="{{ cardRef }}" onMouseEnter="{{ reelEnter }}" onMouseLeave="{{ reelLeave }}" style="position:relative; width:min(100%, clamp(258px,35cqw,412px), calc((100svh - var(--hdr, 96px) - 2 * clamp(1.75rem,2.9vw,2.75rem) - clamp(20px,3.4cqw,52px)) * 9 / 16)); aspectRatio:9/16; overflow:visible; opacity:0; transform:translateY(24px); transition:opacity .9s cubic-bezier(.22,1,.36,1), transform .9s cubic-bezier(.22,1,.36,1)">
+      <div data-reveal="1" data-reelcard="1" ref="{{ cardRef }}" onMouseEnter="{{ reelEnter }}" onMouseLeave="{{ reelLeave }}" style="position:relative; width:min(100%, clamp(258px,28.61cqw,412px), calc((100svh - var(--hdr, 96px) - 2 * clamp(1.75rem,3.06cqw,2.75rem) - clamp(20px,3.61cqw,52px)) * 9 / 16)); aspectRatio:9/16; overflow:visible; opacity:0; transform:translateY(24px); transition:opacity .9s cubic-bezier(.22,1,.36,1), transform .9s cubic-bezier(.22,1,.36,1)">
        <div style="{{ reelLiftStyle }}">
         <sc-if value="{{ heroVideo }}" hint-placeholder-val="{{ true }}">
           <video ref="{{ bgVideoRef }}" src="./assets/reel-hochformat.mp4" playsinline="playsinline" loop="loop" muted="muted" preload="metadata" aria-hidden="true" style="position:absolute; inset:0; width:100%; height:100%; objectFit:cover"></video>
@@ -346,12 +347,12 @@
         <span aria-hidden="true" style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(14,12,40,0) 46%, rgba(14,12,40,.78) 100%); pointerEvents:none"></span>
 
         <span aria-hidden="true" style="{{ reelFrameStyle }}"></span>
-        <button type="button" onClick="{{ openFilm }}" aria-label="Firmenfilm ansehen" style="position:absolute; inset:0; width:100%; border:0; background:transparent; color:#fff; cursor:pointer; display:flex; flexDirection:column; justifyContent:flex-end; alignItems:flex-start; gap:11px; padding:clamp(14px,1.8cqw,22px); textAlign:left">
+        <button type="button" onClick="{{ openFilm }}" aria-label="Firmenfilm ansehen" style="position:absolute; inset:0; width:100%; border:0; background:transparent; color:#fff; cursor:pointer; display:flex; flexDirection:column; justifyContent:flex-end; alignItems:flex-start; gap:11px; padding:clamp(14px,1.53cqw,22px); textAlign:left">
           <span aria-hidden="true" style="{{ reelPlayStyle }}">
             <span style="width:0; height:0; borderTop:9px solid transparent; borderBottom:9px solid transparent; borderLeft:14px solid #fff; marginLeft:4px"></span>
           </span>
           <span style="display:flex; flexDirection:column; gap:2px">
-            <span style="fontSize:clamp(15px,1.5cqw,19px); fontWeight:800; textTransform:uppercase; letterSpacing:-0.01em; lineHeight:1.14">Der Betrieb im Film</span>
+            <span style="fontSize:clamp(15px,1.32cqw,19px); fontWeight:800; textTransform:uppercase; letterSpacing:-0.01em; lineHeight:1.14">Der Betrieb im Film</span>
             <span style="fontSize:10.5px; fontWeight:600; letterSpacing:0.16em; textTransform:uppercase; color:rgba(255,255,255,.72)">90 Sekunden ansehen</span>
           </span>
         </button>
@@ -369,28 +370,28 @@
   </div>
 
   <sc-if value="{{ filmOpen }}" hint-placeholder-val="{{ false }}">
-    <div style="position:fixed; inset:0; zIndex:400; background:rgba(10,8,30,.94); display:flex; alignItems:center; justifyContent:center; padding:clamp(14px,4cqw,48px); animation:v3fade .22s ease-out">
-      <button type="button" onClick="{{ closeFilm }}" aria-label="Film schließen" style="position:absolute; top:clamp(14px,3cqw,30px); right:clamp(14px,3cqw,30px); width:48px; height:48px; border:1px solid rgba(255,255,255,.35); background:transparent; color:#fff; fontSize:24px; lineHeight:0.94; cursor:pointer; transition:all .2s ease" style-hover="background:#EB5D0B; borderColor:#EB5D0B">×</button>
+    <div style="position:fixed; inset:0; zIndex:400; background:rgba(10,8,30,.94); display:flex; alignItems:center; justifyContent:center; padding:clamp(14px,3cqw,48px); animation:v3fade .22s ease-out">
+      <button type="button" onClick="{{ closeFilm }}" aria-label="Film schließen" style="position:absolute; top:clamp(14px,1.88cqw,30px); right:clamp(14px,1.88cqw,30px); width:48px; height:48px; border:1px solid rgba(255,255,255,.35); background:transparent; color:#fff; fontSize:24px; lineHeight:0.94; cursor:pointer; transition:all .2s ease" style-hover="background:#EB5D0B; borderColor:#EB5D0B">×</button>
       <video ref="{{ filmRef }}" src="./assets/firmenvideo.mp4" controls="controls" playsinline="playsinline" style="width:min(100%,1180px); maxHeight:82vh; display:block; background:#000"></video>
     </div>
   </sc-if>
 
-  <section id="themen" aria-label="Leistungen und Bereiche" style="position:relative; background:var(--paper); overflow:hidden; padding:clamp(60px,9cqw,148px) clamp(18px,5cqw,64px) clamp(64px,10cqw,160px)">
+  <section id="themen" aria-label="Leistungen und Bereiche" style="position:relative; background:var(--paper); overflow:hidden; padding:clamp(60px,9.25cqw,148px) clamp(18px,4cqw,64px) clamp(64px,10cqw,160px)">
 
     <svg viewBox="0 0 1200 660" preserveAspectRatio="none" aria-hidden="true" style="position:absolute; inset:0; width:100%; height:100%; zIndex:0; pointerEvents:none">
       <path d="M -40 486 C 214 470 288 206 512 182 C 696 162 764 306 944 322 C 1082 334 1162 298 1250 250" fill="none" stroke="#EB5D0B" stroke-width="1" stroke-linecap="round" opacity="0.4" vector-effect="non-scaling-stroke"></path>
       <path d="M -40 556 C 262 540 352 318 572 286" fill="none" stroke="#EB5D0B" stroke-width="0.8" stroke-linecap="round" opacity="0.12" vector-effect="non-scaling-stroke"></path>
     </svg>
 
-    <div data-reveal="1" style="position:relative; zIndex:2; display:flex; alignItems:center; gap:11px; marginBottom:clamp(24px,4cqw,52px); fontSize:clamp(0.66rem,0.8cqw,0.84rem); fontWeight:700; letterSpacing:0.2em; textTransform:uppercase; color:#15123B; opacity:0; transform:translateY(16px); transition:opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1)">
+    <div data-reveal="1" style="position:relative; zIndex:2; display:flex; alignItems:center; gap:11px; marginBottom:clamp(24px,3.25cqw,52px); fontSize:clamp(0.66rem,0.84cqw,0.84rem); fontWeight:700; letterSpacing:0.2em; textTransform:uppercase; color:#15123B; opacity:0; transform:translateY(16px); transition:opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1)">
       <span style="width:30px; height:3px; background:#EB5D0B; flexShrink:0"></span>
       Vier Wege durch Horst
     </div>
 
     <div data-split="1" onTouchStart="{{ swipeStart }}" onTouchEnd="{{ swipeEnd }}" style="position:relative; zIndex:2; display:grid; gridTemplateColumns:.8fr 1.2fr; gap:clamp(28px,5cqw,80px); alignItems:center">
 
-      <div data-reveal="1" style="position:relative; display:grid; justifyItems:center; alignItems:center; paddingBottom:clamp(16px,2cqw,28px); opacity:0; transform:translateY(24px); transition:opacity .85s cubic-bezier(.22,1,.36,1), transform .85s cubic-bezier(.22,1,.36,1)">
-        <span aria-hidden="true" style="gridArea:1/1; width:min(100%,clamp(220px,29cqw,352px)); aspectRatio:0.68; borderRadius:999px; border:1px solid #EB5D0B; opacity:0.32; transform:translate(clamp(10px,1.4cqw,20px), clamp(12px,1.6cqw,24px)); pointerEvents:none"></span>
+      <div data-reveal="1" style="position:relative; display:grid; justifyItems:center; alignItems:center; paddingBottom:clamp(16px,1.75cqw,28px); opacity:0; transform:translateY(24px); transition:opacity .85s cubic-bezier(.22,1,.36,1), transform .85s cubic-bezier(.22,1,.36,1)">
+        <span aria-hidden="true" style="gridArea:1/1; width:min(100%,clamp(220px,22cqw,352px)); aspectRatio:0.68; borderRadius:999px; border:1px solid #EB5D0B; opacity:0.32; transform:translate(clamp(10px,1.25cqw,20px), clamp(12px,1.5cqw,24px)); pointerEvents:none"></span>
         <sc-for list="{{ themen }}" as="t" hint-placeholder-count="4">
           <div data-topicimg="1" style="{{ t.imgStyle }}">
             <img src="{{ t.img }}" alt="{{ t.alt }}" width="{{ t.imgW }}" height="{{ t.imgH }}" loading="lazy" decoding="async" style="display:block; position:absolute; inset:0; width:100%; height:100%; objectFit:cover; objectPosition:{{ t.pos }}">
@@ -405,16 +406,16 @@
               <span style="color:#EB5D0B">{{ t.no }}</span>
               {{ t.kicker }}
             </span>
-            <h2 style="margin:0; fontSize:clamp(30px,4.6cqw,64px); fontWeight:800; letterSpacing:-0.035em; textTransform:uppercase; lineHeight:0.96; textWrap:pretty">{{ t.title }}<sc-if value="{{ t.title2 }}" hint-placeholder-val="{{ false }}"><br>{{ t.title2 }}</sc-if></h2>
-            <p style="margin:0; maxWidth:38ch; fontSize:clamp(16px,1.75cqw,19px); lineHeight:1.65; color:#17171C; textWrap:pretty">{{ t.text }}</p>
-            <a href="{{ t.href }}" style="marginTop:clamp(2px,0.6cqw,8px); display:flex; alignItems:center; gap:12px; background:#EB5D0B; border:1px solid #EB5D0B; color:#fff; fontSize:clamp(0.8rem,0.95cqw,0.92rem); fontWeight:700; letterSpacing:0.09em; textTransform:uppercase; padding:clamp(14px,1.15cqw,19px) clamp(22px,2cqw,32px); transition:all .25s ease" style-hover="background:#15123B; borderColor:#15123B; transform:translateY(-2px)">{{ t.cta }}</a>
+            <h2 style="margin:0; fontSize:clamp(30px,4cqw,64px); fontWeight:800; letterSpacing:-0.035em; textTransform:uppercase; lineHeight:0.96; textWrap:pretty">{{ t.title }}<sc-if value="{{ t.title2 }}" hint-placeholder-val="{{ false }}"><br>{{ t.title2 }}</sc-if></h2>
+            <p style="margin:0; maxWidth:38ch; fontSize:clamp(16px,1.19cqw,19px); lineHeight:1.65; color:#17171C; textWrap:pretty">{{ t.text }}</p>
+            <a href="{{ t.href }}" style="marginTop:clamp(2px,0.5cqw,8px); display:flex; alignItems:center; gap:12px; background:#EB5D0B; border:1px solid #EB5D0B; color:#fff; fontSize:clamp(0.8rem,0.92cqw,0.92rem); fontWeight:700; letterSpacing:0.09em; textTransform:uppercase; padding:clamp(14px,1.19cqw,19px) clamp(22px,2cqw,32px); transition:all .25s ease" style-hover="background:#15123B; borderColor:#15123B; transform:translateY(-2px)">{{ t.cta }}</a>
           </div>
         </sc-for>
       </div>
 
     </div>
 
-    <div data-themnav="1" style="position:relative; zIndex:2; display:flex; flexWrap:wrap; alignItems:center; gap:clamp(16px,2.4cqw,32px)">
+    <div data-themnav="1" style="position:relative; zIndex:2; display:flex; flexWrap:wrap; alignItems:center; gap:clamp(16px,2cqw,32px)">
 
       <div style="position:relative; width:74px; height:74px; flexShrink:0; display:flex; alignItems:center; justifyContent:center">
         <svg viewBox="0 0 74 74" aria-hidden="true" style="position:absolute; inset:0; width:100%; height:100%; transform:rotate(-90deg)">
@@ -424,7 +425,7 @@
         <span style="fontSize:12.5px; fontWeight:700; letterSpacing:0.04em; color:#15123B">{{ curLabel }}</span>
       </div>
 
-      <div style="display:flex; flexWrap:wrap; gap:clamp(14px,2cqw,28px); marginLeft:auto">
+      <div style="display:flex; flexWrap:wrap; gap:clamp(14px,1.75cqw,28px); marginLeft:auto">
         <sc-for list="{{ themen }}" as="t" hint-placeholder-count="4">
           <button type="button" onClick="{{ t.go }}" style="display:flex; flexDirection:column; alignItems:flex-start; gap:8px; border:0; background:transparent; padding:0; cursor:pointer; textAlign:left">
             <span style="{{ t.tickStyle }}"></span>
@@ -438,7 +439,7 @@
 
   <section id="referenzen" style="position:relative; background:var(--paper)">
     <div data-reftrack="1" ref="{{ refTrackRef }}" style="position:relative; height:270svh">
-      <div data-refsticky="1" ref="{{ refStickyRef }}" style="position:sticky; top:var(--hdr,90px); height:calc(100svh - var(--hdr,90px)); overflow:hidden; display:flex; flexDirection:column; gap:clamp(12px,1.8cqw,24px); padding:clamp(22px,3.4cqw,48px) clamp(18px,5cqw,64px) clamp(18px,2.6cqw,36px)">
+      <div data-refsticky="1" ref="{{ refStickyRef }}" style="position:sticky; top:var(--hdr,90px); height:calc(100svh - var(--hdr,90px)); overflow:hidden; display:flex; flexDirection:column; gap:clamp(12px,1.5cqw,24px); padding:clamp(22px,3cqw,48px) clamp(18px,4cqw,64px) clamp(18px,2.25cqw,36px)">
 
         <svg viewBox="0 0 1200 700" preserveAspectRatio="none" aria-hidden="true" style="position:absolute; inset:0; width:100%; height:100%; zIndex:0; pointerEvents:none">
           <path d="M -40 128 C 236 108 322 372 556 424 C 762 470 838 268 1022 244 C 1116 232 1180 286 1250 366" pathLength="1" fill="none" stroke="#EB5D0B" stroke-width="1.05" stroke-linecap="round" opacity="0.42" vector-effect="non-scaling-stroke" style="{{ refLineStyle }}"></path>
@@ -446,26 +447,26 @@
         </svg>
 
         <div style="position:relative; zIndex:2; display:flex; flexWrap:wrap; alignItems:flex-end; justifyContent:space-between; gap:clamp(12px,2cqw,32px)">
-          <div style="display:flex; flexDirection:column; gap:clamp(9px,1.1cqw,14px)">
+          <div style="display:flex; flexDirection:column; gap:clamp(9px,0.88cqw,14px)">
             <span style="display:flex; alignItems:center; gap:11px; fontSize:11.5px; fontWeight:700; letterSpacing:0.2em; textTransform:uppercase; color:#15123B">
               <span style="width:30px; height:3px; background:#EB5D0B; flexShrink:0"></span>
               Referenzen
             </span>
-            <h2 style="margin:0; fontSize:clamp(26px,4.2cqw,52px); fontWeight:800; letterSpacing:-0.03em; textTransform:uppercase; lineHeight:0.96">Arbeit, die man sieht.</h2>
+            <h2 style="margin:0; fontSize:clamp(26px,3.25cqw,52px); fontWeight:800; letterSpacing:-0.03em; textTransform:uppercase; lineHeight:0.96">Arbeit, die man sieht.</h2>
           </div>
           <span style="fontSize:14.5px; fontWeight:700; letterSpacing:0.16em; textTransform:uppercase; color:#8C889F">{{ refCounter }}</span>
         </div>
 
         <div data-refstack="1" ref="{{ refStackRef }}" style="position:relative; zIndex:2; flex:1; minHeight:0">
           <div data-refcard="1" style="position:absolute; inset:0; transformOrigin:50% 100%; willChange:transform, opacity; transform:{{ r1Tf }}; opacity:{{ r1Op }}; zIndex:{{ r1Z }}; pointerEvents:{{ r1Pe }}; transition:{{ r1Tr }}">
-            <div data-refcardinner="1" style="width:100%; height:100%; display:grid; gridTemplateColumns:1.32fr .68fr; gap:clamp(12px,1.6cqw,24px); background:var(--paper); border:1px solid var(--line-2); boxShadow:0 26px 60px rgba(21,18,59,.13); padding:clamp(10px,1.1cqw,16px)">
+            <div data-refcardinner="1" style="width:100%; height:100%; display:grid; gridTemplateColumns:1.32fr .68fr; gap:clamp(12px,1.5cqw,24px); background:var(--paper); border:1px solid var(--line-2); boxShadow:0 26px 60px rgba(21,18,59,.13); padding:clamp(10px,1cqw,16px)">
               <div style="position:relative; overflow:hidden; background:var(--paper-tint); minHeight:0">
                 <img src="./assets/referenz-fassadensanierung.webp" alt="Referenz: sanierte Fassade in Kempen" width="1200" height="675" loading="lazy" decoding="async" style="display:block; position:absolute; inset:0; width:100%; height:100%; objectFit:cover; objectPosition:50% 50%">
               </div>
-              <div style="display:flex; flexDirection:column; justifyContent:space-between; gap:clamp(10px,1.4cqw,20px); padding:clamp(10px,1.4cqw,22px) clamp(8px,1cqw,16px) clamp(8px,1cqw,14px) 0; minHeight:0">
-                <div style="display:flex; flexDirection:column; gap:clamp(7px,0.9cqw,12px)">
+              <div style="display:flex; flexDirection:column; justifyContent:space-between; gap:clamp(10px,1.25cqw,20px); padding:clamp(10px,1.38cqw,22px) clamp(8px,1cqw,16px) clamp(8px,0.88cqw,14px) 0; minHeight:0">
+                <div style="display:flex; flexDirection:column; gap:clamp(7px,0.75cqw,12px)">
                   <span style="fontSize:11px; fontWeight:800; letterSpacing:0.2em; color:#EB5D0B">01</span>
-                  <h3 style="margin:0; fontSize:clamp(19px,2.2cqw,30px); fontWeight:800; letterSpacing:-0.025em; textTransform:uppercase; lineHeight:1.04">Fassadensanierung</h3>
+                  <h3 style="margin:0; fontSize:clamp(19px,1.88cqw,30px); fontWeight:800; letterSpacing:-0.025em; textTransform:uppercase; lineHeight:1.04">Fassadensanierung</h3>
                   <span style="fontSize:12.5px; fontWeight:600; letterSpacing:0.1em; textTransform:uppercase; color:#8C889F">Kempen · Fassade &amp; Beschichtung</span>
                   <p style="margin:0; fontSize:14.5px; lineHeight:1.6; color:#17171C; textWrap:pretty">Kurzbeschreibung des Projekts – Ausgangslage, Ausführung und Ergebnis in zwei Sätzen.</p>
                 </div>
@@ -474,14 +475,14 @@
             </div>
           </div>
           <div data-refcard="1" style="position:absolute; inset:0; transformOrigin:50% 100%; willChange:transform, opacity; transform:{{ r2Tf }}; opacity:{{ r2Op }}; zIndex:{{ r2Z }}; pointerEvents:{{ r2Pe }}; transition:{{ r2Tr }}">
-            <div data-refcardinner="1" style="width:100%; height:100%; display:grid; gridTemplateColumns:1.32fr .68fr; gap:clamp(12px,1.6cqw,24px); background:var(--paper); border:1px solid var(--line-2); boxShadow:0 26px 60px rgba(21,18,59,.13); padding:clamp(10px,1.1cqw,16px)">
+            <div data-refcardinner="1" style="width:100%; height:100%; display:grid; gridTemplateColumns:1.32fr .68fr; gap:clamp(12px,1.5cqw,24px); background:var(--paper); border:1px solid var(--line-2); boxShadow:0 26px 60px rgba(21,18,59,.13); padding:clamp(10px,1cqw,16px)">
               <div style="position:relative; overflow:hidden; background:var(--paper-tint); minHeight:0">
                 <img src="./assets/referenz-betonoptik.webp" alt="Referenz: Wohnraum in Betonoptik" width="1200" height="675" loading="lazy" decoding="async" style="display:block; position:absolute; inset:0; width:100%; height:100%; objectFit:cover; objectPosition:50% 50%">
               </div>
-              <div style="display:flex; flexDirection:column; justifyContent:space-between; gap:clamp(10px,1.4cqw,20px); padding:clamp(10px,1.4cqw,22px) clamp(8px,1cqw,16px) clamp(8px,1cqw,14px) 0; minHeight:0">
-                <div style="display:flex; flexDirection:column; gap:clamp(7px,0.9cqw,12px)">
+              <div style="display:flex; flexDirection:column; justifyContent:space-between; gap:clamp(10px,1.25cqw,20px); padding:clamp(10px,1.38cqw,22px) clamp(8px,1cqw,16px) clamp(8px,0.88cqw,14px) 0; minHeight:0">
+                <div style="display:flex; flexDirection:column; gap:clamp(7px,0.75cqw,12px)">
                   <span style="fontSize:11px; fontWeight:800; letterSpacing:0.2em; color:#EB5D0B">02</span>
-                  <h3 style="margin:0; fontSize:clamp(19px,2.2cqw,30px); fontWeight:800; letterSpacing:-0.025em; textTransform:uppercase; lineHeight:1.04">Wohnraum in Betonoptik</h3>
+                  <h3 style="margin:0; fontSize:clamp(19px,1.88cqw,30px); fontWeight:800; letterSpacing:-0.025em; textTransform:uppercase; lineHeight:1.04">Wohnraum in Betonoptik</h3>
                   <span style="fontSize:12.5px; fontWeight:600; letterSpacing:0.1em; textTransform:uppercase; color:#8C889F">Ort · Spezialoberfläche</span>
                   <p style="margin:0; fontSize:14.5px; lineHeight:1.6; color:#17171C; textWrap:pretty">Kurzbeschreibung des Projekts – Ausgangslage, Ausführung und Ergebnis in zwei Sätzen.</p>
                 </div>
@@ -490,14 +491,14 @@
             </div>
           </div>
           <div data-refcard="1" style="position:absolute; inset:0; transformOrigin:50% 100%; willChange:transform, opacity; transform:{{ r3Tf }}; opacity:{{ r3Op }}; zIndex:{{ r3Z }}; pointerEvents:{{ r3Pe }}; transition:{{ r3Tr }}">
-            <div data-refcardinner="1" style="width:100%; height:100%; display:grid; gridTemplateColumns:1.32fr .68fr; gap:clamp(12px,1.6cqw,24px); background:var(--paper); border:1px solid var(--line-2); boxShadow:0 26px 60px rgba(21,18,59,.13); padding:clamp(10px,1.1cqw,16px)">
+            <div data-refcardinner="1" style="width:100%; height:100%; display:grid; gridTemplateColumns:1.32fr .68fr; gap:clamp(12px,1.5cqw,24px); background:var(--paper); border:1px solid var(--line-2); boxShadow:0 26px 60px rgba(21,18,59,.13); padding:clamp(10px,1cqw,16px)">
               <div style="position:relative; overflow:hidden; background:var(--paper-tint); minHeight:0">
                 <img src="./assets/referenz-treppenhaus.webp" alt="Referenz: Treppenhaus und Flure" width="1200" height="675" loading="lazy" decoding="async" style="display:block; position:absolute; inset:0; width:100%; height:100%; objectFit:cover; objectPosition:50% 50%">
               </div>
-              <div style="display:flex; flexDirection:column; justifyContent:space-between; gap:clamp(10px,1.4cqw,20px); padding:clamp(10px,1.4cqw,22px) clamp(8px,1cqw,16px) clamp(8px,1cqw,14px) 0; minHeight:0">
-                <div style="display:flex; flexDirection:column; gap:clamp(7px,0.9cqw,12px)">
+              <div style="display:flex; flexDirection:column; justifyContent:space-between; gap:clamp(10px,1.25cqw,20px); padding:clamp(10px,1.38cqw,22px) clamp(8px,1cqw,16px) clamp(8px,0.88cqw,14px) 0; minHeight:0">
+                <div style="display:flex; flexDirection:column; gap:clamp(7px,0.75cqw,12px)">
                   <span style="fontSize:11px; fontWeight:800; letterSpacing:0.2em; color:#EB5D0B">03</span>
-                  <h3 style="margin:0; fontSize:clamp(19px,2.2cqw,30px); fontWeight:800; letterSpacing:-0.025em; textTransform:uppercase; lineHeight:1.04">Treppenhaus &amp; Flure</h3>
+                  <h3 style="margin:0; fontSize:clamp(19px,1.88cqw,30px); fontWeight:800; letterSpacing:-0.025em; textTransform:uppercase; lineHeight:1.04">Treppenhaus &amp; Flure</h3>
                   <span style="fontSize:12.5px; fontWeight:600; letterSpacing:0.1em; textTransform:uppercase; color:#8C889F">Ort · Innenanstrich</span>
                   <p style="margin:0; fontSize:14.5px; lineHeight:1.6; color:#17171C; textWrap:pretty">Kurzbeschreibung des Projekts – Ausgangslage, Ausführung und Ergebnis in zwei Sätzen.</p>
                 </div>
@@ -507,8 +508,8 @@
           </div>
         </div>
 
-        <div style="position:relative; zIndex:2; display:flex; flexWrap:wrap; alignItems:center; justifyContent:space-between; gap:clamp(14px,2cqw,28px)">
-          <div style="display:flex; alignItems:center; gap:clamp(10px,1.4cqw,20px)">
+        <div style="position:relative; zIndex:2; display:flex; flexWrap:wrap; alignItems:center; justifyContent:space-between; gap:clamp(14px,1.75cqw,28px)">
+          <div style="display:flex; alignItems:center; gap:clamp(10px,1.25cqw,20px)">
             <button type="button" onClick="{{ t1Go }}" aria-label="Fassadensanierung" style="border:0; background:transparent; padding:12px 6px; margin:-12px 0; cursor:pointer; display:flex; alignItems:center; minHeight:44px; opacity:{{ t1Op }}; transition:opacity .3s ease" style-hover="opacity:1">
               <span style="display:block; letterSpacing:0.14em; fontSize:{{ t1Size }}; fontWeight:{{ t1Weight }}; color:{{ t1Color }}; transition:color .35s ease, font-size .35s cubic-bezier(.22,1,.36,1)">01</span>
             </button>
@@ -519,37 +520,37 @@
               <span style="display:block; letterSpacing:0.14em; fontSize:{{ t3Size }}; fontWeight:{{ t3Weight }}; color:{{ t3Color }}; transition:color .35s ease, font-size .35s cubic-bezier(.22,1,.36,1)">03</span>
             </button>
           </div>
-          <a href="referenzen.html" style="display:flex; alignItems:center; gap:12px; background:#EB5D0B; border:1px solid #EB5D0B; color:#fff; fontSize:clamp(0.76rem,0.9cqw,0.88rem); fontWeight:700; letterSpacing:0.11em; textTransform:uppercase; padding:clamp(12px,1cqw,17px) clamp(22px,2.2cqw,34px); transition:all .25s ease" style-hover="background:#15123B; borderColor:#15123B; transform:translateY(-2px)">Alle Referenzen <span aria-hidden="true">→</span></a>
+          <a href="referenzen.html" style="display:flex; alignItems:center; gap:12px; background:#EB5D0B; border:1px solid #EB5D0B; color:#fff; fontSize:clamp(0.76rem,0.88cqw,0.88rem); fontWeight:700; letterSpacing:0.11em; textTransform:uppercase; padding:clamp(12px,1.06cqw,17px) clamp(22px,2.13cqw,34px); transition:all .25s ease" style-hover="background:#15123B; borderColor:#15123B; transform:translateY(-2px)">Alle Referenzen <span aria-hidden="true">→</span></a>
         </div>
 
       </div>
     </div>
   </section>
 
-  <section id="betrieb" style="position:relative; background:var(--paper); overflow:hidden; padding:clamp(104px,16cqw,248px) clamp(18px,5cqw,64px) clamp(152px,22cqw,352px)">
+  <section id="betrieb" style="position:relative; background:var(--paper); overflow:hidden; padding:clamp(104px,15.5cqw,248px) clamp(18px,4cqw,64px) clamp(152px,22cqw,352px)">
 
     <svg viewBox="0 0 1200 700" preserveAspectRatio="none" aria-hidden="true" style="position:absolute; inset:0; width:100%; height:100%; zIndex:0; pointerEvents:none">
       <path d="M -40 330 C 130 326 262 208 466 150 C 646 100 900 288 1080 502 C 1146 580 1198 624 1250 660" fill="none" stroke="#EB5D0B" stroke-width="1.05" stroke-linecap="round" opacity="0.36" vector-effect="non-scaling-stroke"></path>
       <path d="M -40 618 C 296 600 424 672 664 648 C 884 626 1052 538 1250 482" fill="none" stroke="#EB5D0B" stroke-width="0.85" stroke-linecap="round" opacity="0.14" vector-effect="non-scaling-stroke"></path>
     </svg>
 
-    <div data-aboutgrid="1" style="position:relative; zIndex:2; display:grid; gridTemplateColumns:repeat(12,1fr); columnGap:clamp(14px,2cqw,30px); alignItems:start">
+    <div data-aboutgrid="1" style="position:relative; zIndex:2; display:grid; gridTemplateColumns:repeat(12,1fr); columnGap:clamp(14px,1.88cqw,30px); alignItems:start">
 
-      <div data-reveal="1" style="gridColumn:1/7; gridRow:1; display:flex; flexWrap:wrap; alignItems:center; justifyContent:space-between; gap:16px; paddingBottom:clamp(18px,2.6cqw,34px); opacity:0; transform:translateY(20px); transition:opacity .85s cubic-bezier(.22,1,.36,1), transform .85s cubic-bezier(.22,1,.36,1)">
+      <div data-reveal="1" style="gridColumn:1/7; gridRow:1; display:flex; flexWrap:wrap; alignItems:center; justifyContent:space-between; gap:16px; paddingBottom:clamp(18px,2.13cqw,34px); opacity:0; transform:translateY(20px); transition:opacity .85s cubic-bezier(.22,1,.36,1), transform .85s cubic-bezier(.22,1,.36,1)">
         <span style="display:flex; alignItems:center; gap:11px; fontSize:11.5px; fontWeight:700; letterSpacing:0.2em; textTransform:uppercase; color:#15123B">
           <span style="width:30px; height:3px; background:#EB5D0B; flexShrink:0"></span>
           Über uns
         </span>
       </div>
 
-      <div data-abouttext="1" data-reveal="1" data-reveal-delay="90" style="gridColumn:1/7; gridRow:2; position:relative; zIndex:4; display:flex; flexDirection:column; gap:clamp(20px,2.6cqw,32px); paddingRight:clamp(0px,2cqw,24px); opacity:0; transform:translateY(24px); transition:opacity .85s cubic-bezier(.22,1,.36,1), transform .85s cubic-bezier(.22,1,.36,1)">
-        <h2 style="margin:0; fontSize:clamp(30px,5cqw,60px); fontWeight:800; letterSpacing:-0.035em; textTransform:uppercase; lineHeight:0.9">
+      <div data-abouttext="1" data-reveal="1" data-reveal-delay="90" style="gridColumn:1/7; gridRow:2; position:relative; zIndex:4; display:flex; flexDirection:column; gap:clamp(20px,2cqw,32px); paddingRight:clamp(0px,1.5cqw,24px); opacity:0; transform:translateY(24px); transition:opacity .85s cubic-bezier(.22,1,.36,1), transform .85s cubic-bezier(.22,1,.36,1)">
+        <h2 style="margin:0; fontSize:clamp(30px,3.75cqw,60px); fontWeight:800; letterSpacing:-0.035em; textTransform:uppercase; lineHeight:0.9">
           Drei<br>Generationen.
-          <span style="display:block; marginLeft:clamp(14px,5cqw,86px); color:#EB5D0B">Ein Team.</span>
+          <span style="display:block; marginLeft:clamp(14px,5.38cqw,86px); color:#EB5D0B">Ein Team.</span>
         </h2>
-        <p style="margin:0; maxWidth:42ch; fontSize:clamp(15.5px,1.6cqw,18.5px); lineHeight:1.68; color:#17171C; textWrap:pretty">Familienbetrieb seit 1962, heute in dritter Generation geführt. 16 Malerinnen und Maler, die jede Baustelle persönlich begleiten – und bis zum letzten Handgriff dranbleiben.</p>
-        <div style="display:flex; flexWrap:wrap; alignItems:center; gap:clamp(16px,2cqw,28px)">
-          <a href="ueber-uns.html" style="display:flex; alignItems:center; gap:12px; background:#EB5D0B; border:1px solid #EB5D0B; color:#fff; fontSize:clamp(0.76rem,0.9cqw,0.88rem); fontWeight:700; letterSpacing:0.11em; textTransform:uppercase; padding:clamp(13px,1cqw,17px) clamp(22px,2.2cqw,34px); transition:all .25s ease" style-hover="background:#15123B; borderColor:#15123B; transform:translateY(-2px)">Mehr über uns <span aria-hidden="true">→</span></a>
+        <p style="margin:0; maxWidth:42ch; fontSize:clamp(15.5px,1.16cqw,18.5px); lineHeight:1.68; color:#17171C; textWrap:pretty">Familienbetrieb seit 1962, heute in dritter Generation geführt. 16 Malerinnen und Maler, die jede Baustelle persönlich begleiten – und bis zum letzten Handgriff dranbleiben.</p>
+        <div style="display:flex; flexWrap:wrap; alignItems:center; gap:clamp(16px,1.75cqw,28px)">
+          <a href="ueber-uns.html" style="display:flex; alignItems:center; gap:12px; background:#EB5D0B; border:1px solid #EB5D0B; color:#fff; fontSize:clamp(0.76rem,0.88cqw,0.88rem); fontWeight:700; letterSpacing:0.11em; textTransform:uppercase; padding:clamp(13px,1.06cqw,17px) clamp(22px,2.13cqw,34px); transition:all .25s ease" style-hover="background:#15123B; borderColor:#15123B; transform:translateY(-2px)">Mehr über uns <span aria-hidden="true">→</span></a>
           <button type="button" onClick="{{ openFilm }}" style="border:0; background:transparent; padding:0; cursor:pointer; display:flex; alignItems:center; gap:10px; color:#15123B; fontSize:12px; fontWeight:700; letterSpacing:0.12em; textTransform:uppercase; borderBottom:1px solid var(--line-3); paddingBottom:5px; transition:color .25s ease, border-color .25s ease" style-hover="color:#EB5D0B; borderColor:#EB5D0B">
             <span aria-hidden="true" style="display:inline-block; width:0; height:0; borderTop:5px solid transparent; borderBottom:5px solid transparent; borderLeft:8px solid #EB5D0B"></span>
             Firmenfilm
@@ -557,7 +558,7 @@
         </div>
       </div>
 
-      <figure data-aboutfig="1" data-reveal="1" data-reveal-delay="160" style="gridColumn:7/13; gridRow:1/3; position:relative; top:var(--about-fig-y,0px); left:var(--about-fig-x,0px); margin:0; marginTop:0; marginRight:calc(-1 * clamp(6px,2cqw,26px)); marginBottom:0; alignSelf:start; display:flex; flexDirection:column; gap:clamp(9px,1.1cqw,14px); opacity:0; transform:translateY(26px); transition:opacity .9s cubic-bezier(.22,1,.36,1), transform .9s cubic-bezier(.22,1,.36,1)">
+      <figure data-aboutfig="1" data-reveal="1" data-reveal-delay="160" style="gridColumn:7/13; gridRow:1/3; position:relative; top:var(--about-fig-y,0px); left:var(--about-fig-x,0px); margin:0; marginTop:0; marginRight:calc(-1 * clamp(6px,1.63cqw,26px)); marginBottom:0; alignSelf:start; display:flex; flexDirection:column; gap:clamp(9px,0.88cqw,14px); opacity:0; transform:translateY(26px); transition:opacity .9s cubic-bezier(.22,1,.36,1), transform .9s cubic-bezier(.22,1,.36,1)">
         <div style="position:relative; zIndex:1; overflow:hidden; aspectRatio:16/9; background:var(--paper-tint)">
           <img src="./assets/team.jpg" alt="Das Team der Horst Malerbetriebe vor dem Betrieb in Kempen" width="4000" height="2667" loading="lazy" decoding="async" style="display:block; width:100%; height:100%; objectFit:cover; objectPosition:50% 34%; transform:scale(1.17); transformOrigin:50% 50%; transition:transform .6s cubic-bezier(.22,1,.36,1)" style-hover="transform:scale(1.24)">
         </div>
@@ -567,16 +568,16 @@
   </section>
 
   <sc-if value="{{ showApprenticeship }}" hint-placeholder-val="{{ true }}">
-  <section id="ausbildung" style="position:relative; overflow:hidden; background:#EB5D0B; color:#fff; padding:clamp(44px,6.5cqw,96px) clamp(18px,5cqw,64px) clamp(48px,7cqw,104px)">
+  <section id="ausbildung" style="position:relative; overflow:hidden; background:#EB5D0B; color:#fff; padding:clamp(44px,6cqw,96px) clamp(18px,4cqw,64px) clamp(48px,6.5cqw,104px)">
 
     <svg viewBox="0 0 1200 420" preserveAspectRatio="none" aria-hidden="true" style="position:absolute; inset:0; width:100%; height:100%; zIndex:0; pointerEvents:none">
       <path d="M -40 88 C 250 62 322 226 548 252 C 742 274 860 208 1032 196 C 1136 189 1198 214 1250 258" fill="none" stroke="#FCFAF6" stroke-width="1" stroke-linecap="round" opacity="0.34" vector-effect="non-scaling-stroke"></path>
       <path d="M -40 340 C 300 326 430 388 660 366 C 880 344 1040 268 1250 232" fill="none" stroke="#15123B" stroke-width="1" stroke-linecap="round" opacity="0.16" vector-effect="non-scaling-stroke"></path>
     </svg>
 
-    <span aria-hidden="true" style="position:absolute; right:calc(-1 * clamp(10px,3cqw,58px)); bottom:calc(-1 * clamp(18px,5cqw,86px)); zIndex:0; fontSize:clamp(110px,25cqw,340px); fontWeight:800; letterSpacing:-0.05em; textTransform:uppercase; lineHeight:0.8; whiteSpace:nowrap; color:transparent; -webkit-text-stroke:1px rgba(252,250,246,.2); pointerEvents:none">Karriere</span>
+    <span aria-hidden="true" style="position:absolute; right:calc(-1 * clamp(10px,3.63cqw,58px)); bottom:calc(-1 * clamp(18px,5.38cqw,86px)); zIndex:0; fontSize:clamp(110px,21.25cqw,340px); fontWeight:800; letterSpacing:-0.05em; textTransform:uppercase; lineHeight:0.8; whiteSpace:nowrap; color:transparent; -webkit-text-stroke:1px rgba(252,250,246,.2); pointerEvents:none">Karriere</span>
 
-    <div data-karrgrid="1" style="position:relative; zIndex:2; display:grid; gridTemplateColumns:repeat(12,1fr); columnGap:clamp(14px,2cqw,30px); rowGap:clamp(16px,2.4cqw,30px); alignItems:start">
+    <div data-karrgrid="1" style="position:relative; zIndex:2; display:grid; gridTemplateColumns:repeat(12,1fr); columnGap:clamp(14px,1.88cqw,30px); rowGap:clamp(16px,1.88cqw,30px); alignItems:start">
 
       <div data-reveal="1" style="gridColumn:1/8; gridRow:1; display:flex; alignItems:center; gap:11px; fontSize:11.5px; fontWeight:800; letterSpacing:0.22em; textTransform:uppercase; color:#15123B; opacity:0; transform:translateY(18px); transition:opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1)">
         <span style="width:30px; height:3px; background:#15123B; flexShrink:0"></span>
@@ -588,17 +589,17 @@
         Join the team
       </span>
 
-      <h2 data-karrhead="1" data-reveal="1" data-reveal-delay="80" style="gridColumn:1/10; gridRow:2; margin:0; fontSize:clamp(34px,7.4cqw,92px); fontWeight:800; letterSpacing:-0.04em; textTransform:uppercase; lineHeight:0.84; opacity:0; transform:translateY(22px); transition:opacity .85s cubic-bezier(.22,1,.36,1), transform .85s cubic-bezier(.22,1,.36,1)">
+      <h2 data-karrhead="1" data-reveal="1" data-reveal-delay="80" style="gridColumn:1/10; gridRow:2; margin:0; fontSize:clamp(34px,5.75cqw,92px); fontWeight:800; letterSpacing:-0.04em; textTransform:uppercase; lineHeight:0.84; opacity:0; transform:translateY(22px); transition:opacity .85s cubic-bezier(.22,1,.36,1), transform .85s cubic-bezier(.22,1,.36,1)">
         <span style="display:block">Lern</span>
-        <span style="display:block; marginLeft:clamp(12px,4.5cqw,96px)">was mit</span>
-        <span style="display:block; marginLeft:clamp(4px,2cqw,44px); color:#15123B">Farbe.</span>
+        <span style="display:block; marginLeft:clamp(12px,6cqw,96px)">was mit</span>
+        <span style="display:block; marginLeft:clamp(4px,2.75cqw,44px); color:#15123B">Farbe.</span>
       </h2>
 
-      <p data-karrtext="1" data-reveal="1" data-reveal-delay="150" style="gridColumn:4/9; gridRow:3; margin:0; marginTop:calc(-1 * clamp(4px,2.2cqw,38px)); maxWidth:44ch; fontSize:clamp(15.5px,1.7cqw,19px); lineHeight:1.62; color:rgba(252,250,246,.94); textWrap:pretty; opacity:0; transform:translateY(20px); transition:opacity .85s cubic-bezier(.22,1,.36,1), transform .85s cubic-bezier(.22,1,.36,1)">Ausbildung, Praktikum oder offene Stelle: Bei HORST arbeitest du an echten Objekten, im festen Team und mit Leuten, die sich Zeit für dich nehmen.</p>
+      <p data-karrtext="1" data-reveal="1" data-reveal-delay="150" style="gridColumn:4/9; gridRow:3; margin:0; marginTop:calc(-1 * clamp(4px,2.38cqw,38px)); maxWidth:44ch; fontSize:clamp(15.5px,1.19cqw,19px); lineHeight:1.62; color:rgba(252,250,246,.94); textWrap:pretty; opacity:0; transform:translateY(20px); transition:opacity .85s cubic-bezier(.22,1,.36,1), transform .85s cubic-bezier(.22,1,.36,1)">Ausbildung, Praktikum oder offene Stelle: Bei HORST arbeitest du an echten Objekten, im festen Team und mit Leuten, die sich Zeit für dich nehmen.</p>
 
-      <div data-karrcta="1" data-reveal="1" data-reveal-delay="210" style="gridColumn:9/13; gridRow:2/4; alignSelf:end; display:flex; flexDirection:column; alignItems:flex-start; gap:clamp(8px,0.9cqw,12px); marginTop:clamp(6px,1.2cqw,18px); marginBottom:clamp(2px,1cqw,16px); opacity:0; transform:translateY(20px); transition:opacity .85s cubic-bezier(.22,1,.36,1), transform .85s cubic-bezier(.22,1,.36,1)">
-        <a href="karriere.html" style="display:flex; alignItems:center; gap:12px; background:#15123B; border:1px solid #15123B; color:#fff; fontSize:clamp(0.76rem,0.9cqw,0.88rem); fontWeight:700; letterSpacing:0.11em; textTransform:uppercase; padding:clamp(14px,1.1cqw,18px) clamp(22px,2.2cqw,32px); transition:all .25s ease" style-hover="background:var(--paper); borderColor:var(--paper); color:#15123B; transform:translateY(-2px)">Karriere entdecken <span aria-hidden="true">→</span></a>
-        <a href="#kontakt" style="marginLeft:clamp(0px,1.6cqw,28px); border:1px solid rgba(252,250,246,.8); color:#fff; fontSize:clamp(0.76rem,0.9cqw,0.88rem); fontWeight:700; letterSpacing:0.11em; textTransform:uppercase; padding:clamp(14px,1.1cqw,18px) clamp(22px,2.2cqw,32px); transition:all .25s ease" style-hover="background:var(--paper); color:#EB5D0B; borderColor:var(--paper)">Jetzt bewerben</a>
+      <div data-karrcta="1" data-reveal="1" data-reveal-delay="210" style="gridColumn:9/13; gridRow:2/4; alignSelf:end; display:flex; flexDirection:column; alignItems:flex-start; gap:clamp(8px,0.75cqw,12px); marginTop:clamp(6px,1.13cqw,18px); marginBottom:clamp(2px,1cqw,16px); opacity:0; transform:translateY(20px); transition:opacity .85s cubic-bezier(.22,1,.36,1), transform .85s cubic-bezier(.22,1,.36,1)">
+        <a href="karriere.html" style="display:flex; alignItems:center; gap:12px; background:#15123B; border:1px solid #15123B; color:#fff; fontSize:clamp(0.76rem,0.88cqw,0.88rem); fontWeight:700; letterSpacing:0.11em; textTransform:uppercase; padding:clamp(14px,1.13cqw,18px) clamp(22px,2cqw,32px); transition:all .25s ease" style-hover="background:var(--paper); borderColor:var(--paper); color:#15123B; transform:translateY(-2px)">Karriere entdecken <span aria-hidden="true">→</span></a>
+        <a href="#kontakt" style="marginLeft:clamp(0px,1.75cqw,28px); border:1px solid rgba(252,250,246,.8); color:#fff; fontSize:clamp(0.76rem,0.88cqw,0.88rem); fontWeight:700; letterSpacing:0.11em; textTransform:uppercase; padding:clamp(14px,1.13cqw,18px) clamp(22px,2cqw,32px); transition:all .25s ease" style-hover="background:var(--paper); color:#EB5D0B; borderColor:var(--paper)">Jetzt bewerben</a>
       </div>
 
     </div>
@@ -606,30 +607,30 @@
 
   </sc-if>
 
-  <section id="kontakt" style="position:relative; overflow:hidden; background:var(--paper); scrollMarginTop:var(--hdr,96px); display:flex; flexDirection:column; padding:clamp(104px,11.5cqw,180px) clamp(18px,5cqw,64px) clamp(116px,13cqw,204px)">
+  <section id="kontakt" style="position:relative; overflow:hidden; background:var(--paper); scrollMarginTop:var(--hdr,96px); display:flex; flexDirection:column; padding:clamp(104px,11.25cqw,180px) clamp(18px,4cqw,64px) clamp(116px,12.75cqw,204px)">
     <svg viewBox="0 0 1200 720" preserveAspectRatio="none" aria-hidden="true" style="position:absolute; inset:0; width:100%; height:100%; zIndex:0; pointerEvents:none">
       <path d="M -40 92 C 226 66 300 300 528 336 C 728 368 856 246 1036 226 C 1140 214 1198 246 1250 302" fill="none" stroke="#EB5D0B" stroke-width="1.05" stroke-linecap="round" opacity="0.32" vector-effect="non-scaling-stroke"></path>
       <path d="M -40 632 C 288 614 420 686 660 660 C 878 636 1050 552 1250 498" fill="none" stroke="#EB5D0B" stroke-width="0.85" stroke-linecap="round" opacity="0.13" vector-effect="non-scaling-stroke"></path>
     </svg>
-    <div style="position:relative; zIndex:2; display:flex; flexDirection:column; gap:clamp(14px,1.7cqw,26px)">
+    <div style="position:relative; zIndex:2; display:flex; flexDirection:column; gap:clamp(14px,1.63cqw,26px)">
 
-      <div data-khead="1" data-reveal="1" style="display:flex; flexDirection:column; gap:clamp(12px,1.5cqw,20px); opacity:0; transform:translateY(22px); transition:opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1)">
+      <div data-khead="1" data-reveal="1" style="display:flex; flexDirection:column; gap:clamp(12px,1.25cqw,20px); opacity:0; transform:translateY(22px); transition:opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1)">
         <span style="display:flex; alignItems:center; gap:11px; fontSize:11.5px; fontWeight:700; letterSpacing:0.2em; textTransform:uppercase; color:#15123B">
           <span style="width:30px; height:3px; background:#EB5D0B; flexShrink:0"></span>
           Kontakt
         </span>
       </div>
 
-      <div data-kgrid="1" style="display:grid; gridTemplateColumns:.95fr 1.05fr; gap:clamp(22px,3cqw,46px); alignItems:start">
+      <div data-kgrid="1" style="display:grid; gridTemplateColumns:.95fr 1.05fr; gap:clamp(22px,2.88cqw,46px); alignItems:start">
 
-        <div data-kdirect="1" data-reveal="1" data-reveal-delay="80" style="display:flex; flexDirection:column; gap:clamp(16px,1.8cqw,24px); paddingTop:clamp(0px,3.6cqw,68px); borderRight:1px solid var(--line-2); paddingRight:clamp(0px,3cqw,52px); opacity:0; transform:translateY(22px); transition:opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1)">
-          <h2 style="margin:0; fontSize:clamp(31px,4.1cqw,54px); fontWeight:800; letterSpacing:-0.035em; textTransform:uppercase; lineHeight:0.92">Erst beraten.<br><span style="display:block; marginLeft:clamp(10px,2.6cqw,44px)">Dann <span style="color:#EB5D0B">loslegen.</span></span></h2>
-          <p data-klead="1" style="margin:0; maxWidth:42ch; fontSize:clamp(15px,1.35cqw,16.5px); lineHeight:1.58; color:#17171C; textWrap:pretty">Kurz beschreiben, worum es geht – wir schauen uns das Objekt an und melden uns mit einem verbindlichen Angebot.</p>
-          <div style="display:flex; flexDirection:column; gap:8px; borderTop:1px solid var(--line-2); paddingTop:clamp(13px,1.4cqw,18px)">
+        <div data-kdirect="1" data-reveal="1" data-reveal-delay="80" style="display:flex; flexDirection:column; gap:clamp(16px,1.5cqw,24px); paddingTop:clamp(0px,4.25cqw,68px); borderRight:1px solid var(--line-2); paddingRight:clamp(0px,3.25cqw,52px); opacity:0; transform:translateY(22px); transition:opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1)">
+          <h2 style="margin:0; fontSize:clamp(31px,3.38cqw,54px); fontWeight:800; letterSpacing:-0.035em; textTransform:uppercase; lineHeight:0.92">Erst beraten.<br><span style="display:block; marginLeft:clamp(10px,2.75cqw,44px)">Dann <span style="color:#EB5D0B">loslegen.</span></span></h2>
+          <p data-klead="1" style="margin:0; maxWidth:42ch; fontSize:clamp(15px,1.03cqw,16.5px); lineHeight:1.58; color:#17171C; textWrap:pretty">Kurz beschreiben, worum es geht – wir schauen uns das Objekt an und melden uns mit einem verbindlichen Angebot.</p>
+          <div style="display:flex; flexDirection:column; gap:8px; borderTop:1px solid var(--line-2); paddingTop:clamp(13px,1.13cqw,18px)">
             <span style="fontSize:10.5px; fontWeight:700; letterSpacing:0.22em; textTransform:uppercase; color:#8C889F">Lieber direkt sprechen?</span>
-            <a href="tel:+492152510600" style="fontSize:clamp(20px,2.3cqw,29px); fontWeight:800; letterSpacing:-0.025em; color:#15123B; lineHeight:1.1; whiteSpace:nowrap; transition:color .2s ease" style-hover="color:#EB5D0B">+49 2152 510 600</a>
+            <a href="tel:+492152510600" style="fontSize:clamp(20px,1.81cqw,29px); fontWeight:800; letterSpacing:-0.025em; color:#15123B; lineHeight:1.1; whiteSpace:nowrap; transition:color .2s ease" style-hover="color:#EB5D0B">+49 2152 510 600</a>
           </div>
-          <div data-kmeta="1" style="display:grid; gridTemplateColumns:repeat(3,auto); justifyContent:space-between; paddingRight:clamp(10px,1.6cqw,30px); gap:clamp(11px,1.2cqw,16px) clamp(12px,1.3cqw,20px); borderTop:1px solid var(--line-2); paddingTop:clamp(13px,1.4cqw,18px)">
+          <div data-kmeta="1" style="display:grid; gridTemplateColumns:repeat(3,auto); justifyContent:space-between; paddingRight:clamp(10px,1.88cqw,30px); gap:clamp(11px,1cqw,16px) clamp(12px,1.25cqw,20px); borderTop:1px solid var(--line-2); paddingTop:clamp(13px,1.13cqw,18px)">
             <sc-for list="{{ contactBlocksNoPhone }}" as="c" hint-placeholder-count="3">
               <div style="display:flex; flexDirection:column; gap:3px">
                 <span style="display:flex; alignItems:center; gap:6px; fontSize:10px; fontWeight:700; letterSpacing:0.14em; textTransform:uppercase; color:#A9A5B6; whiteSpace:nowrap">
@@ -645,19 +646,19 @@
           </div>
         </div>
 
-        <div data-kform="1" data-reveal="1" data-reveal-delay="140" style="background:color-mix(in srgb, var(--paper) 96%, #15123B); padding:clamp(18px,2.1cqw,30px) clamp(18px,2.3cqw,34px) clamp(20px,2.3cqw,32px); opacity:0; transform:translateY(26px); transition:opacity .85s cubic-bezier(.22,1,.36,1), transform .85s cubic-bezier(.22,1,.36,1)">
+        <div data-kform="1" data-reveal="1" data-reveal-delay="140" style="background:color-mix(in srgb, var(--paper) 96%, #15123B); padding:clamp(18px,1.88cqw,30px) clamp(18px,2.13cqw,34px) clamp(20px,2cqw,32px); opacity:0; transform:translateY(26px); transition:opacity .85s cubic-bezier(.22,1,.36,1), transform .85s cubic-bezier(.22,1,.36,1)">
           <sc-if value="{{ formSent }}" hint-placeholder-val="{{ false }}">
             <div style="display:flex; flexDirection:column; gap:18px; alignItems:flex-start; minHeight:340px; justifyContent:center; animation:v3fade .3s ease-out">
               <span aria-hidden="true" style="width:46px; height:2px; background:#EB5D0B"></span>
-              <h3 style="margin:0; fontSize:clamp(26px,4cqw,44px); fontWeight:800; textTransform:uppercase; letterSpacing:-0.03em; lineHeight:0.94">Danke –<br>ist angekommen.</h3>
+              <h3 style="margin:0; fontSize:clamp(26px,2.75cqw,44px); fontWeight:800; textTransform:uppercase; letterSpacing:-0.03em; lineHeight:0.94">Danke –<br>ist angekommen.</h3>
               <p style="margin:0; maxWidth:38ch; fontSize:16.5px; lineHeight:1.6; color:#17171C">Wir melden uns innerhalb von zwei Werktagen. Bei Eiligem gern direkt anrufen: +49 2152 510 600.</p>
               <button type="button" onClick="{{ resetForm }}" style="border:1px solid #15123B; background:transparent; color:#15123B; fontSize:13px; fontWeight:700; letterSpacing:0.1em; textTransform:uppercase; padding:15px 24px; cursor:pointer; transition:all .25s ease" style-hover="background:#15123B; color:#fff">Neue Anfrage</button>
             </div>
           </sc-if>
           <sc-if value="{{ formOpen }}" hint-placeholder-val="{{ true }}">
-            <form onSubmit="{{ submitForm }}" style="display:flex; flexDirection:column; gap:clamp(16px,1.9cqw,26px)">
+            <form onSubmit="{{ submitForm }}" style="display:flex; flexDirection:column; gap:clamp(16px,1.63cqw,26px)">
 
-              <div style="display:grid; gridTemplateColumns:auto 1fr; columnGap:clamp(14px,2cqw,28px); rowGap:12px; alignItems:start">
+              <div style="display:grid; gridTemplateColumns:auto 1fr; columnGap:clamp(14px,1.75cqw,28px); rowGap:12px; alignItems:start">
                 <span style="fontSize:11px; fontWeight:800; letterSpacing:0.12em; color:#EB5D0B; paddingTop:4px">01</span>
                 <div style="display:flex; flexDirection:column; gap:13px">
                   <span style="fontSize:11px; fontWeight:700; letterSpacing:0.18em; textTransform:uppercase; color:#8C889F">Worum geht es?</span>
@@ -669,42 +670,42 @@
                 </div>
               </div>
 
-              <div style="display:grid; gridTemplateColumns:auto 1fr; columnGap:clamp(14px,2cqw,28px); rowGap:12px; alignItems:start">
+              <div style="display:grid; gridTemplateColumns:auto 1fr; columnGap:clamp(14px,1.75cqw,28px); rowGap:12px; alignItems:start">
                 <span style="fontSize:11px; fontWeight:800; letterSpacing:0.12em; color:#EB5D0B; paddingTop:4px">02</span>
-                <div style="display:flex; flexDirection:column; gap:clamp(11px,1.2cqw,15px)">
+                <div style="display:flex; flexDirection:column; gap:clamp(11px,0.94cqw,15px)">
                   <span style="fontSize:11px; fontWeight:700; letterSpacing:0.18em; textTransform:uppercase; color:#8C889F">Wer sind Sie?</span>
-                  <div data-formrow="1" style="display:grid; gridTemplateColumns:1fr 1fr; gap:clamp(14px,2cqw,26px)">
+                  <div data-formrow="1" style="display:grid; gridTemplateColumns:1fr 1fr; gap:clamp(14px,1.63cqw,26px)">
                     <label style="display:flex; flexDirection:column; gap:6px">
                       <span style="fontSize:10.5px; fontWeight:700; letterSpacing:0.16em; textTransform:uppercase; color:#8C889F">Vor- und Nachname *</span>
-                      <input type="text" name="name" value="{{ fName }}" onChange="{{ setName }}" placeholder="Maria Beispiel" style="border:0; borderBottom:1px solid var(--line-3); background:transparent; fontSize:clamp(16px,1.5cqw,18px); color:#15123B; padding:8px 0; outline:none; width:100%; transition:border-color .2s ease" style-focus="borderColor:#EB5D0B">
+                      <input type="text" name="name" value="{{ fName }}" onChange="{{ setName }}" placeholder="Maria Beispiel" style="border:0; borderBottom:1px solid var(--line-3); background:transparent; fontSize:clamp(16px,1.13cqw,18px); color:#15123B; padding:8px 0; outline:none; width:100%; transition:border-color .2s ease" style-focus="borderColor:#EB5D0B">
                     </label>
                     <label style="display:flex; flexDirection:column; gap:6px">
                       <span style="fontSize:10.5px; fontWeight:700; letterSpacing:0.16em; textTransform:uppercase; color:#8C889F">Telefon</span>
-                      <input type="tel" name="phone" value="{{ fPhone }}" onChange="{{ setPhone }}" placeholder="+49 …" style="border:0; borderBottom:1px solid var(--line-3); background:transparent; fontSize:clamp(16px,1.5cqw,18px); color:#15123B; padding:8px 0; outline:none; width:100%; transition:border-color .2s ease" style-focus="borderColor:#EB5D0B">
+                      <input type="tel" name="phone" value="{{ fPhone }}" onChange="{{ setPhone }}" placeholder="+49 …" style="border:0; borderBottom:1px solid var(--line-3); background:transparent; fontSize:clamp(16px,1.13cqw,18px); color:#15123B; padding:8px 0; outline:none; width:100%; transition:border-color .2s ease" style-focus="borderColor:#EB5D0B">
                     </label>
                   </div>
-                  <div data-formrow="1" style="display:grid; gridTemplateColumns:1fr 1fr; gap:clamp(14px,2cqw,26px)">
+                  <div data-formrow="1" style="display:grid; gridTemplateColumns:1fr 1fr; gap:clamp(14px,1.63cqw,26px)">
                     <label style="display:flex; flexDirection:column; gap:6px">
                       <span style="fontSize:10.5px; fontWeight:700; letterSpacing:0.16em; textTransform:uppercase; color:#8C889F">E-Mail *</span>
-                      <input type="email" name="email" value="{{ fEmail }}" onChange="{{ setEmail }}" placeholder="name@firma.de" style="border:0; borderBottom:1px solid var(--line-3); background:transparent; fontSize:clamp(16px,1.5cqw,18px); color:#15123B; padding:8px 0; outline:none; width:100%; transition:border-color .2s ease" style-focus="borderColor:#EB5D0B">
+                      <input type="email" name="email" value="{{ fEmail }}" onChange="{{ setEmail }}" placeholder="name@firma.de" style="border:0; borderBottom:1px solid var(--line-3); background:transparent; fontSize:clamp(16px,1.13cqw,18px); color:#15123B; padding:8px 0; outline:none; width:100%; transition:border-color .2s ease" style-focus="borderColor:#EB5D0B">
                     </label>
                     <label style="display:flex; flexDirection:column; gap:6px">
                       <span style="fontSize:10.5px; fontWeight:700; letterSpacing:0.16em; textTransform:uppercase; color:#8C889F">Ort / PLZ des Objekts</span>
-                      <input type="text" name="place" value="{{ fPlace }}" onChange="{{ setPlace }}" placeholder="47906 Kempen" style="border:0; borderBottom:1px solid var(--line-3); background:transparent; fontSize:clamp(16px,1.5cqw,18px); color:#15123B; padding:8px 0; outline:none; width:100%; transition:border-color .2s ease" style-focus="borderColor:#EB5D0B">
+                      <input type="text" name="place" value="{{ fPlace }}" onChange="{{ setPlace }}" placeholder="47906 Kempen" style="border:0; borderBottom:1px solid var(--line-3); background:transparent; fontSize:clamp(16px,1.13cqw,18px); color:#15123B; padding:8px 0; outline:none; width:100%; transition:border-color .2s ease" style-focus="borderColor:#EB5D0B">
                     </label>
                   </div>
                 </div>
               </div>
 
-              <div style="display:grid; gridTemplateColumns:auto 1fr; columnGap:clamp(14px,2cqw,28px); rowGap:12px; alignItems:start">
+              <div style="display:grid; gridTemplateColumns:auto 1fr; columnGap:clamp(14px,1.75cqw,28px); rowGap:12px; alignItems:start">
                 <span style="fontSize:11px; fontWeight:800; letterSpacing:0.12em; color:#EB5D0B; paddingTop:4px">03</span>
                 <div style="display:flex; flexDirection:column; gap:13px">
                   <span style="fontSize:11px; fontWeight:700; letterSpacing:0.18em; textTransform:uppercase; color:#8C889F">Ihre Nachricht *</span>
-                  <textarea name="message" rows="2" value="{{ fMessage }}" onChange="{{ setMessage }}" placeholder="Räume, Flächen, Wunschtermin …" style="border:0; borderBottom:1px solid var(--line-3); background:transparent; fontSize:clamp(16px,1.5cqw,18px); color:#15123B; padding:10px 0; outline:none; resize:vertical; lineHeight:1.55; transition:border-color .2s ease" style-focus="borderColor:#EB5D0B"></textarea>
+                  <textarea name="message" rows="2" value="{{ fMessage }}" onChange="{{ setMessage }}" placeholder="Räume, Flächen, Wunschtermin …" style="border:0; borderBottom:1px solid var(--line-3); background:transparent; fontSize:clamp(16px,1.13cqw,18px); color:#15123B; padding:10px 0; outline:none; resize:vertical; lineHeight:1.55; transition:border-color .2s ease" style-focus="borderColor:#EB5D0B"></textarea>
                 </div>
               </div>
 
-              <div style="display:flex; flexDirection:column; gap:clamp(13px,1.5cqw,19px); borderTop:1px solid var(--line-2); paddingTop:clamp(14px,1.6cqw,20px)">
+              <div style="display:flex; flexDirection:column; gap:clamp(13px,1.19cqw,19px); borderTop:1px solid var(--line-2); paddingTop:clamp(14px,1.25cqw,20px)">
                 <label style="display:flex; gap:11px; alignItems:flex-start; cursor:pointer">
                   <input type="checkbox" name="privacy" checked="{{ fPrivacy }}" onChange="{{ togglePrivacy }}" style="marginTop:3px; width:19px; height:19px; accentColor:#EB5D0B; flexShrink:0; cursor:pointer">
                   <span style="fontSize:14px; lineHeight:1.5; color:#17171C">Ich habe die <a href="datenschutz.html" style="color:#EB5D0B; textDecoration:underline">Datenschutzerklärung</a> gelesen und bin mit der Verarbeitung meiner Daten einverstanden. *</span>
@@ -714,8 +715,8 @@
                   <span style="fontSize:14px; fontWeight:600; color:#C0390B; background:#FDF0E8; padding:12px 14px">{{ formErrorText }}</span>
                 </sc-if>
 
-                <div style="display:flex; flexWrap:wrap; alignItems:center; gap:clamp(16px,2cqw,26px)">
-                  <button type="submit" style="background:#EB5D0B; border:1px solid #EB5D0B; color:#fff; fontSize:clamp(0.78rem,0.9cqw,0.88rem); fontWeight:700; letterSpacing:0.11em; textTransform:uppercase; padding:clamp(15px,1.2cqw,19px) clamp(24px,2.4cqw,36px); cursor:pointer; whiteSpace:nowrap; flexShrink:0; transition:all .25s ease" style-hover="background:#15123B; borderColor:#15123B; transform:translateY(-2px)">Anfrage senden</button>
+                <div style="display:flex; flexWrap:wrap; alignItems:center; gap:clamp(16px,1.63cqw,26px)">
+                  <button type="submit" style="background:#EB5D0B; border:1px solid #EB5D0B; color:#fff; fontSize:clamp(0.78rem,0.88cqw,0.88rem); fontWeight:700; letterSpacing:0.11em; textTransform:uppercase; padding:clamp(15px,1.19cqw,19px) clamp(24px,2.25cqw,36px); cursor:pointer; whiteSpace:nowrap; flexShrink:0; transition:all .25s ease" style-hover="background:#15123B; borderColor:#15123B; transform:translateY(-2px)">Anfrage senden</button>
                   <span style="fontSize:12.5px; color:#8C889F; maxWidth:34ch">* Pflichtfelder. Ihre Daten werden ausschließlich zur Bearbeitung der Anfrage genutzt.</span>
                 </div>
               </div>
@@ -728,12 +729,12 @@
 
   </main>
 
-  <footer style="position:relative; overflow:hidden; background:var(--paper); padding:clamp(36px,4.5cqw,64px) clamp(18px,5cqw,64px) 32px; display:flex; flexDirection:column; gap:clamp(30px,5cqw,64px)">
+  <footer style="position:relative; overflow:hidden; background:var(--paper); padding:clamp(36px,4cqw,64px) clamp(18px,4cqw,64px) 32px; display:flex; flexDirection:column; gap:clamp(30px,4cqw,64px)">
     <svg viewBox="0 0 1200 520" preserveAspectRatio="none" aria-hidden="true" style="position:absolute; inset:0; width:100%; height:100%; zIndex:0; pointerEvents:none">
       <path d="M -40 76 C 232 52 318 268 546 296 C 736 320 852 236 1000 268 C 1094 288 1150 400 1250 560" fill="none" stroke="#EB5D0B" stroke-width="1.05" stroke-linecap="round" opacity="0.3" vector-effect="non-scaling-stroke"></path>
     </svg>
-    <img src="./assets/horst-logo.png" alt="" width="1015" height="285" loading="lazy" decoding="async" style="position:relative; zIndex:2; height:clamp(44px,6cqw,68px); width:auto; alignSelf:flex-start; display:block">
-    <div data-foot="1" style="position:relative; zIndex:2; display:grid; gridTemplateColumns:repeat(4,1fr); gap:clamp(24px,3cqw,40px)">
+    <img src="./assets/horst-logo.png" alt="" width="1015" height="285" loading="lazy" decoding="async" style="position:relative; zIndex:2; height:clamp(44px,4.25cqw,68px); width:auto; alignSelf:flex-start; display:block">
+    <div data-foot="1" style="position:relative; zIndex:2; display:grid; gridTemplateColumns:repeat(4,1fr); gap:clamp(24px,2.5cqw,40px)">
       <sc-for list="{{ footerCols }}" as="col" hint-placeholder-count="4">
         <div style="display:flex; flexDirection:column; gap:14px">
           <span style="fontSize:13px; fontWeight:800; letterSpacing:0.1em; textTransform:uppercase; color:#15123B">{{ col.title }}</span>
@@ -916,7 +917,7 @@ class Component extends DCLogic {
         z: String(40 - Math.round(Math.abs(d) * 10)),
         pe: on ? "auto" : "none",
         tr: manual ? "transform .5s cubic-bezier(.22,1,.36,1), opacity .38s ease" : "none",
-        tickSize: on ? "clamp(15px,1.6cqw,19px)" : "clamp(13px,1.35cqw,16px)",
+        tickSize: on ? "clamp(15px,1.19cqw,19px)" : "clamp(13px,1cqw,16px)",
         tickWeight: on ? "800" : "700",
         tickColor: on ? "#EB5D0B" : "#B4B0BF",
         tickOpacity: on ? "1" : "0.8",
@@ -1254,8 +1255,16 @@ class Component extends DCLogic {
     if (this._figX !== figX || this._figY !== figY) {
       this._figX = figX; this._figY = figY;
       const root = document.documentElement.style;
-      root.setProperty("--about-fig-x", figX + "px");
-      root.setProperty("--about-fig-y", figY + "px");
+      // Stufenlose Rampe: 0 bei 1120px Containerbreite -> voller Versatz ab 1600px
+      const ramp = (v) => {
+        if (!v) return "0px";
+        const k = (Math.abs(v) / 480).toFixed(4);
+        return v < 0
+          ? "clamp(" + v + "px, calc((1120px - 100cqw) * " + k + "), 0px)"
+          : "clamp(0px, calc((100cqw - 1120px) * " + k + "), " + v + "px)";
+      };
+      root.setProperty("--about-fig-x", ramp(figX));
+      root.setProperty("--about-fig-y", ramp(figY));
     }
 
     const rawServices = [
@@ -1302,7 +1311,12 @@ class Component extends DCLogic {
       "--line": hex(tone[3] || tone[2] || tone[0], 3),
       "--line-2": hex(tone[4] || tone[3] || tone[0], 4),
       "--line-3": shade(hex(tone[4] || tone[3] || tone[0], 4), 0.93),
-      "--text-inset": (this.props.textInset ?? 0) + "px"
+      "--text-inset": (() => {
+        const ti = this.props.textInset ?? 0;
+        if (!ti) return "0px";
+        // Stufenlos: 0 bei 1010px Hero-Breite -> voller Einzug ab 1440px
+        return "clamp(0px, calc((100cqw - 1010px) * " + (ti / 430).toFixed(4) + "), " + ti + "px)";
+      })()
     };
 
     const mobile = (this.props.previewDevice ?? "Desktop") === "Mobil";
@@ -1426,8 +1440,8 @@ class Component extends DCLogic {
       },
       reelFrameStyle: {
         position: "absolute",
-        inset: "calc(clamp(9px,1.1cqw,15px) * -1)",
-        border: "clamp(11px,1.35cqw,18px) solid var(--paper)",
+        inset: "calc(clamp(9px,1.04cqw,15px) * -1)",
+        border: "clamp(11px,1.25cqw,18px) solid var(--paper)",
         boxShadow: rh
           ? "0 0 0 1px var(--line-2), inset 0 0 0 1px rgba(21,18,59,.10), 0 40px 66px rgba(21,18,59,.24)"
           : "0 0 0 1px var(--line-2), inset 0 0 0 1px rgba(21,18,59,.10), 0 20px 40px rgba(21,18,59,.13)",
@@ -1439,8 +1453,8 @@ class Component extends DCLogic {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        width: "clamp(46px,4.2cqw,58px)",
-        height: "clamp(46px,4.2cqw,58px)",
+        width: "clamp(46px,4.03cqw,58px)",
+        height: "clamp(46px,4.03cqw,58px)",
         borderRadius: "50%",
         background: "#EB5D0B",
         flexShrink: 0,
@@ -1541,7 +1555,7 @@ class Component extends DCLogic {
             display: "flex",
             flexDirection: "column",
             alignItems: "flex-start",
-            gap: "clamp(13px,1.6cqw,20px)",
+            gap: "clamp(13px,1.25cqw,20px)",
             transition: "opacity .55s cubic-bezier(.22,1,.36,1), transform .75s cubic-bezier(.22,1,.36,1)",
             opacity: on ? 1 : 0,
             transform: on ? "translateX(0)" : "translateX(" + (rel < 0 ? -30 : 30) + "px)",
@@ -1550,7 +1564,7 @@ class Component extends DCLogic {
           imgStyle: {
             gridArea: "1/1",
             position: "relative",
-            width: "min(100%,clamp(220px,29cqw,352px))",
+            width: "min(100%,clamp(220px,22cqw,352px))",
             aspectRatio: "0.68",
             borderRadius: "999px",
             overflow: "hidden",
@@ -1563,7 +1577,7 @@ class Component extends DCLogic {
           },
           tickStyle: {
             display: "block",
-            width: "clamp(40px,5cqw,78px)",
+            width: "clamp(40px,4.88cqw,78px)",
             height: "2px",
             background: on ? "#EB5D0B" : "var(--line-3)",
             transition: "background .35s ease"
