@@ -1357,7 +1357,7 @@ class Component extends DCLogic {
         cta: "Über uns", href: "#betrieb", slot: "v5-topic-1", img: "assets/thema-ueber-uns.webp", hint: "Hochformat: Inhaber oder Team vor dem Betrieb" },
       { no: "02", short: "Leistungen", kicker: "Was wir machen", title: "Jede Größe,", title2: "ein Handwerk.",
         text: "Innen, außen, Altbau, Neubau. Planung, Ausführung und Abnahme aus einer Hand, mit festem Ansprechpartner.",
-        cta: "Leistungen ansehen", href: "LEISTUNGEN%20(3.0).dc.html", slot: "v5-topic-2", img: "assets/thema-leistungen.webp", hint: "Hochformat: Maler bei der Arbeit an einer Wand" },
+        cta: "Leistungen ansehen", href: "leistungen.html", slot: "v5-topic-2", img: "assets/thema-leistungen.webp", hint: "Hochformat: Maler bei der Arbeit an einer Wand" },
       { no: "03", short: "Karriere", kicker: "Arbeiten bei Horst", title: "Komm ins Team.",
         text: "Ausbildungsplätze, Gesellen- und Meisterstellen. Bewirb dich formlos – ein Klick reicht.",
         cta: "Karriere bei Horst", href: "#ausbildung", slot: "v5-topic-4", img: "assets/thema-karriere.webp", hint: "Hochformat: Azubi oder junges Teammitglied" }
@@ -1847,7 +1847,7 @@ class Component extends DCLogic {
       openMenu: () => this.setState({ menuOpen: true }),
       closeMenu: () => this.setState({ menuOpen: false }),
       topNav: [
-        { label: "Leistungen", href: "LEISTUNGEN%20(3.0).dc.html" },
+        { label: "Leistungen", href: "leistungen.html" },
         { label: "Über uns", href: "#betrieb" },
         { label: "Projekte", href: "#projekte" },
         { label: "Impressionen", href: "impressionen.html" },
@@ -1855,7 +1855,7 @@ class Component extends DCLogic {
       ],
       menuLinks: [
         { no: "01", label: "Startseite", href: "#top" },
-        { no: "02", label: "Leistungen", href: "LEISTUNGEN%20(3.0).dc.html" },
+        { no: "02", label: "Leistungen", href: "leistungen.html" },
         { no: "03", label: "Projekte", href: "#projekte" },
         { no: "04", label: "Farbe & Struktur", href: "farbe-struktur.html" },
         { no: "05", label: "Über uns", href: "#betrieb" },
@@ -1957,7 +1957,7 @@ class Component extends DCLogic {
       ],
 
       services,
-      allServicesHref: "LEISTUNGEN%20(3.0).dc.html",
+      allServicesHref: "leistungen.html",
       activeServiceLabel: rawServices[st.activeService].title,
 
       r1Tf: rf[0].tf, r1Op: rf[0].op, r1Z: rf[0].z, r1Pe: rf[0].pe, r1Tr: rf[0].tr,
@@ -2019,7 +2019,7 @@ class Component extends DCLogic {
         ]},
         { title: "Navigation", items: [
           { label: "Startseite", href: "#top" },
-          { label: "Leistungen", href: "LEISTUNGEN%20(3.0).dc.html" },
+          { label: "Leistungen", href: "leistungen.html" },
           { label: "Projekte", href: "projekte.html" },
           { label: "Farbe & Struktur", href: "farbe-struktur.html" },
           { label: "Über uns", href: "ueber-uns.dc.html" },
