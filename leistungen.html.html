@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#F5F5F3">
+<meta name="description" content="Leistungen von Horst Malerbetriebe in Kempen: Lackierarbeiten, Raumgestaltung, Tapezierung, Boden, Wandtechniken, Fassade, Wärmedämmung, Höhenarbeiten und Betonarbeiten.">
+<title>Leistungen · Horst Malerbetriebe</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+  html { scroll-behavior: smooth; }
+  :root { --paper: #F5F5F3; --paper-alt: #EFEFEC; --paper-tint: #E8E8E5; --line: #E2E2DF; --line-2: #D9D9D6; --line-3: #CFCFCC; }
+  body { margin: 0; font-family: 'Sora', sans-serif; background: var(--paper); color: #15123B; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  a { color: #EB5D0B; text-decoration: none; }
+  a:hover { color: #15123B; }
+  input, textarea, button { font-family: inherit; }
+  @keyframes v3fade { from { opacity: 0; } to { opacity: 1; } }
+  [data-reveal].is-in { opacity: 1 !important; transform: none !important; }
+
+  [data-acc-panel] { height: 0; overflow: hidden; opacity: 0; transition: height .55s cubic-bezier(.22,1,.36,1), opacity .35s ease; }
+  [data-acc-panel][data-open="1"] { opacity: 1; }
+  [data-accname] { transition: transform .35s cubic-bezier(.22,1,.36,1); }
+  [data-acc-btn]:hover [data-accname] { transform: translateX(6px); }
+  [data-plus-v] { transition: transform .5s cubic-bezier(.22,1,.36,1), opacity .3s ease; }
+  [data-acc-btn][aria-expanded="true"] [data-plus-v] { transform: rotate(90deg); opacity: 0; }
+  [data-plus-h], [data-plus-v] { background: #15123B; }
+  [data-acc-btn]:hover [data-plus-h], [data-acc-btn]:hover [data-plus-v],
+  [data-acc-btn][aria-expanded="true"] [data-plus-h] { background: #EB5D0B; }
+
+  /* Header/Navigation: identisch zur Landingpage (kompakter Sticky-Zustand) */
+  [data-hdr] [aria-label="Hauptnavigation"] {
+    width: min(94%, clamp(292px, 55cqw, 890px));
+    max-width: 100%;
+    min-width: max-content;
+  }
+  [data-hdrlogo] { position: absolute; left: clamp(16px, 4cqw, 64px); top: 50%; transform: translateY(-50%); }
+  [data-desknav][aria-current="page"] { color: #EB5D0B !important; }
+  [data-slide] { pointer-events: none; }
+  [data-slide][data-active="true"] { opacity: 1 !important; pointer-events: auto; }
+  [data-dot][data-active="true"] { background: #EB5D0B !important; transform: scale(1.25); }
+  [data-dot]:hover { background: #EB5D0B !important; }
+  /* Fragezeichen: Overlay über der Section, verankert in derselben zentrierten
+     1440er-Spalte wie die Headline. Größe UND vertikaler Versatz messen gegen
+     diese Spalte -> Überlappung mit "DRÜBER." bleibt auf jeder Breite gleich. */
+  [data-kfz] > div { container-type: inline-size; }
+  /* Laptop: die Headline wächst dort langsamer als die Spalte, deshalb das
+     Fragezeichen minimal zurücknehmen, damit der Abstand zu "ER" gleich bleibt. */
+  @container horst (max-width: 1560px) {
+    [data-kfz] > div > span { font-size: 63cqw !important; }
+  }
+  @container horst (max-width: 1360px) {
+    [data-kfz] > div > span { font-size: 60cqw !important; }
+  }
+  [data-socialarrow] { transform: translateY(-0.5px); }
+  [data-social]:hover [data-socialarrow] { transform: translate(2.5px, -3px); opacity: 1; }
+
+  /* ── Laptop-Band (MacBook 1280–1440): gleiche Komposition, kompaktere
+     vertikale Rhythmik. Große Monitore (> 1460px) bleiben unberührt. ── */
+  @container (max-width: 1460px) {
+    section[aria-label="Impressionen aus unserer Arbeit"] { padding-block: clamp(64px, 7.6cqw, 132px) !important; }
+    #oberflaechen { padding-block: clamp(56px, 6.4cqw, 108px) clamp(64px, 7.4cqw, 128px) !important; }
+    #leistungsbereiche { padding-block: clamp(52px, 6.2cqw, 96px) clamp(56px, 6.6cqw, 104px) !important; }
+    #ueberblick { padding-block: clamp(52px, 6.2cqw, 96px) !important; }
+    footer { padding-top: clamp(64px, 7cqw, 108px) !important; }
+    [data-accbody] { gap: clamp(22px, 3cqw, 44px) !important; }
+    [data-teaser] { gap: clamp(26px, 3.8cqw, 62px) !important; }
+  }
+  /* Flache Laptop-Höhen: Abstände zusätzlich moderat kürzen, damit die
+     Facts und das Accordion früher im Blickfeld liegen. */
+  @media (max-height: 900px) {
+    section[aria-label="Leistungen – Einführung"] { padding-block: clamp(40px, 5cqw, 76px) clamp(36px, 4.4cqw, 68px) !important; }
+    /* Flaches Display: Intro etwas kürzer, damit die drei Fakten im Blick bleiben */
+    section[aria-label="Leistungen – Einführung"] h1 { font-size: clamp(1.4rem, 2.3cqw, 2.3rem) !important; }
+    section[aria-label="Impressionen aus unserer Arbeit"] { padding-block: clamp(56px, 6.4cqw, 112px) !important; }
+    #leistungsbereiche { padding-block: clamp(44px, 5.2cqw, 84px) clamp(48px, 5.6cqw, 92px) !important; }
+    #ueberblick { padding-block: clamp(44px, 5.2cqw, 84px) !important; }
+    #oberflaechen { padding-block: clamp(48px, 5.4cqw, 92px) clamp(52px, 6cqw, 104px) !important; }
+    #kontakt-abschluss { padding-block: clamp(46px, 5.6cqw, 92px) clamp(50px, 6cqw, 100px) !important; }
+    footer { padding-top: clamp(52px, 6cqw, 92px) !important; }
+  }
+  @container (max-width: 1040px) {
+    [data-desknav] { display: none !important; }
+  }
+  @container (max-width: 640px) {
+    [data-hdr] { justify-content: space-between !important; }
+    [data-hdr] [aria-label="Hauptnavigation"] { width: auto !important; min-width: 0 !important; }
+    [data-hdrlogo] { position: static !important; transform: none !important; }
+  }
+  @container (max-width: 400px) {
+    [data-hdr] img { height: 32px !important; }
+    [data-hdr] [data-kontakt] { font-size: 11.5px !important; padding: 11px 13px !important; }
+    [data-hdr] nav { gap: 8px !important; }
+  }
+  @container (max-width: 900px) {
+    [data-menugrid] { grid-template-columns: 1fr !important; align-items: start !important; }
+    [data-menugrid] > div:first-of-type { order: 2; }
+    [data-menugrid] > div:last-of-type { order: 1; align-items: flex-start !important; padding-right: 0 !important; padding-bottom: 0 !important; }
+    [data-menugrid] > div:last-of-type a { justify-content: flex-start !important; }
+    [data-introgrid] { grid-template-columns: 1fr !important; }
+    [data-accbody] { grid-template-columns: minmax(0,1fr) !important; }
+    [data-teaser] { grid-template-columns: minmax(0,1fr) !important; }
+    [data-teaser] > div { padding-left: 0 !important; }
+    [data-ctarow] { flex-direction: column !important; align-items: flex-start !important; }
+    [data-foot] { grid-template-columns: repeat(2, 1fr) !important; gap: 30px !important; }
+  }
+  @container (max-width: 620px) {
+    [data-claims] { grid-template-columns: 1fr !important; }
+    [data-term] { padding: 11px 14px !important; }
+    [data-foot] { grid-template-columns: 1fr !important; }
+  }
+</style>
+</helmet>
+
+<div style="container:horst / inline-size; width:100%; background:var(--paper)">
+
+  <a href="#inhalt" style="position:absolute; left:-9999px; top:0; zIndex:300; background:#15123B; color:#fff; fontSize:13px; fontWeight:700; letterSpacing:0.08em; textTransform:uppercase; padding:12px 18px" style-focus="left:8px; top:8px">Zum Inhalt springen</a>
+
+  <header data-hdr="1" style="position:sticky; top:0; zIndex:70; background:color-mix(in srgb, var(--paper) 94%, transparent); backdropFilter:blur(16px); borderBottom:1px solid var(--line); display:flex; alignItems:center; justifyContent:center; gap:20px; padding:clamp(15px,1.5cqw,24px) clamp(18px,4cqw,64px)">
+    <a data-hdrlogo="1" href="{{ homeHref }}" aria-label="Horst Malerbetriebe – Startseite" style="display:block; flexShrink:0">
+      <img src="./assets/horst-logo.png" alt="Horst Malerbetriebe" width="1015" height="285" decoding="async" fetchpriority="high" style="height:clamp(34px,3.1cqw,50px); width:auto; display:block">
+    </a>
+    <nav aria-label="Hauptnavigation" style="display:flex; alignItems:center; justifyContent:space-between; gap:clamp(8px,1.2cqw,20px)">
+      <sc-for list="{{ topNav }}" as="t" hint-placeholder-count="5">
+        <a href="{{ t.href }}" data-desknav="1" aria-current="{{ t.current }}" style="color:#15123B; fontSize:13.5px; fontWeight:600; letterSpacing:0.14em; textTransform:uppercase; whiteSpace:nowrap" style-hover="color:#EB5D0B">{{ t.label }}</a>
+      </sc-for>
+      <a href="{{ kontaktHref }}" data-kontakt="1" style="background:#EB5D0B; color:#fff; fontSize:12.5px; fontWeight:700; letterSpacing:0.11em; textTransform:uppercase; padding:12px 20px; whiteSpace:nowrap; transition:background .25s ease" style-hover="background:#15123B; color:#fff">Kontakt</a>
+      <button type="button" onClick="{{ openMenu }}" aria-label="Menü öffnen" style="width:46px; height:46px; border:1px solid var(--line-2); background:var(--paper); cursor:pointer; display:flex; flexDirection:column; alignItems:center; justifyContent:center; gap:5px; padding:0; flexShrink:0; transition:all .25s ease" style-hover="background:#15123B; borderColor:#15123B">
+        <span style="display:block; width:18px; height:2px; background:#15123B"></span>
+        <span style="display:block; width:18px; height:2px; background:#EB5D0B"></span>
+        <span style="display:block; width:18px; height:2px; background:#15123B"></span>
+      </button>
+    </nav>
+  </header>
+
+  <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed; inset:0; zIndex:300; background:#15123B; color:#fff; padding:clamp(18px,3.63cqw,58px); display:grid; gridTemplateRows:auto 1fr; gap:clamp(24px,2.75cqw,44px); animation:v3fade .2s ease-out; overflow:auto">
+
+      <svg viewBox="0 0 1200 800" preserveAspectRatio="none" aria-hidden="true" style="position:absolute; inset:0; width:100%; height:100%; pointerEvents:none; zIndex:0">
+        <path d="M -40 640 C 240 620 300 430 520 372 C 720 320 760 176 1010 132 C 1120 112 1180 104 1260 96" fill="none" stroke="#EB5D0B" stroke-width="0.75" stroke-linecap="round" opacity="0.16" vector-effect="non-scaling-stroke"></path>
+        <path d="M -40 712 C 280 700 360 520 600 470 C 800 428 900 300 1260 238" fill="none" stroke="#EB5D0B" stroke-width="0.75" stroke-linecap="round" opacity="0.1" vector-effect="non-scaling-stroke"></path>
+      </svg>
+
+      <div style="position:relative; zIndex:1; display:flex; justifyContent:space-between; alignItems:center; gap:16px">
+        <span style="fontSize:11.5px; fontWeight:700; letterSpacing:0.24em; textTransform:uppercase; color:#EB5D0B">Horst Malerbetriebe · Kempen</span>
+        <button type="button" onClick="{{ closeMenu }}" aria-label="Menü schließen" style="width:46px; height:46px; border:1px solid rgba(255,255,255,.28); background:transparent; color:#fff; fontSize:23px; lineHeight:0.94; cursor:pointer; flexShrink:0; transition:all .2s ease" style-hover="background:#EB5D0B; borderColor:#EB5D0B">×</button>
+      </div>
+
+      <div data-menugrid="1" style="position:relative; zIndex:1; display:grid; gridTemplateColumns:minmax(180px,.68fr) 1.32fr; gap:clamp(28px,4.5cqw,72px); alignItems:end">
+
+        <div style="display:flex; flexDirection:column; gap:clamp(22px,2.13cqw,34px); alignSelf:end">
+          <span style="fontSize:clamp(20px,1.88cqw,30px); fontWeight:800; textTransform:uppercase; color:#EB5D0B; letterSpacing:-0.02em; lineHeight:1">Mit Herz<br>dabei.</span>
+          <span style="fontSize:14.5px; lineHeight:1.6; color:rgba(255,255,255,.6)">Industriering Ost 56 · 47906 Kempen<br>info@horst-malerbetriebe.de<br>+49 2152 510 600</span>
+          <div style="display:flex; flexDirection:column; gap:clamp(8px,0.75cqw,12px)">
+            <span style="display:flex; alignItems:center; gap:9px; fontSize:11px; fontWeight:700; letterSpacing:0.2em; textTransform:uppercase; color:#EB5D0B">
+              <span aria-hidden="true" style="width:22px; height:2px; background:#EB5D0B; flexShrink:0"></span>
+              Folgt uns
+            </span>
+            <div style="display:flex; flexDirection:column; gap:2px; marginLeft:-4px">
+              <sc-for list="{{ menuSocial }}" as="s" hint-placeholder-count="4">
+                <a href="{{ s.href }}" data-social="1" style="display:flex; alignItems:center; gap:9px; color:rgba(255,255,255,.92); fontSize:clamp(17px,1.32cqw,21px); fontWeight:700; letterSpacing:-0.01em; lineHeight:1; textTransform:uppercase; textDecoration:none; padding:11px 4px; transition:color .2s ease" style-hover="color:#EB5D0B"><span style="display:block">{{ s.label }}</span><span data-socialarrow="1" aria-hidden="true" style="flexShrink:0; display:flex; alignItems:center; justifyContent:center; width:13px; height:13px; fontSize:13px; lineHeight:1; fontWeight:600; opacity:.62; transition:transform .25s cubic-bezier(.22,1,.36,1), opacity .2s ease">↗</span></a>
+              </sc-for>
+            </div>
+          </div>
+          <div style="display:flex; flexDirection:column; gap:9px; borderTop:1px solid rgba(255,255,255,.14); paddingTop:16px">
+            <sc-for list="{{ menuLegal }}" as="l" hint-placeholder-count="2">
+              <a href="{{ l.href }}" style="color:rgba(255,255,255,.55); fontSize:12.5px; fontWeight:600; letterSpacing:0.1em; textTransform:uppercase; textDecoration:none; transition:color .2s ease" style-hover="color:#EB5D0B">{{ l.label }}</a>
+            </sc-for>
+          </div>
+        </div>
+
+        <div style="display:flex; flexDirection:column; alignItems:flex-end; justifyContent:center; gap:clamp(14px,1.63cqw,26px); alignSelf:center; paddingRight:clamp(8px,4cqw,64px); paddingBottom:clamp(18px,3.5cqw,56px)">
+          <sc-for list="{{ menuLinks }}" as="m" hint-placeholder-count="8">
+            <a href="{{ m.href }}" onClick="{{ closeMenu }}" style="display:flex; alignItems:baseline; justifyContent:flex-end; gap:16px; color:#fff; fontSize:clamp(29px,3.56cqw,57px); fontWeight:800; textTransform:uppercase; lineHeight:1; letterSpacing:-0.025em; textDecoration:none; transition:color .2s ease, transform .3s cubic-bezier(.22,1,.36,1)" style-hover="color:#EB5D0B; transform:translateX(-12px)">
+              <span style="fontSize:11.5px; fontWeight:700; letterSpacing:0.16em; color:rgba(255,255,255,.35)">{{ m.no }}</span>
+              <span>{{ m.label }}</span>
+            </a>
+          </sc-for>
+        </div>
+
+      </div>
+    </div>
+  </sc-if>
+
+  <main id="inhalt">
+
+    <section aria-label="Leistungen – Einführung" style="position:relative; background:var(--paper); padding:clamp(52px,7cqw,112px) clamp(18px,4cqw,64px) clamp(44px,5.5cqw,88px)">
+      <div style="maxWidth:1440px; margin:0 auto; display:flex; flexDirection:column; gap:clamp(38px,4.5cqw,72px)">
+        <div style="display:flex; flexDirection:column; gap:clamp(24px,3cqw,48px); width:100%; maxWidth:min(1080px, 75%); marginLeft:auto; marginRight:auto">
+          <span data-reveal="1" style="display:flex; alignItems:center; gap:11px; fontSize:clamp(0.66rem,0.84cqw,0.84rem); fontWeight:700; letterSpacing:0.2em; textTransform:uppercase; color:#15123B; opacity:0; transform:translateY(16px); transition:opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1)">
+            <span style="width:30px; height:3px; background:#EB5D0B; flexShrink:0"></span>
+            Leistungen
+          </span>
+          <h1 data-reveal="1" data-reveal-delay="90" style="margin:0; maxWidth:34ch; fontSize:clamp(1.5rem,2.55cqw,2.85rem); fontWeight:400; letterSpacing:-0.02em; lineHeight:1.34; color:#17171C; textWrap:pretty; opacity:0; transform:translateY(20px); transition:opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1)"><strong style="fontWeight:800; color:#15123B">Erwarten Sie von uns die perfekte Lösung.</strong><br>Wir schauen genau hin, hören zu und entwickeln gemeinsam mit Ihnen die passende Lösung für Räume, Oberflächen und Gebäude – sauber<span style="whiteSpace:nowrap"> geplant, hochwertig</span> ausgeführt und mit einem Ansprechpartner für alles.</h1>
+        </div>
+
+        <div data-claims="1" style="display:grid; gridTemplateColumns:repeat(3,1fr); gap:clamp(20px,2.5cqw,40px); borderTop:1px solid var(--line); paddingTop:clamp(26px,3.25cqw,52px)">
+          <sc-for list="{{ claims }}" as="c" hint-placeholder-count="3">
+            <div data-reveal="1" style="display:flex; flexDirection:column; gap:9px; opacity:0; transform:translateY(16px); transition:opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1)">
+              <span style="fontSize:11px; fontWeight:700; letterSpacing:0.2em; textTransform:uppercase; color:#EB5D0B">{{ c.no }}</span>
+              <span style="fontSize:clamp(17px,1.5cqw,22px); fontWeight:700; letterSpacing:-0.015em; lineHeight:1.2; color:#15123B">{{ c.titel }}</span>
+              <p style="margin:0; maxWidth:34ch; fontSize:15.5px; lineHeight:1.64; color:#17171C; textWrap:pretty">{{ c.text }}</p>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+
+    <section id="leistungsbereiche" aria-label="Leistungsbereiche" style="position:relative; background:var(--paper-alt); padding:clamp(56px,7cqw,112px) clamp(18px,4cqw,64px) clamp(60px,7.5cqw,120px)">
+      <div style="maxWidth:1440px; margin:0 auto; display:flex; flexDirection:column; gap:clamp(28px,3.5cqw,56px)">
+        <div style="display:flex; flexDirection:column; gap:clamp(12px,1.25cqw,20px)">
+          <span data-reveal="1" style="display:flex; alignItems:center; gap:11px; fontSize:clamp(0.66rem,0.84cqw,0.84rem); fontWeight:700; letterSpacing:0.2em; textTransform:uppercase; color:#15123B; opacity:0; transform:translateY(16px); transition:opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1)">
+            <span style="width:30px; height:3px; background:#EB5D0B; flexShrink:0"></span>
+            01 – 09
+          </span>
+          <h2 data-reveal="1" data-reveal-delay="80" style="margin:0; maxWidth:24ch; fontSize:clamp(1.7rem,3.2cqw,3.2rem); fontWeight:800; letterSpacing:-0.03em; lineHeight:1.02; textTransform:uppercase; color:#15123B; opacity:0; transform:translateY(18px); transition:opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1)">Was wir für Sie machen.</h2>
+        </div>
+
+        <div style="display:flex; flexDirection:column; borderBottom:1px solid var(--line-3)">
+          <sc-for list="{{ leistungen }}" as="l" hint-placeholder-count="9">
+            <div style="borderTop:1px solid var(--line-3)">
+              <h3 style="margin:0">
+                <button type="button" onClick="{{ l.toggle }}" aria-expanded="{{ l.expanded }}" aria-controls="{{ l.panelId }}" data-acc-btn="1" style="width:100%; display:grid; gridTemplateColumns:auto 1fr auto; alignItems:center; gap:clamp(14px,2.5cqw,40px); background:transparent; border:0; borderRadius:0; cursor:pointer; textAlign:left; color:#15123B; padding:clamp(20px,2.4cqw,38px) clamp(6px,0.9cqw,14px); transition:background .3s ease" style-hover="background:var(--paper-tint)">
+                  <span style="fontSize:clamp(12px,0.95cqw,15px); fontWeight:700; letterSpacing:0.1em; color:#EB5D0B; fontVariantNumeric:tabular-nums">{{ l.no }}</span>
+                  <span data-accname="1" style="fontSize:clamp(18px,2.4cqw,36px); fontWeight:800; letterSpacing:-0.025em; lineHeight:1.06; textTransform:uppercase; color:#15123B; textWrap:balance">{{ l.name }}</span>
+                  <span aria-hidden="true" style="position:relative; width:clamp(20px,1.6cqw,26px); height:clamp(20px,1.6cqw,26px); flexShrink:0; justifySelf:end">
+                    <span data-plus-h="1" style="position:absolute; left:0; top:50%; width:100%; height:2px; marginTop:-1px; transition:background .3s ease"></span>
+                    <span data-plus-v="1" style="position:absolute; top:0; left:50%; height:100%; width:2px; marginLeft:-1px"></span>
+                  </span>
+                </button>
+              </h3>
+              <div id="{{ l.panelId }}" data-acc-panel="1" data-open="{{ l.openFlag }}" role="region" aria-label="{{ l.name }}">
+                <div>
+                  <div data-accbody="1" style="display:grid; gridTemplateColumns:minmax(0,1.12fr) minmax(0,0.88fr); gap:clamp(24px,3.5cqw,56px); alignItems:start; padding:clamp(2px,0.5cqw,8px) clamp(6px,0.9cqw,14px) clamp(32px,3.5cqw,56px)">
+                    <div style="display:flex; flexDirection:column; gap:clamp(16px,1.75cqw,26px)">
+                      <p style="margin:0; maxWidth:44ch; fontSize:clamp(17px,1.4cqw,22px); fontWeight:600; letterSpacing:-0.015em; lineHeight:1.42; color:#15123B; textWrap:pretty">{{ l.lead }}</p>
+                      <p style="margin:0; maxWidth:58ch; fontSize:clamp(15.5px,1.1cqw,17.5px); lineHeight:1.72; color:#17171C; textWrap:pretty">{{ l.text }}</p>
+                      <ul style="margin:0; padding:0; listStyle:none; display:flex; flexWrap:wrap; gap:10px clamp(18px,2cqw,32px); maxWidth:56ch">
+                        <sc-for list="{{ l.punkte }}" as="p" hint-placeholder-count="3">
+                          <li style="display:flex; alignItems:center; gap:9px; fontSize:14.5px; fontWeight:600; letterSpacing:0.02em; color:#15123B">
+                            <span aria-hidden="true" style="width:14px; height:2px; background:#EB5D0B; flexShrink:0"></span>
+                            {{ p }}
+                          </li>
+                        </sc-for>
+                      </ul>
+                      <a href="{{ kontaktHref }}" style="display:inline-flex; alignItems:center; gap:10px; alignSelf:flex-start; fontSize:12.5px; fontWeight:700; letterSpacing:0.11em; textTransform:uppercase; color:#15123B; borderBottom:2px solid #EB5D0B; paddingBottom:5px; transition:color .25s ease" style-hover="color:#EB5D0B">Beratung zu diesem Bereich →</a>
+                      <sc-if value="{{ l.mehrHref }}" hint-placeholder-val="{{ false }}">
+                        <a href="{{ l.mehrHref }}" style="display:inline-flex; alignItems:center; gap:10px; alignSelf:flex-start; marginTop:calc(-1 * clamp(6px,0.6cqw,10px)); fontSize:12.5px; fontWeight:700; letterSpacing:0.11em; textTransform:uppercase; color:#15123B; borderBottom:2px solid #EB5D0B; paddingBottom:5px; transition:color .25s ease" style-hover="color:#EB5D0B">Strukturen entdecken →</a>
+                      </sc-if>
+                    </div>
+                    <sc-if value="{{ l.withImage }}" hint-placeholder-val="{{ false }}">
+                      <image-slot id="{{ l.slotId }}" src="{{ l.slotSrc }}" shape="rounded" radius="24" placeholder="{{ l.slotHint }}" style="display:block; width:100%; minWidth:0; aspectRatio:4/3"></image-slot>
+                    </sc-if>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+
+    <section aria-label="Impressionen aus unserer Arbeit" style="position:relative; background:var(--paper); padding:clamp(88px,11cqw,168px) clamp(18px,4cqw,64px)">
+      <div data-reveal="1" style="maxWidth:960px; margin:0 auto; display:flex; flexDirection:column; gap:clamp(18px,1.75cqw,28px); opacity:0; transform:translateY(18px); transition:opacity .9s cubic-bezier(.22,1,.36,1), transform .9s cubic-bezier(.22,1,.36,1)">
+        <div data-carousel="1" style="position:relative; width:100%; aspectRatio:3/2; borderRadius:24px; overflow:hidden; background:var(--paper-alt)">
+          <div data-slide="1" data-active="{{ active0 }}" style="position:absolute; inset:0; opacity:0; transition:opacity 1.1s cubic-bezier(.22,1,.36,1)">
+            <image-slot id="carousel-4" src="assets/impression-1.webp" shape="rounded" radius="24" placeholder="Oberfläche oder Struktur im Detail – Querformat" style="display:block; width:100%; height:100%"></image-slot>
+          </div>
+          <div data-slide="1" data-active="{{ active1 }}" style="position:absolute; inset:0; opacity:0; transition:opacity 1.1s cubic-bezier(.22,1,.36,1)">
+            <image-slot id="carousel-2" src="assets/impression-2.webp" shape="rounded" radius="24" placeholder="Fassade / Baustelle – Querformat" style="display:block; width:100%; height:100%"></image-slot>
+          </div>
+          <div data-slide="1" data-active="{{ active2 }}" style="position:absolute; inset:0; opacity:0; transition:opacity 1.1s cubic-bezier(.22,1,.36,1)">
+            <image-slot id="carousel-3" src="assets/impression-3.webp" shape="rounded" radius="24" placeholder="Innenraum nach der Gestaltung – Querformat" style="display:block; width:100%; height:100%"></image-slot>
+          </div>
+          <div data-slide="1" data-active="{{ active3 }}" style="position:absolute; inset:0; opacity:0; transition:opacity 1.1s cubic-bezier(.22,1,.36,1)">
+            <image-slot id="carousel-1" src="assets/impression-4.webp" shape="rounded" radius="24" placeholder="Mitarbeiter bei der Arbeit – Querformat" style="display:block; width:100%; height:100%"></image-slot>
+          </div>
+          <div data-slide="1" data-active="{{ active4 }}" style="position:absolute; inset:0; opacity:0; transition:opacity 1.1s cubic-bezier(.22,1,.36,1)">
+            <image-slot id="carousel-5" src="assets/impression-5.webp" shape="rounded" radius="24" placeholder="Weiteres Motiv – Querformat" style="display:block; width:100%; height:100%"></image-slot>
+          </div>
+        </div>
+        <div role="tablist" aria-label="Bildauswahl" style="display:flex; justifyContent:center; gap:10px">
+          <sc-for list="{{ slides }}" as="s" hint-placeholder-count="5">
+            <button type="button" role="tab" onClick="{{ s.go }}" aria-selected="{{ s.active }}" aria-label="{{ s.label }}" data-dot="1" data-active="{{ s.active }}" style="width:8px; height:8px; borderRadius:50%; border:0; padding:0; cursor:pointer; background:var(--line-3); transition:background .3s ease, transform .3s ease"></button>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+
+    <section id="ueberblick" aria-label="Leistungen im Überblick" style="position:relative; background:var(--paper); padding:clamp(56px,7cqw,112px) clamp(18px,4cqw,64px)">
+      <div style="maxWidth:1440px; margin:0 auto; display:flex; flexDirection:column; gap:clamp(20px,2.5cqw,40px)">
+        <div style="display:flex; flexDirection:column; gap:clamp(12px,1.25cqw,20px)">
+          <span data-reveal="1" style="display:flex; alignItems:center; gap:11px; fontSize:clamp(0.66rem,0.84cqw,0.84rem); fontWeight:700; letterSpacing:0.2em; textTransform:uppercase; color:#15123B; opacity:0; transform:translateY(16px); transition:opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1)">
+            <span style="width:30px; height:3px; background:#EB5D0B; flexShrink:0"></span>
+            Stichworte
+          </span>
+          <h2 data-reveal="1" data-reveal-delay="80" style="margin:0; maxWidth:26ch; fontSize:clamp(1.7rem,3.2cqw,3.2rem); fontWeight:800; letterSpacing:-0.03em; lineHeight:1.02; textTransform:uppercase; color:#15123B; opacity:0; transform:translateY(18px); transition:opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1)">Leistungen im Überblick.</h2>
+          <p data-reveal="1" data-reveal-delay="140" style="margin:0; maxWidth:52ch; fontSize:clamp(15.5px,1.1cqw,17.5px); lineHeight:1.72; color:#17171C; textWrap:pretty; opacity:0; transform:translateY(16px); transition:opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1)">Von der einzelnen Wand bis zur kompletten Fassade – unsere Leistungen auf einen Blick.</p>
+        </div>
+        <div data-reveal="1" style="display:flex; flexDirection:column; gap:clamp(24px,2.5cqw,40px); background:var(--paper-alt); borderRadius:6px; padding:clamp(24px,3.25cqw,52px) clamp(20px,3cqw,48px); opacity:0; transform:translateY(18px); transition:opacity .9s cubic-bezier(.22,1,.36,1), transform .9s cubic-bezier(.22,1,.36,1)">
+          <ul data-katalog="1" style="margin:0; padding:0; listStyle:none; display:flex; flexWrap:wrap; gap:clamp(8px,0.85cqw,13px)">
+            <sc-for list="{{ katalog }}" as="k" hint-placeholder-count="24">
+              <li data-term="1" style="background:var(--paper); border:1px solid var(--line); borderRadius:5px; padding:clamp(10px,0.85cqw,13px) clamp(14px,1.35cqw,21px); fontSize:clamp(14.5px,1.05cqw,16.5px); fontWeight:600; letterSpacing:-0.005em; lineHeight:1.25; color:#15123B; transition:color .2s ease, border-color .2s ease, background .2s ease" style-hover="color:#EB5D0B; background:#FFFFFF; borderColor:var(--line-2)">{{ k }}</li>
+            </sc-for>
+          </ul>
+          <a href="{{ kontaktHref }}" style="display:inline-flex; alignItems:center; gap:9px; alignSelf:flex-start; fontSize:clamp(14.5px,1.05cqw,16.5px); fontWeight:700; letterSpacing:-0.005em; color:#15123B; textDecoration:none; transition:color .2s ease" style-hover="color:#EB5D0B">Nicht dabei? Sprechen Sie uns an. <span aria-hidden="true" style="color:#EB5D0B">→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section id="oberflaechen" aria-label="Oberflächen und Strukturen" style="position:relative; background:var(--paper); padding:clamp(72px,8.5cqw,136px) clamp(18px,4cqw,64px) clamp(88px,10cqw,168px)">
+      <div data-teaser="1" style="maxWidth:1440px; margin:0 auto; display:grid; gridTemplateColumns:minmax(0,1.05fr) minmax(0,0.95fr); gap:clamp(28px,4.5cqw,80px); alignItems:center">
+        <image-slot data-reveal="1" id="teaser-oberflaechen" src="assets/teaser-oberflaechen.webp" shape="rounded" radius="24" placeholder="Besondere Oberfläche, z. B. Betonoptik – Querformat" style="display:block; width:100%; minWidth:0; aspectRatio:5/4; opacity:0; transform:translateY(18px); transition:opacity .9s cubic-bezier(.22,1,.36,1), transform .9s cubic-bezier(.22,1,.36,1)"></image-slot>
+        <div style="display:flex; flexDirection:column; gap:clamp(16px,1.75cqw,26px); paddingLeft:clamp(0px,1.5cqw,24px)">
+          <span data-reveal="1" style="display:flex; alignItems:center; gap:11px; fontSize:clamp(0.66rem,0.84cqw,0.84rem); fontWeight:700; letterSpacing:0.2em; textTransform:uppercase; color:#15123B; opacity:0; transform:translateY(16px); transition:opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1)">
+            <span aria-hidden="true" style="width:30px; height:3px; background:#EB5D0B; flexShrink:0"></span>
+            Oberflächen &amp; Strukturen
+          </span>
+          <h2 data-reveal="1" data-reveal-delay="80" style="margin:0; maxWidth:22ch; fontSize:clamp(1.7rem,3.2cqw,3.2rem); fontWeight:800; letterSpacing:-0.03em; lineHeight:1.02; textTransform:uppercase; color:#15123B; opacity:0; transform:translateY(18px); transition:opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1)">Besondere Oberflächen.<br>Besondere Wirkung.</h2>
+          <p data-reveal="1" data-reveal-delay="140" style="margin:0; maxWidth:46ch; fontSize:clamp(15.5px,1.1cqw,17.5px); lineHeight:1.72; color:#17171C; textWrap:pretty; opacity:0; transform:translateY(16px); transition:opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1)">Von Betonoptik bis zu individuellen Strukturtechniken – entdecken Sie die Möglichkeiten besonderer Oberflächen und Wandgestaltungen.</p>
+          <a data-reveal="1" data-reveal-delay="200" href="{{ strukturHref }}" style="display:inline-flex; alignItems:center; gap:10px; alignSelf:flex-start; marginTop:clamp(2px,0.5cqw,8px); fontSize:12.5px; fontWeight:700; letterSpacing:0.11em; textTransform:uppercase; color:#15123B; textDecoration:none; borderBottom:2px solid #EB5D0B; paddingBottom:6px; opacity:0; transform:translateY(16px); transition:opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1), color .25s ease" style-hover="color:#EB5D0B">Strukturen entdecken →</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontakt-abschluss" aria-label="Kontakt" style="position:relative; overflow:hidden; background:#15123B; color:#fff; padding:clamp(54px,6.8cqw,112px) clamp(18px,4cqw,64px) clamp(58px,7.2cqw,120px)">
+      <div data-kfz="1" aria-hidden="true" style="position:absolute; inset:0; padding:0 clamp(18px,4cqw,64px); display:flex; justifyContent:center; pointerEvents:none; userSelect:none; zIndex:0">
+        <div style="position:relative; width:100%; maxWidth:1440px">
+          <span style="position:absolute; right:4%; top:0.0755em; fontSize:68cqw; fontWeight:800; lineHeight:0.66; letterSpacing:-0.04em; color:transparent; WebkitTextStroke:2px rgba(235,93,11,0.22)">?</span>
+        </div>
+      </div>
+      <div style="position:relative; zIndex:2; maxWidth:1440px; margin:0 auto; display:flex; flexDirection:column; gap:clamp(30px,3.5cqw,56px)">
+        <div style="display:flex; flexDirection:column; gap:clamp(16px,1.75cqw,26px)">
+          <span style="display:flex; alignItems:center; gap:11px; fontSize:clamp(0.66rem,0.84cqw,0.84rem); fontWeight:700; letterSpacing:0.2em; textTransform:uppercase; color:#EB5D0B">
+            <span style="width:30px; height:3px; background:#EB5D0B; flexShrink:0"></span>
+            Kontakt
+          </span>
+          <h2 style="margin:0; fontSize:clamp(1.92rem,4.74cqw,4.56rem); fontWeight:800; letterSpacing:-0.035em; lineHeight:0.98; textTransform:uppercase; color:#fff; textWrap:balance">Projekt im Kopf?<br>Sprechen wir <span style="color:#EB5D0B">drüber.</span></h2>
+        </div>
+        <div style="display:flex; flexDirection:column; gap:clamp(6px,0.75cqw,12px)">
+          <a href="tel:+492152510600" style="alignSelf:flex-start; fontSize:clamp(1.46rem,2.82cqw,3.01rem); fontWeight:800; letterSpacing:-0.035em; lineHeight:1.12; color:#fff; fontVariantNumeric:tabular-nums; transition:color .25s ease" style-hover="color:#EB5D0B">+49 2152 510 600</a>
+          <a href="mailto:info@horst-malerbetriebe.de" style="alignSelf:flex-start; maxWidth:100%; overflowWrap:anywhere; fontSize:clamp(1.17rem,2.39cqw,2.55rem); fontWeight:800; letterSpacing:-0.035em; lineHeight:1.12; color:#fff; transition:color .25s ease" style-hover="color:#EB5D0B">info@horst-malerbetriebe.de</a>
+        </div>
+        <div style="display:flex; flexWrap:wrap; alignItems:center; gap:clamp(12px,1.25cqw,20px)">
+          <a href="{{ kontaktHref }}" style="display:flex; alignItems:center; gap:12px; background:#EB5D0B; border:1px solid #EB5D0B; color:#fff; fontSize:clamp(0.74rem,0.86cqw,0.86rem); fontWeight:700; letterSpacing:0.11em; textTransform:uppercase; padding:clamp(15px,1.23cqw,19.6px) clamp(23.5px,2.21cqw,35.3px); whiteSpace:nowrap; transition:all .25s ease" style-hover="background:#fff; color:#EB5D0B; borderColor:#fff">Beratung anfragen →</a>
+          <a href="tel:+492152510600" style="display:flex; alignItems:center; gap:12px; background:transparent; border:1px solid rgba(255,255,255,.34); color:#fff; fontSize:clamp(0.74rem,0.86cqw,0.86rem); fontWeight:700; letterSpacing:0.11em; textTransform:uppercase; padding:clamp(15px,1.23cqw,19.6px) clamp(23.5px,2.21cqw,35.3px); whiteSpace:nowrap; transition:all .25s ease" style-hover="background:#fff; color:#15123B; borderColor:#fff">Direkt anrufen →</a>
+        </div>
+      </div>
+      </section></main></div>
+    
+
+  
+
+  <footer style="position:relative; background:var(--paper); padding:clamp(76px,8cqw,128px) clamp(18px,4cqw,64px) 32px; display:flex; flexDirection:column; gap:clamp(30px,4cqw,64px)">
+    <img src="./assets/horst-logo.png" alt="" width="1015" height="285" loading="lazy" decoding="async" style="height:clamp(44px,4.25cqw,68px); width:auto; alignSelf:flex-start; display:block">
+    <div data-foot="1" style="display:grid; gridTemplateColumns:repeat(4,1fr); gap:clamp(24px,2.5cqw,40px)">
+      <sc-for list="{{ footerCols }}" as="col" hint-placeholder-count="4">
+        <div style="display:flex; flexDirection:column; gap:14px">
+          <span style="fontSize:13px; fontWeight:800; letterSpacing:0.1em; textTransform:uppercase; color:#15123B">{{ col.title }}</span>
+          <div style="display:flex; flexDirection:column; gap:9px">
+            <sc-for list="{{ col.items }}" as="it" hint-placeholder-count="6">
+              <a href="{{ it.href }}" style="fontSize:16.5px; lineHeight:1.35; color:#17171C; transition:color .2s ease" style-hover="color:#EB5D0B">{{ it.label }}</a>
+            </sc-for>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+    <span style="fontSize:15px; color:#8C889F">© 2026 Horst Malerbetriebe GmbH</span>
+  </footer>
+
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;singleOpen&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Accordion&quot;},&quot;defaultOpen&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:0,&quot;min&quot;:0,&quot;max&quot;:9,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Accordion&quot;},&quot;showPanelImages&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Accordion&quot;}}">
+class Component extends DCLogic {
+  HOME = "Horst%20Malerbetriebe%20v5%20(7.0).dc.html";
+  UEBER = "%C3%9CBER%20UNS.dc.html";
+  SELF = "LEISTUNGEN.dc.html";
+  state = { open: null };
+
+  componentDidMount() {
+    this.io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (!e.isIntersecting) return;
+        const el = e.target;
+        const d = parseInt(el.getAttribute("data-reveal-delay") || "0", 10);
+        setTimeout(() => el.classList.add("is-in"), d);
+        this.io.unobserve(el);
+      });
+    }, { rootMargin: "0px 0px -12% 0px", threshold: 0.08 });
+    this.scan();
+    this.rescan = [200, 700, 1600].map((t) => setTimeout(() => this.scan(), t));
+    this.syncPanels();
+    this.resync = [120, 600, 1600].map((t) => setTimeout(() => this.syncPanels(), t));
+    this.onResize = () => this.syncPanels();
+    window.addEventListener("resize", this.onResize);
+    this.onKey = (e) => { if (e.key === "Escape") this.setState({ menuOpen: false }); };
+    document.addEventListener("keydown", this.onKey);
+    this.startAuto();
+    this.carouselEl = document.querySelector("[data-carousel]");
+    if (this.carouselEl) {
+      this.pauseAuto = () => clearInterval(this.auto);
+      this.carouselEl.addEventListener("mouseenter", this.pauseAuto);
+      this.carouselEl.addEventListener("dragenter", this.pauseAuto);
+      this.carouselEl.addEventListener("mouseleave", this.startAuto);
+    }
+  }
+
+  componentDidUpdate() {
+    this.syncPanels();
+    document.body.style.overflow = this.state.menuOpen ? "hidden" : "";
+  }
+
+  componentWillUnmount() {
+    if (this.io) this.io.disconnect();
+    (this.rescan || []).forEach(clearTimeout);
+    (this.resync || []).forEach(clearTimeout);
+    window.removeEventListener("resize", this.onResize);
+    document.removeEventListener("keydown", this.onKey);
+    document.body.style.overflow = "";
+    clearInterval(this.auto);
+    if (this.carouselEl) {
+      this.carouselEl.removeEventListener("mouseenter", this.pauseAuto);
+      this.carouselEl.removeEventListener("dragenter", this.pauseAuto);
+      this.carouselEl.removeEventListener("mouseleave", this.startAuto);
+    }
+  }
+
+  SLIDES = [
+    { hint: "Mitarbeiter bei der Arbeit – Querformat", label: "Bild 1: Team bei der Arbeit" },
+    { hint: "Fassade / Baustelle – Querformat", label: "Bild 2: Fassade" },
+    { hint: "Innenraum nach der Gestaltung – Querformat", label: "Bild 3: Innenraum" },
+    { hint: "Oberfläche oder Struktur im Detail – Querformat", label: "Bild 4: Oberfläche" },
+    { hint: "Weiteres Motiv – Querformat", label: "Bild 5: Weiteres Motiv" }
+  ];
+
+  startAuto = () => {
+    clearInterval(this.auto);
+    // Editor/preview context (image-slot's own edit affordances gate on this
+    // same flag): autoplay stays off so a slide can't switch out from under
+    // an in-progress drag-drop or file-picker upload. Live/published pages
+    // (no omelette host) keep normal autoplay.
+    this.auto = setInterval(() => {
+      this.setState((s) => ({ slide: ((s.slide || 0) + 1) % this.SLIDES.length }));
+    }, 4500);
+  };
+
+  goSlide = (i) => {
+    this.setState({ slide: i });
+    this.startAuto();
+  };
+
+  syncPanels = () => {
+    document.querySelectorAll("[data-acc-panel]").forEach((p) => {
+      const inner = p.firstElementChild;
+      if (!inner) return;
+      const open = p.getAttribute("data-open") === "1";
+      clearTimeout(p._hTimer);
+      if (open) {
+        const h = inner.scrollHeight;
+        if (p.style.height === "auto") return;
+        p.style.height = h + "px";
+        p._hTimer = setTimeout(() => {
+          if (p.getAttribute("data-open") === "1") p.style.height = "auto";
+        }, 620);
+      } else if (p.style.height !== "0px") {
+        if (p.style.height === "auto") {
+          p.style.height = inner.scrollHeight + "px";
+          void p.offsetHeight;
+        }
+        p.style.height = "0px";
+      }
+    });
+  };
+
+  scan = () => {
+    if (!this.io) return;
+    document.querySelectorAll("[data-reveal]:not(.is-in)").forEach((el) => this.io.observe(el));
+  };
+
+  initialOpen() {
+    const d = this.props.defaultOpen ?? 0;
+    return d > 0 ? [d - 1] : [];
+  }
+
+  toggle = (i) => {
+    this.setState((s) => {
+      const cur = s.open === null ? this.initialOpen() : s.open;
+      const has = cur.indexOf(i) !== -1;
+      const single = this.props.singleOpen ?? true;
+      if (single) return { open: has ? [] : [i] };
+      return { open: has ? cur.filter((x) => x !== i) : cur.concat([i]) };
+    });
+  };
+
+  DATA = [
+    {
+      name: "Lackierarbeiten",
+      lead: "Außen, innen und Spritzlackierung – für besondere Oberflächen.",
+      text: "Türen, Fenster, Zargen, Treppen, Heizkörper, Geländer, Möbel und Metallbauteile: Wir bereiten den Untergrund vor und wählen das passende Lacksystem. Für gleichmäßige, streifenfreie Flächen lackieren wir im Spritzverfahren – in der Werkstatt oder abgeschottet direkt beim Objekt.",
+      punkte: ["Innen", "Außen", "Holz & Metall"],
+      slotHint: "Lackierte Tür oder Spritzlackierung – Querformat"
+    },
+    {
+      name: "Raumgestaltung",
+      lead: "Komplette Raumkonzepte aus einer Hand – vom Boden bis zur letzten Leiste.",
+      text: "Boden, Wandflächen, Techniken, Tapezierung und Lackierarbeiten greifen ineinander statt nebeneinander. Farben und Materialien stimmen wir mit Ihnen ab, planen die Reihenfolge der Arbeiten und übergeben den Raum fertig – ohne Schnittstellen, die niemand verantwortet.",
+      punkte: ["Farbkonzept", "Boden & Wand", "Techniken", "Tapezierung"],
+      slotHint: "Fertig gestalteter Raum – Querformat"
+    },
+    {
+      name: "Tapezierung / Tapete",
+      lead: "Tapete als Gestaltungsmittel – von Vlies bis Fototapete.",
+      text: "Wir verarbeiten Vlies- und Papiertapeten, Raufaser, Struktur- und Textiltapeten sowie Digitaldruck- und Fototapeten. Entscheidend ist der Untergrund: Wir spachteln und grundieren sauber und setzen die Bahnen so, dass Stöße und Muster ein harmonisches Gesamtbild ergeben – auch bei Sichtkanten und großen Rapporten.",
+      punkte: ["Vliestapete", "Strukturtapete", "Fototapete"],
+      slotHint: "Tapezierte Wand oder Motivtapete – Querformat"
+    },
+    {
+      name: "Boden",
+      lead: "Der Boden gehört zum Raumkonzept – nicht daneben.",
+      text: "„Egal ob Designvinyl, Laminat oder Teppich: Wir finden den passenden Boden für Ihr Raumkonzept. Auch eine auf die Wand abgestimmte, nahtlose Bodengestaltung ist möglich – für ein stimmiges Gesamtbild bis ins Detail.“",
+      punkte: ["Designvinyl", "Laminat", "Teppich"],
+      slotHint: "Verlegter Boden im Raum – Querformat"
+    },
+    {
+      name: "Wände mit Struktur ",
+      lead: "Oberflächen, die man sehen und fühlen kann.",
+      text: "Betonoptik, fugenlose und geglättete Flächen sowie Lasur- und Putztechniken: Struktur gibt einem Raum Tiefe, ohne laut zu werden. Mit unterschiedlichen Techniken entstehen individuelle Oberflächen, die Räume charaktervoll und dennoch harmonisch wirken lassen.",
+      punkte: ["Betonoptik", "Glättetechnik", "Lasurtechnik", "Fugenlose Oberflächen"],
+      mehrHref: "farbe-struktur.dc.html",
+      slotHint: "Strukturwand / Betonoptik – Querformat"
+    },
+    {
+      name: "Fassade",
+      lead: "Fassaden neu gedacht – klassisch in Weiß oder ausdrucksstark in Farbe.",
+      text: "Ob klassisch in Weiß oder ausdrucksstark in Farbe: Wir gestalten Fassaden passend zum Charakter Ihres Gebäudes. Individuelle Farb- und Strukturkonzepte verbinden Ästhetik mit dauerhaftem Schutz. Auch die Fassadenreinigung gehört dazu – inklusive Entfernung von Verschmutzungen und anschließendem langlebigem Anstrich.",
+      punkte: ["Fassadengestaltung", "Fassadensanierung", "Fassadenreinigung", "Putztechniken"],
+      slotHint: "Fassade nach der Sanierung – Querformat"
+    },
+    {
+      name: "Wärmedämmung",
+      lead: "Energie sparen, Heizkosten senken, Substanz schützen.",
+      text: "Eine Dämmung rechnet sich nur, wenn sie zum Gebäude passt. Wir sehen uns Aufbau, Zustand und Nutzung an und entwickeln daraus eine individuelle, objektspezifische Lösung – von der Außen- bis zur Innendämmung und der abschließenden Fassadengestaltung. So helfen wir dabei, Energie zu sparen und Heizkosten zu senken, schützen die Bausubstanz nachhaltig und schaffen eine Lösung, die genau zu Ihrem Gebäude passt.",
+      punkte: ["Außendämmung", "Innendämmung", "Gebäudeschutz"],
+      slotHint: "Dämmarbeiten am Gebäude – Querformat"
+    },
+    {
+      name: "Hoch hinaus",
+      lead: "Auch in luftiger Höhe zuverlässig im Einsatz!",
+      text: "Auch in luftiger Höhe sind wir zuverlässig für Sie im Einsatz. Mit professionellem Gerüstbau und moderner Hubarbeitsbühne erreichen wir selbst schwer zugängliche Bereiche sicher und effizient – für präzise Arbeiten an Fassaden, Dächern und Gebäudeteilen.",
+      punkte: ["Hubarbeitsbühne", "Höhenarbeiten", "Fassade & Dach"],
+      slotHint: "Gerüst oder Hubarbeitsbühne im Einsatz – Querformat"
+    },
+    {
+      name: "Betonarbeiten",
+      lead: "Betonschutz und Instandsetzung – bevor aus Rissen Schäden werden.",
+      text: "Wir arbeiten Schadstellen auf, schützen die Bewehrung, verklammern Risse und beschichten Oberflächen dauerhaft. Das gilt für Balkone und Stützen genauso wie für Industrie- und Gewerbeflächen.",
+      punkte: ["Betonschutz", "Betoninstandsetzung", "Betonsanierung", "Rissverklammerung"],
+      slotHint: "Betoninstandsetzung – Querformat"
+    }
+  ];
+
+  renderVals() {
+    const home = (hash) => this.HOME + (hash || "");
+    const open = this.state.open === null ? this.initialOpen() : this.state.open;
+    const withImage = this.props.showPanelImages ?? true;
+
+    return {
+      strukturHref: "farbe-struktur.html",
+      active0: (this.state.slide || 0) === 0 ? "true" : "false",
+      active1: (this.state.slide || 0) === 1 ? "true" : "false",
+      active2: (this.state.slide || 0) === 2 ? "true" : "false",
+      active3: (this.state.slide || 0) === 3 ? "true" : "false",
+      active4: (this.state.slide || 0) === 4 ? "true" : "false",
+      slides: this.SLIDES.map((s, i) => ({
+        label: s.label,
+        active: (this.state.slide || 0) === i ? "true" : "false",
+        go: () => this.goSlide(i)
+      })),
+      menuOpen: this.state.menuOpen === true,
+      openMenu: () => this.setState({ menuOpen: true }),
+      closeMenu: () => this.setState({ menuOpen: false }),
+      homeHref: home(),
+      kontaktHref: home("#kontakt"),
+
+      topNav: [
+        { label: "Leistungen", href: this.SELF, current: "page" },
+        { label: "Über uns", href: this.UEBER, current: "false" },
+        { label: "Projekte", href: home("#projekte"), current: "false" },
+        { label: "Impressionen", href: "impressionen.html", current: "false" },
+        { label: "Karriere", href: home("#ausbildung"), current: "false" }
+      ],
+      menuLinks: [
+        { no: "01", label: "Startseite", href: home() },
+        { no: "02", label: "Leistungen", href: this.SELF },
+        { no: "03", label: "Farbe & Struktur", href: "farbe-struktur.html" },
+        { no: "04", label: "Über uns", href: this.UEBER },
+        { no: "05", label: "Projekte", href: home("#projekte") },
+        { no: "06", label: "Impressionen", href: "impressionen.html" },
+        { no: "07", label: "Karriere", href: home("#ausbildung") },
+        { no: "08", label: "Kontakt", href: home("#kontakt") }
+      ],
+      menuSocial: [
+        { label: "Instagram", href: home() },
+        { label: "TikTok", href: home() },
+        { label: "Facebook", href: home() },
+        { label: "Google", href: home() }
+      ],
+      menuLegal: [
+        { label: "Impressum", href: "impressum.html" },
+        { label: "Datenschutz", href: "datenschutz.html" }
+      ],
+
+      claims: [
+        { no: "01", titel: "Beratung vor Ort", text: "Wir sehen uns Untergrund und Gebäude an, bevor wir etwas versprechen." },
+        { no: "02", titel: "Alles aus einer Hand", text: "Boden, Wand, Lack, Fassade und Gerüst – ein Ansprechpartner für alles." },
+        { no: "03", titel: "Saubere Ausführung", text: "Geschützte Flächen, verlässliche Termine, übergabefertige Räume." }
+      ],
+
+      leistungen: this.DATA.map((d, i) => {
+        const no = String(i + 1).padStart(2, "0");
+        const isOpen = open.indexOf(i) !== -1;
+        return {
+          no: no,
+          name: d.name,
+          lead: d.lead,
+          text: d.text,
+          punkte: d.punkte,
+          panelId: "acc-panel-" + no,
+          slotId: "ls-" + no,
+          slotSrc: ({ "05": "assets/leistung-05-oberflaechen.webp", "08": "assets/leistung-08-firmensitz.webp" })[no] || "assets/leistung-platzhalter.png",
+          slotHint: d.slotHint,
+          mehrHref: d.mehrHref || false,
+          withImage: withImage,
+          expanded: isOpen ? "true" : "false",
+          openFlag: isOpen ? "1" : "0",
+          toggle: () => this.toggle(i)
+        };
+      }),
+
+      katalog: [
+        "Altbausanierung", "Außenputz", "Betonoptik", "Betonsanierung", "Betonschutz",
+        "Betoninstandsetzung", "Brandschutz", "Fassadengestaltung", "Fassadensanierung",
+        "Farbgebung", "Fensterrenovierung", "Fugenlose Oberflächen", "Gerüstbau",
+        "Glättetechnik", "Holzschutz", "Innendämmung", "Innenputz", "Kalkputze",
+        "Lackierung", "Lasurtechnik", "Mineralfarbe", "Neuputz", "Oberflächenbeschichtung",
+        "Putz", "Putztechniken", "Restauration", "Rissverklammerung", "Rostoptik",
+        "Schimmelbeseitigung", "Stuckprofile", "Sumpfkalkputz", "Tapete", "Trockenbau",
+        "Verfugung", "Verputzarbeiten", "Wärmedämmung"
+      ],
+
+      footerCols: [
+        { title: "Kontakt", items: [
+          { label: "Burkhardt Horst", href: home("#kontakt") },
+          { label: "Geschäftsführer", href: home("#kontakt") },
+          { label: "T +49 2152 510 600", href: "tel:+492152510600" },
+          { label: "Industriering Ost 56", href: home("#kontakt") },
+          { label: "47906 Kempen", href: home("#kontakt") },
+          { label: "info@horst-malerbetriebe.de", href: "mailto:info@horst-malerbetriebe.de" }
+        ]},
+        { title: "Navigation", items: [
+          { label: "Startseite", href: home() },
+          { label: "Leistungen", href: "Leistungen.dc.html" },
+          { label: "Projekte", href: "projekte.dc.html" },
+          { label: "Farbe & Struktur", href: "farbe-struktur.dc.html" },
+          { label: "Über uns", href: this.UEBER },
+          { label: "Impressionen", href: "impressionen.dc.html" },
+          { label: "Karriere", href: "karriere.dc.html" },
+          { label: "Kontakt", href: home("#kontakt") }
+        ]},
+        { title: "Informationen", items: [
+          { label: "Impressum", href: "impressum.dc.html" },
+          { label: "Datenschutz", href: "datenschutz.dc.html" }
+        ]},
+        { title: "Links", items: [
+          { label: "Instagram", href: home() },
+          { label: "Facebook", href: home() },
+          { label: "TikTok", href: home() },
+          { label: "Google", href: home() }
+        ]}
+      ]
+    };
+  }
+}
+
+</script>
+</body>
+</html>
