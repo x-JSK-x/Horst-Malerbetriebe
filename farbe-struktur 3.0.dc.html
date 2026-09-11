@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#F5F5F3">
+<meta name="description" content="Farbe &amp; Struktur bei Horst Malerbetriebe in Kempen: Farbwelten und Oberflächenstrukturen im Überblick – von plakativen Akzenten bis zu matten Tiefen.">
+<title>Farbe &amp; Struktur · Horst Malerbetriebe</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+  html { scroll-behavior: smooth; }
+  :root { --paper: #F5F5F3; --paper-alt: #EFEFEC; --paper-tint: #E8E8E5; --line: #E2E2DF; --line-2: #D9D9D6; --line-3: #CFCFCC; }
+  body { margin: 0; font-family: 'Sora', sans-serif; background: var(--paper); color: #15123B; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  a { color: #EB5D0B; text-decoration: none; }
+  a:hover { color: #15123B; }
+  input, textarea, button { font-family: inherit; }
+  @keyframes v3fade { from { opacity: 0; } to { opacity: 1; } }
+  [data-reveal].is-in { opacity: 1 !important; transform: none !important; }
+
+  [data-hdr] [aria-label="Hauptnavigation"] {
+    width: min(94%, clamp(292px, 55cqw, 890px));
+    max-width: 100%;
+    min-width: max-content;
+  }
+  [data-hdrlogo] { position: absolute; left: clamp(16px, 4cqw, 64px); top: 50%; transform: translateY(-50%); }
+  [data-desknav][aria-current="page"] { color: #EB5D0B !important; }
+  [data-kfz] > div { container-type: inline-size; }
+  @container horst (max-width: 1560px) {
+    [data-kfz] > div > span { font-size: 63cqw !important; }
+  }
+  @container horst (max-width: 1360px) {
+    [data-kfz] > div > span { font-size: 60cqw !important; }
+  }
+  [data-socialarrow] { transform: translateY(-0.5px); }
+  [data-social]:hover [data-socialarrow] { transform: translate(2.5px, -3px); opacity: 1; }
+
+  [data-entry]:target { scroll-margin-top: 120px; }
+
+  @keyframes v5hintdrop {
+    0%, 66%, 100% { transform: translateY(0); opacity: .8; }
+    30% { transform: translateY(7px); opacity: 1; }
+  }
+  @media (prefers-reduced-motion: reduce) { [data-scrollhint] svg { animation: none !important; } }
+
+  @container (max-width: 760px) {
+    [data-entry] { grid-template-columns: minmax(0, 1fr) !important; }
+    [data-entrymedia] { order: -1 !important; width: min(62%, 240px) !important; }
+    [data-swatches] { position: static !important; transform: none !important; width: 100% !important; flex-direction: row !important; justify-content: center !important; margin-top: 14px !important; }
+    [data-swatch] { width: 22% !important; }
+  }
+
+  @container (max-width: 1200px) {
+    [data-desknav] { display: none !important; }
+  }
+  @container (max-width: 900px) {
+    [data-menugrid] { grid-template-columns: 1fr !important; align-items: start !important; }
+    [data-menugrid] > div:first-of-type { order: 2; }
+    [data-menugrid] > div:last-of-type { order: 1; align-items: flex-start !important; padding-right: 0 !important; padding-bottom: 0 !important; }
+    [data-menugrid] > div:last-of-type a { justify-content: flex-start !important; }
+    [data-foot] { grid-template-columns: repeat(2, 1fr) !important; gap: 30px !important; }
+  }
+  @container (max-width: 640px) {
+    [data-hdr] { justify-content: space-between !important; }
+    [data-hdr] [aria-label="Hauptnavigation"] { width: auto !important; min-width: 0 !important; }
+    [data-hdrlogo] { position: static !important; transform: none !important; }
+    [data-foot] { grid-template-columns: 1fr !important; }
+  }
+  @container (max-width: 400px) {
+    [data-hdr] img { height: 32px !important; }
+    [data-hdr] [data-kontakt] { font-size: 11.5px !important; padding: 11px 13px !important; }
+    [data-hdr] nav { gap: 8px !important; }
+  }
+</style>
+</helmet>
+
+<div style="container:horst / inline-size; width:100%; background:var(--paper)">
+
+  <a href="#inhalt" style="position:absolute; left:-9999px; top:0; zIndex:300; background:#15123B; color:#fff; fontSize:13px; fontWeight:700; letterSpacing:0.08em; textTransform:uppercase; padding:12px 18px" style-focus="left:8px; top:8px">Zum Inhalt springen</a>
+
+  <header data-hdr="1" style="position:sticky; top:0; zIndex:70; background:color-mix(in srgb, var(--paper) 94%, transparent); backdropFilter:blur(16px); borderBottom:1px solid var(--line); display:flex; alignItems:center; justifyContent:center; gap:20px; padding:clamp(15px,1.5cqw,24px) clamp(18px,4cqw,64px)">
+    <a data-hdrlogo="1" href="{{ homeHref }}" aria-label="Horst Malerbetriebe – Startseite" style="display:block; flexShrink:0">
+      <img src="./assets/horst-logo.png" alt="Horst Malerbetriebe" width="1015" height="285" decoding="async" fetchpriority="high" style="height:clamp(34px,3.1cqw,50px); width:auto; display:block">
+    </a>
+    <nav aria-label="Hauptnavigation" style="display:flex; alignItems:center; justifyContent:space-between; gap:clamp(7px,1cqw,15px)">
+      <sc-for list="{{ topNav }}" as="t" hint-placeholder-count="6">
+        <a href="{{ t.href }}" data-desknav="1" aria-current="{{ t.current }}" style="color:#15123B; fontSize:13.5px; fontWeight:600; letterSpacing:0.14em; textTransform:uppercase; whiteSpace:nowrap" style-hover="color:#EB5D0B">{{ t.label }}</a>
+      </sc-for>
+      <a href="{{ kontaktHref }}" data-kontakt="1" style="background:#EB5D0B; color:#fff; fontSize:12.5px; fontWeight:700; letterSpacing:0.11em; textTransform:uppercase; padding:12px 20px; whiteSpace:nowrap; transition:background .25s ease" style-hover="background:#15123B; color:#fff">Kontakt</a>
+      <button type="button" onClick="{{ openMenu }}" aria-label="Menü öffnen" style="width:46px; height:46px; border:1px solid var(--line-2); background:var(--paper); cursor:pointer; display:flex; flexDirection:column; alignItems:center; justifyContent:center; gap:5px; padding:0; flexShrink:0; transition:all .25s ease" style-hover="background:#15123B; borderColor:#15123B">
+        <span style="display:block; width:18px; height:2px; background:#15123B"></span>
+        <span style="display:block; width:18px; height:2px; background:#EB5D0B"></span>
+        <span style="display:block; width:18px; height:2px; background:#15123B"></span>
+      </button>
+    </nav>
+  </header>
+
+  <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed; inset:0; zIndex:300; background:#15123B; color:#fff; padding:clamp(18px,3.63cqw,58px); display:grid; gridTemplateRows:auto 1fr; gap:clamp(24px,2.75cqw,44px); animation:v3fade .2s ease-out; overflow:auto">
+
+      <svg viewBox="0 0 1200 800" preserveAspectRatio="none" aria-hidden="true" style="position:absolute; inset:0; width:100%; height:100%; pointerEvents:none; zIndex:0">
+        <path d="M -40 640 C 240 620 300 430 520 372 C 720 320 760 176 1010 132 C 1120 112 1180 104 1260 96" fill="none" stroke="#EB5D0B" stroke-width="0.75" stroke-linecap="round" opacity="0.16" vector-effect="non-scaling-stroke"></path>
+        <path d="M -40 712 C 280 700 360 520 600 470 C 800 428 900 300 1260 238" fill="none" stroke="#EB5D0B" stroke-width="0.75" stroke-linecap="round" opacity="0.1" vector-effect="non-scaling-stroke"></path>
+      </svg>
+
+      <div style="position:relative; zIndex:1; display:flex; justifyContent:space-between; alignItems:center; gap:16px">
+        <span style="fontSize:11.5px; fontWeight:700; letterSpacing:0.24em; textTransform:uppercase; color:#EB5D0B">Horst Malerbetriebe · Kempen</span>
+        <button type="button" onClick="{{ closeMenu }}" aria-label="Menü schließen" style="width:46px; height:46px; border:1px solid rgba(255,255,255,.28); background:transparent; color:#fff; fontSize:23px; lineHeight:0.94; cursor:pointer; flexShrink:0; transition:all .2s ease" style-hover="background:#EB5D0B; borderColor:#EB5D0B">×</button>
+      </div>
+
+      <div data-menugrid="1" style="position:relative; zIndex:1; display:grid; gridTemplateColumns:minmax(180px,.68fr) 1.32fr; gap:clamp(28px,4.5cqw,72px); alignItems:end">
+
+        <div style="display:flex; flexDirection:column; gap:clamp(22px,2.13cqw,34px); alignSelf:end">
+          <span style="fontSize:clamp(20px,1.88cqw,30px); fontWeight:800; textTransform:uppercase; color:#EB5D0B; letterSpacing:-0.02em; lineHeight:1">Mit Herz<br>dabei.</span>
+          <span style="fontSize:14.5px; lineHeight:1.6; color:rgba(255,255,255,.6)">Industriering Ost 56 · 47906 Kempen<br>info@horst-malerbetriebe.de<br>+49 2152 510 600</span>
+          <div style="display:flex; flexDirection:column; gap:clamp(8px,0.75cqw,12px)">
+            <span style="display:flex; alignItems:center; gap:9px; fontSize:11px; fontWeight:700; letterSpacing:0.2em; textTransform:uppercase; color:#EB5D0B">
+              <span aria-hidden="true" style="width:22px; height:2px; background:#EB5D0B; flexShrink:0"></span>
+              Folgt uns
+            </span>
+            <div style="display:flex; flexDirection:column; gap:2px; marginLeft:-4px">
+              <sc-for list="{{ menuSocial }}" as="s" hint-placeholder-count="4">
+                <a href="{{ s.href }}" data-social="1" style="display:flex; alignItems:center; gap:9px; color:rgba(255,255,255,.92); fontSize:clamp(17px,1.32cqw,21px); fontWeight:700; letterSpacing:-0.01em; lineHeight:1; textTransform:uppercase; textDecoration:none; padding:11px 4px; transition:color .2s ease" style-hover="color:#EB5D0B"><span style="display:block">{{ s.label }}</span><span data-socialarrow="1" aria-hidden="true" style="flexShrink:0; display:flex; alignItems:center; justifyContent:center; width:13px; height:13px; fontSize:13px; lineHeight:1; fontWeight:600; opacity:.62; transition:transform .25s cubic-bezier(.22,1,.36,1), opacity .2s ease">↗</span></a>
+              </sc-for>
+            </div>
+          </div>
+          <div style="display:flex; flexDirection:column; gap:9px; borderTop:1px solid rgba(255,255,255,.14); paddingTop:16px">
+            <sc-for list="{{ menuLegal }}" as="l" hint-placeholder-count="2">
+              <a href="{{ l.href }}" style="color:rgba(255,255,255,.55); fontSize:12.5px; fontWeight:600; letterSpacing:0.1em; textTransform:uppercase; textDecoration:none; transition:color .2s ease" style-hover="color:#EB5D0B">{{ l.label }}</a>
+            </sc-for>
+          </div>
+        </div>
+
+        <div style="display:flex; flexDirection:column; alignItems:flex-end; justifyContent:center; gap:clamp(14px,1.63cqw,26px); alignSelf:center; paddingRight:clamp(8px,4cqw,64px); paddingBottom:clamp(18px,3.5cqw,56px)">
+          <sc-for list="{{ menuLinks }}" as="m" hint-placeholder-count="8">
+            <a href="{{ m.href }}" onClick="{{ closeMenu }}" style="display:flex; alignItems:baseline; justifyContent:flex-end; gap:16px; color:#fff; fontSize:clamp(29px,3.56cqw,57px); fontWeight:800; textTransform:uppercase; lineHeight:1; letterSpacing:-0.025em; textDecoration:none; transition:color .2s ease, transform .3s cubic-bezier(.22,1,.36,1)" style-hover="color:#EB5D0B; transform:translateX(-12px)">
+              <span style="fontSize:11.5px; fontWeight:700; letterSpacing:0.16em; color:rgba(255,255,255,.35)">{{ m.no }}</span>
+              <span>{{ m.label }}</span>
+            </a>
+          </sc-for>
+        </div>
+
+      </div>
+    </div>
+  </sc-if>
+
+  <main id="inhalt">
+
+    <section aria-label="Farbe und Struktur – Einführung" style="position:relative; boxSizing:border-box; background:var(--paper); minHeight:calc(82svh - (clamp(34px,3.1cqw,50px) + 2 * clamp(15px,1.5cqw,24px) + 1px)); display:flex; alignItems:center; padding:clamp(40px,5cqw,80px) clamp(18px,4cqw,64px) calc(clamp(18px,2.4cqw,38px) + 64px + clamp(18px,2cqw,34px))">
+      <div style="width:100%; maxWidth:1250px; margin:clamp(15px,1.55cqw,26px) auto 0; display:flex; flexDirection:column; justifyContent:center; gap:clamp(18px,1.5cqw,24px)">
+        <div style="display:flex; flexDirection:column; gap:clamp(70px,5.9cqw,98px)">
+          <span data-reveal="1" style="display:flex; alignItems:center; gap:11px; fontSize:clamp(0.674rem,0.856cqw,0.856rem); fontWeight:700; letterSpacing:0.2em; textTransform:uppercase; color:#15123B; opacity:0; transform:translateY(16px); transition:opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1)">
+            <span aria-hidden="true" style="width:30px; height:3px; background:#EB5D0B; flexShrink:0"></span>
+            Farbe &amp; Struktur
+          </span>
+          <h1 data-reveal="1" data-reveal-delay="80" style="margin:0 auto; maxWidth:100%; textAlign:center; fontSize:clamp(1.57rem,5.1cqw,5rem); fontWeight:800; letterSpacing:-0.035em; lineHeight:1.02; textTransform:uppercase; color:#15123B; opacity:0; transform:translateY(20px); transition:opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1)"><span style="display:block; whiteSpace:nowrap">Unsere Farben.</span><span style="display:block; whiteSpace:nowrap; color:#EB5D0B">UNSERE STRUKTUREN.</span></h1>
+        </div>
+        <p data-reveal="1" data-reveal-delay="150" style="margin:0 auto; maxWidth:52ch; textAlign:center; fontSize:1.389rem; fontWeight:450; lineHeight:1.6; color:#5C5872; textWrap:balance; opacity:0; transform:translateY(16px); transition:opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1)">Farbe gibt dem Raum die Stimmung. Struktur gibt ihm Tiefe. Hier sehen Sie, womit wir arbeiten.</p>
+      </div>
+      <a data-scrollhint="1" href="#farbe" aria-label="Zum Farbbereich springen" style="position:absolute; left:50%; bottom:clamp(18px,2.4cqw,38px); transform:translateX(-50%); display:block; padding:8px 16px; textDecoration:none">
+        <svg aria-hidden="true" width="14.14" height="48.5" viewBox="0 0 14 48" fill="none" style="display:block; animation:v5hintdrop 2.6s cubic-bezier(.45,0,.25,1) infinite">
+          <path d="M7 0V41" stroke="#EB5D0B" stroke-width="1" stroke-linecap="round"></path>
+          <path d="M1.4 35.6L7 41.4L12.6 35.6" stroke="#EB5D0B" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+      </a>
+    </section>
+
+    <section id="farbe" aria-label="Farbe" style="position:relative; background:var(--paper); padding:clamp(46px,21svh,240px) clamp(18px,4cqw,64px) clamp(72px,8.5cqw,140px)">
+      <div style="maxWidth:1250px; margin:0 auto; display:flex; flexDirection:column; gap:clamp(26px,3cqw,50px)">
+
+        <div style="display:flex; flexDirection:column; gap:clamp(9px,0.85cqw,13px); borderTop:1px solid var(--line); paddingTop:clamp(14px,1.4cqw,22px)">
+          <span style="display:flex; alignItems:center; gap:11px; fontSize:clamp(0.66rem,0.84cqw,0.84rem); fontWeight:700; letterSpacing:0.2em; textTransform:uppercase; color:#15123B">
+            <span aria-hidden="true" style="width:30px; height:3px; background:#EB5D0B; flexShrink:0"></span>
+            Farbe
+          </span>
+          <p style="margin:0; maxWidth:46ch; textAlign:left; fontSize:1.0625rem; fontWeight:450; lineHeight:1.6; color:#5C5872; textWrap:balance">Farbe ist nie nur Farbe – sie wirkt mit dem Licht, dem Raum und der Umgebung.</p>
+        </div>
+
+        <div style="display:flex; flexDirection:column; gap:clamp(14px,1.6cqw,26px)">
+          <sc-for list="{{ farbeEintraege }}" as="e" hint-placeholder-count="8">
+            <article id="{{ e.id }}" data-entry="1" data-reveal="1" style="scrollMarginTop:120px; background:{{ e.bg }}; display:grid; gridTemplateColumns:minmax(0,1fr) clamp(150px,20cqw,268px); gap:clamp(22px,3cqw,54px); alignItems:center; padding:clamp(26px,3.2cqw,54px); opacity:0; transform:translateY(22px); transition:opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1)">
+              <div style="minWidth:0; display:flex; flexDirection:column; gap:clamp(10px,1cqw,16px)">
+                <sc-if value="{{ zeigeNummern }}" hint-placeholder-val="{{ true }}">
+                  <span style="fontSize:11.5px; fontWeight:700; letterSpacing:0.2em; textTransform:uppercase; color:#EB5D0B; fontVariantNumeric:tabular-nums">Farbe {{ e.no }}</span>
+                </sc-if>
+                <h3 style="margin:0; fontSize:clamp(1.35rem,2.35cqw,2.35rem); fontWeight:800; letterSpacing:-0.03em; lineHeight:1.02; textTransform:uppercase; color:#15123B; textWrap:balance">{{ e.name }}</h3>
+                <p style="margin:0; maxWidth:46ch; fontSize:clamp(15px,1.06cqw,16px); lineHeight:1.65; color:#2A2740; textWrap:pretty">{{ e.text }}</p>
+              </div>
+              <div data-entrymedia="1" style="position:relative; width:100%; minWidth:0; justifySelf:end">
+                <image-slot id="{{ e.slotId }}" src="{{ e.src }}" shape="circle" fit="cover" placeholder="{{ e.hint }}" style="display:block; width:100%; aspectRatio:1/1"></image-slot>
+                <span data-swatches="1" aria-hidden="true" style="position:absolute; left:0; top:50%; width:22%; transform:translate(-66%,-50%); display:flex; flexDirection:column; gap:clamp(7px,0.85cqw,13px); pointerEvents:none">
+                  <sc-for list="{{ e.palette }}" as="c" hint-placeholder-count="3">
+                    <span data-swatch="1" style="display:block; width:100%; aspectRatio:1/1; borderRadius:50%; background:{{ c.hex }}; border:2px solid rgba(255,255,255,.92); boxShadow:0 3px 10px -3px rgba(21,18,59,.35)"></span>
+                  </sc-for>
+                </span>
+              </div>
+            </article>
+          </sc-for>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="struktur" aria-label="Struktur" style="position:relative; background:#15123B; color:#fff; padding:clamp(62px,7.5cqw,124px) clamp(18px,4cqw,64px) clamp(72px,8.5cqw,140px)">
+      <div style="maxWidth:1250px; margin:0 auto; display:flex; flexDirection:column; gap:clamp(26px,3cqw,50px)">
+
+        <div style="display:flex; flexDirection:column; gap:clamp(14px,1.5cqw,22px); borderTop:1px solid rgba(255,255,255,.18); paddingTop:clamp(14px,1.5cqw,24px)">
+          <span style="display:flex; alignItems:center; gap:11px; fontSize:clamp(0.66rem,0.84cqw,0.84rem); fontWeight:700; letterSpacing:0.2em; textTransform:uppercase; color:#EB5D0B">
+            <span aria-hidden="true" style="width:30px; height:3px; background:#EB5D0B; flexShrink:0"></span>
+            Struktur
+          </span>
+          <p style="margin:0; maxWidth:58ch; fontSize:clamp(16.5px,1.18cqw,18.5px); lineHeight:1.7; color:#E4E3EC; textWrap:pretty">Jede Fläche entsteht in Schichten – und keine wird wie die andere.</p>
+        </div>
+
+        <div style="display:flex; flexDirection:column; gap:clamp(14px,1.6cqw,26px)">
+          <sc-for list="{{ strukturEintraege }}" as="e" hint-placeholder-count="8">
+            <article id="{{ e.id }}" data-entry="1" data-reveal="1" style="scrollMarginTop:120px; background:{{ e.bg }}; display:grid; gridTemplateColumns:minmax(0,1fr) clamp(150px,20cqw,268px); gap:clamp(22px,3cqw,54px); alignItems:center; padding:clamp(26px,3.2cqw,54px); color:#fff; opacity:0; transform:translateY(22px); transition:opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1)">
+              <div style="minWidth:0; display:flex; flexDirection:column; gap:clamp(10px,1cqw,16px)">
+                <sc-if value="{{ zeigeNummern }}" hint-placeholder-val="{{ true }}">
+                  <span style="fontSize:11.5px; fontWeight:700; letterSpacing:0.2em; textTransform:uppercase; color:#EB5D0B; fontVariantNumeric:tabular-nums">Struktur {{ e.no }}</span>
+                </sc-if>
+                <sc-if value="{{ e.zeigeText }}" hint-placeholder-val="{{ true }}">
+                  <h3 style="margin:0; fontSize:clamp(1.35rem,2.35cqw,2.35rem); fontWeight:800; letterSpacing:-0.03em; lineHeight:1.02; textTransform:uppercase; color:#fff; textWrap:balance">{{ e.name }}</h3>
+                  <p style="margin:0; maxWidth:46ch; fontSize:clamp(15px,1.06cqw,16px); lineHeight:1.65; color:#E9E8F0; textWrap:pretty">{{ e.text }}</p>
+                </sc-if>
+              </div>
+              <div data-entrymedia="1" style="width:100%; minWidth:0; justifySelf:end">
+                <image-slot id="{{ e.slotId }}" src="{{ e.src }}" shape="circle" fit="cover" placeholder="{{ e.hint }}" style="display:block; width:100%; aspectRatio:1/1; borderRadius:50%; boxShadow:0 0 0 1px rgba(255,255,255,.14)"></image-slot>
+              </div>
+            </article>
+          </sc-for>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="kontakt-abschluss" aria-label="Kontakt" style="position:relative; overflow:hidden; background:#15123B; color:#fff; padding:clamp(126px,15.2cqw,250px) clamp(18px,4cqw,64px) clamp(58px,7.2cqw,120px)">
+      <div data-kfz="1" aria-hidden="true" style="position:absolute; inset:0; padding:max(0px, min(15.65cqw, 235px) - 100px) clamp(18px,4cqw,64px) 0; display:flex; justifyContent:center; pointerEvents:none; userSelect:none; zIndex:0">
+        <div style="position:relative; width:100%; maxWidth:1440px">
+          <span style="position:absolute; right:4%; top:0.0755em; fontSize:66.6cqw; fontWeight:800; lineHeight:0.66; letterSpacing:-0.04em; color:transparent; WebkitTextStroke:2px rgba(235,93,11,0.22)">?</span>
+        </div>
+      </div>
+      <div style="position:relative; zIndex:2; maxWidth:1440px; margin:0 auto; display:flex; flexDirection:column; gap:clamp(29.4px,3.43cqw,54.9px)">
+        <div style="display:flex; flexDirection:column; gap:clamp(15.7px,1.72cqw,25.5px)">
+          <span style="display:flex; alignItems:center; gap:10.8px; fontSize:clamp(0.647rem,0.823cqw,0.823rem); fontWeight:700; letterSpacing:0.2em; textTransform:uppercase; color:#EB5D0B">
+            <span aria-hidden="true" style="width:30px; height:3px; background:#EB5D0B; flexShrink:0"></span>
+            Kontakt
+          </span>
+          <h2 style="margin:0; fontSize:clamp(1.88rem,4.65cqw,4.47rem); fontWeight:800; letterSpacing:-0.035em; lineHeight:0.98; textTransform:uppercase; color:#fff; textWrap:balance">Projekt im Kopf?<br>Sprechen wir <span style="color:#EB5D0B">drüber.</span></h2>
+        </div>
+        <div style="display:flex; flexDirection:column; gap:clamp(5.9px,0.735cqw,11.8px)">
+          <a href="tel:+492152510600" style="alignSelf:flex-start; fontSize:clamp(1.43rem,2.76cqw,2.95rem); fontWeight:800; letterSpacing:-0.035em; lineHeight:1.12; color:#fff; fontVariantNumeric:tabular-nums; transition:color .25s ease" style-hover="color:#EB5D0B">+49 2152 510 600</a>
+          <a href="mailto:info@horst-malerbetriebe.de" style="alignSelf:flex-start; maxWidth:100%; overflowWrap:anywhere; fontSize:clamp(1.15rem,2.34cqw,2.5rem); fontWeight:800; letterSpacing:-0.035em; lineHeight:1.12; color:#fff; transition:color .25s ease" style-hover="color:#EB5D0B">info@horst-malerbetriebe.de</a>
+        </div>
+        <div style="display:flex; flexWrap:wrap; alignItems:center; gap:clamp(11.8px,1.225cqw,19.6px)">
+          <a href="{{ kontaktHref }}" style="display:flex; alignItems:center; gap:12px; background:#EB5D0B; border:1px solid #EB5D0B; color:#fff; fontSize:clamp(0.725rem,0.843cqw,0.843rem); fontWeight:700; letterSpacing:0.11em; textTransform:uppercase; padding:clamp(14.7px,1.21cqw,19.2px) clamp(23px,2.17cqw,34.6px); whiteSpace:nowrap; transition:all .25s ease" style-hover="background:#fff; color:#EB5D0B; borderColor:#fff">Beratung anfragen →</a>
+          <a href="tel:+492152510600" style="display:flex; alignItems:center; gap:12px; background:transparent; border:1px solid rgba(255,255,255,.34); color:#fff; fontSize:clamp(0.725rem,0.843cqw,0.843rem); fontWeight:700; letterSpacing:0.11em; textTransform:uppercase; padding:clamp(14.7px,1.21cqw,19.2px) clamp(23px,2.17cqw,34.6px); whiteSpace:nowrap; transition:all .25s ease" style-hover="background:#fff; color:#15123B; borderColor:#fff">Direkt anrufen →</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer style="position:relative; background:var(--paper); padding:calc(clamp(76px,8cqw,128px) + 100px) clamp(18px,4cqw,64px) 32px; display:flex; flexDirection:column; gap:clamp(30px,4cqw,64px)">
+    <img src="./assets/horst-logo.png" alt="" width="1015" height="285" loading="lazy" decoding="async" style="height:clamp(44px,4.25cqw,68px); width:auto; alignSelf:flex-start; display:block">
+    <div data-foot="1" style="display:grid; gridTemplateColumns:repeat(4,1fr); gap:clamp(24px,2.5cqw,40px)">
+      <sc-for list="{{ footerCols }}" as="col" hint-placeholder-count="4">
+        <div style="display:flex; flexDirection:column; gap:14px">
+          <span style="fontSize:13px; fontWeight:800; letterSpacing:0.1em; textTransform:uppercase; color:#15123B">{{ col.title }}</span>
+          <div style="display:flex; flexDirection:column; gap:9px">
+            <sc-for list="{{ col.items }}" as="it" hint-placeholder-count="6">
+              <a href="{{ it.href }}" style="fontSize:16.5px; lineHeight:1.35; color:#17171C; transition:color .2s ease" style-hover="color:#EB5D0B">{{ it.label }}</a>
+            </sc-for>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+    <span style="fontSize:15px; color:#8C889F">© 2026 G. Horst Malerbetriebe GmbH</span>
+  </footer>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;zeigeNummern&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Einträge&quot;},&quot;flaechenTon&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;Gedeckt&quot;,&quot;options&quot;:[&quot;Gedeckt&quot;,&quot;Neutral&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Einträge&quot;}}">
+class Component extends DCLogic {
+  HOME = "Horst%20Malerbetriebe%20v5%20(7.0).dc.html";
+  LEIST = "LEISTUNGEN%20(3.0).dc.html";
+  UEBER = "%C3%9CBER%20UNS%201.0.dc.html";
+  IMPR = "IMPRESSIONEN%201.0.dc.html";
+  SELF = "farbe-struktur%203.0.dc.html";
+
+  state = { menuOpen: false };
+
+  /* ── Inhalte ──────────────────────────────────────────────────────────────
+     Namen, Texte und Flächenfarben sind Platzhalter und jederzeit änderbar.
+     Alle Bildplätze sind bewusst leer: die Motive werden später manuell
+     eingesetzt (per Drag & Drop in den Kreis oder über `src`). Größe und
+     Position der Kreise stehen fest – das Layout verschiebt sich dabei nicht.
+  ───────────────────────────────────────────────────────────────────────── */
+  FARBE = [
+    { name: "Plakative Akzente", bg: "#E4EBED", palette: ["#1F4E5F","#F0EDE6","#C9A277"], text: "Ein kräftiger Ton, gezielt gesetzt: eine Wand, eine Nische, ein Rahmen. Genug, um dem Raum eine Richtung zu geben." },
+    { name: "Geradlinig und klar", bg: "#E6EAEB", palette: ["#C5C9CB","#FAFAFA","#3C3F42"], text: "Klare Kanten, saubere Übergänge, ruhige Flächen. Farbe, die die Architektur unterstützt statt sie zu überlagern." },
+    { name: "Warme Ruhe", bg: "#EBE3D5", palette: ["#C9A87C","#9A7A52","#4A3C2C"], text: "Gedeckte Sand- und Lehmtöne, die Licht weich zurückgeben. Für Räume, die Ruhe schaffen." },
+    { name: "Dunkle Eleganz", bg: "#E2DCE1", palette: ["#3A2E3C","#8C7F79","#9A7E4F"], text: "Tiefe Töne nehmen Weite und schaffen Konzentration. Wirken am besten dort, wo Licht bewusst gesetzt ist." },
+    { name: "Sanfte Töne", bg: "#E9E7E2", palette: ["#D8D4CB","#BEB9AE","#8E887C"], text: "Kaum ein Grad Unterschied zum Weiß – und doch spürbar. Nuancen, die einen Raum größer und ruhiger machen." },
+    { name: "Klarer Kontrast", bg: "#DEDFDA", palette: ["#1F1F22","#F2F2EE","#8A8C85"], text: "Zwei Töne, sauber getrennt. Die eigentliche Arbeit steckt in der Kante dazwischen." },
+    { name: "Natürliche Wärme", bg: "#E6DCCB", palette: ["#B07B4F","#8A5A36","#E0CBA8"], text: "Erdige Pigmente auf matter Oberfläche. Farbe, die aussieht, als wäre sie schon immer da gewesen." },
+    { name: "Frische Weite", bg: "#DBE5E3", palette: ["#7FA8A2","#4E7B78","#CFE0DC"], text: "Kühle, helle Töne öffnen enge Grundrisse und halten lange Flure freundlich." }
+  ];
+
+  STRUKTUR = [
+    { name: "Sanfter Sand", bg: "#5A4E48", text: "Feine mineralische Körnung mit weicher Zeichnung. Massiv in der Wirkung, warm im Ton." },
+    { name: "Offener Beton", bg: "#4A4D52", text: "Sichtbetonoptik mit offenen Poren und Schalspuren. Roh in der Wirkung, kontrolliert im Aufbau." },
+    { name: "Fließende Struktur", bg: "#5E4741", text: "Freie Spachtelzüge, jede Fläche ein Unikat. Lebendig, ohne unruhig zu werden." },
+    { name: "Matte Tiefe", bg: "#3E4149", text: "Tiefes Schwarz ohne Glanz. Schluckt das Licht und lässt alles davor größer wirken." },
+    { name: "Weiche Welle", bg: "#1E2A38", text: "Fließende Züge in mehreren Schichten. Die Tiefe zeigt sich erst beim zweiten Hinsehen." },
+    { name: "Gebürstetes Metall", bg: "#2A2D34", text: "Metallpigmente, gerichtet aufgetragen. Je nach Blickwinkel heller oder dunkler." },
+    { name: "Alter Putz", bg: "#37302C", text: "Bewusst unregelmäßig, mit Kanten und Ausbrüchen. Sieht nach Geschichte aus und ist doch neu." },
+    { name: "Feiner Sand", bg: "#322D28", text: "Feinkörnige Oberfläche, die das Licht streut. Matt, samtig und angenehm zurückhaltend." }
+  ];
+
+  componentDidMount() {
+    this.io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (!e.isIntersecting) return;
+        const el = e.target;
+        const d = parseInt(el.getAttribute("data-reveal-delay") || "0", 10);
+        setTimeout(() => el.classList.add("is-in"), d);
+        this.io.unobserve(el);
+      });
+    }, { rootMargin: "0px 0px -10% 0px", threshold: 0.06 });
+    this.scan();
+    this.rescan = [200, 700, 1600].map((t) => setTimeout(() => this.scan(), t));
+    this.onKey = (e) => { if (e.key === "Escape") this.setState({ menuOpen: false }); };
+    document.addEventListener("keydown", this.onKey);
+  }
+
+  componentDidUpdate() {
+    this.scan();
+    document.body.style.overflow = this.state.menuOpen ? "hidden" : "";
+  }
+
+  componentWillUnmount() {
+    if (this.io) this.io.disconnect();
+    (this.rescan || []).forEach(clearTimeout);
+    document.removeEventListener("keydown", this.onKey);
+    document.body.style.overflow = "";
+  }
+
+  scan = () => {
+    if (!this.io) return;
+    document.querySelectorAll("[data-reveal]:not(.is-in)").forEach((el) => this.io.observe(el));
+  };
+
+  /* Fest hinterlegte Bilder: aus dem Editor eingesetzte Motive, als echte
+     Dateien im Projekt gesichert – so bleiben sie bei jedem Neuladen erhalten. */
+  FIX = {
+    "fs-farbe-01": "assets/bild-fs-farbe-01.webp",
+    "fs-farbe-02": "assets/bild-fs-farbe-02.webp",
+    "fs-farbe-03": "assets/bild-fs-farbe-03.webp",
+    "fs-farbe-04": "assets/bild-fs-farbe-04.webp",
+    "fs-farbe-05": "assets/bild-fs-farbe-05.webp",
+    "fs-farbe-06": "assets/bild-fs-farbe-06.webp",
+    "fs-farbe-07": "assets/bild-fs-farbe-07.webp",
+    "fs-farbe-08": "assets/bild-fs-farbe-08.webp",
+    "fs-struktur-01": "assets/bild-fs-struktur-01.webp",
+    "fs-struktur-02": "assets/bild-fs-struktur-02.webp",
+    "fs-struktur-03": "assets/bild-fs-struktur-03.webp",
+    "fs-struktur-04": "assets/bild-fs-struktur-04.webp",
+    "fs-struktur-05": "assets/bild-fs-struktur-05.webp",
+    "fs-struktur-06": "assets/bild-fs-struktur-06.webp",
+    "fs-struktur-07": "assets/bild-fs-struktur-07.webp",
+    "fs-struktur-08": "assets/bild-fs-struktur-08.webp"
+  };
+
+  build = (list, key, labelDe, neutral) => list.map((e, i) => {
+    const no = String(i + 1).padStart(2, "0");
+    return {
+      id: key + "-" + no,
+      no: no,
+      name: e.name,
+      text: e.text,
+      bg: neutral || e.bg,
+      palette: (e.palette || []).map((hex, n) => ({ hex: hex, key: no + "-" + n })),
+      slotId: "fs-" + key + "-" + no,
+      src: this.FIX["fs-" + key + "-" + no] || "",
+      // Struktur 05–08: nur Nummer und Bild, Überschrift und Text entfallen.
+      zeigeText: !(key === "struktur" && i >= 4),
+      hint: "BILD: " + labelDe + " " + no
+    };
+  });
+
+  renderVals() {
+    const home = (hash) => this.HOME + (hash || "");
+    const neutral = (this.props.flaechenTon ?? "Gedeckt") === "Neutral";
+    const farbe = this.build(this.FARBE, "farbe", "Farbe", neutral ? "#EDEDEA" : null);
+    const struktur = this.build(this.STRUKTUR, "struktur", "Struktur", neutral ? "#211E3C" : null);
+
+    return {
+      zeigeNummern: (this.props.zeigeNummern ?? true) === true,
+      farbeEintraege: farbe,
+      strukturEintraege: struktur,
+
+      menuOpen: this.state.menuOpen === true,
+      openMenu: () => this.setState({ menuOpen: true }),
+      closeMenu: () => this.setState({ menuOpen: false }),
+      homeHref: home(),
+      kontaktHref: home("#kontakt"),
+
+      topNav: [
+        { label: "Start", href: home(), current: "false" },
+        { label: "Leistungen", href: this.LEIST, current: "false" },
+        { label: "Über uns", href: this.UEBER, current: "false" },
+        { label: "Farbe & Struktur", href: this.SELF, current: "page" },
+        { label: "Projekte", href: home("#projekte"), current: "false" },
+        { label: "Impressionen", href: this.IMPR, current: "false" },
+        { label: "Karriere", href: home("#ausbildung"), current: "false" }
+      ],
+      menuLinks: [
+        { no: "01", label: "Startseite", href: home() },
+        { no: "02", label: "Leistungen", href: this.LEIST },
+        { no: "03", label: "Farbe & Struktur", href: this.SELF },
+        { no: "04", label: "Über uns", href: this.UEBER },
+        { no: "05", label: "Projekte", href: home("#projekte") },
+        { no: "06", label: "Impressionen", href: this.IMPR },
+        { no: "07", label: "Karriere", href: home("#ausbildung") },
+        { no: "08", label: "Kontakt", href: home("#kontakt") }
+      ],
+      menuSocial: [
+        { label: "Instagram", href: home() },
+        { label: "TikTok", href: home() },
+        { label: "Facebook", href: home() },
+        { label: "Google", href: home() }
+      ],
+      menuLegal: [
+        { label: "Impressum", href: "impressum.dc.html" },
+        { label: "Datenschutz", href: "datenschutz.dc.html" }
+      ],
+
+      footerCols: [
+        { title: "Kontakt", items: [
+          { label: "Burkhardt Horst", href: home("#kontakt") },
+          { label: "Geschäftsführer", href: home("#kontakt") },
+          { label: "Tel. +49 2152 510 600", href: "tel:+492152510600" },
+          { label: "Industriering Ost 56", href: home("#kontakt") },
+          { label: "47906 Kempen", href: home("#kontakt") },
+          { label: "info@horst-malerbetriebe.de", href: "mailto:info@horst-malerbetriebe.de" }
+        ]},
+        { title: "Navigation", items: [
+          { label: "Startseite", href: home() },
+          { label: "Leistungen", href: this.LEIST },
+          { label: "Projekte", href: "projekte.dc.html" },
+          { label: "Farbe & Struktur", href: this.SELF },
+          { label: "Über uns", href: this.UEBER },
+          { label: "Impressionen", href: this.IMPR },
+          { label: "Karriere", href: "karriere.dc.html" },
+          { label: "Kontakt", href: home("#kontakt") }
+        ]},
+        { title: "Informationen", items: [
+          { label: "Impressum", href: "impressum.dc.html" },
+          { label: "Datenschutz", href: "datenschutz.dc.html" }
+        ]},
+        { title: "Links", items: [
+          { label: "Instagram", href: home() },
+          { label: "Facebook", href: home() },
+          { label: "TikTok", href: home() },
+          { label: "Google", href: home() }
+        ]}
+      ]
+    };
+  }
+}
+
+</script>
+</body>
+</html>

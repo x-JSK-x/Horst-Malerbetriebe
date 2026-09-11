@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#F5F5F3">
+<meta name="description" content="Impressionen von Horst Malerbetriebe in Kempen: Einblicke in Projekte, Arbeitsmomente, Materialien, Oberflächen und das Team.">
+<title>Impressionen · Horst Malerbetriebe</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+  html { scroll-behavior: smooth; }
+  :root { --paper: #F5F5F3; --paper-alt: #EFEFEC; --paper-tint: #E8E8E5; --line: #E2E2DF; --line-2: #D9D9D6; --line-3: #CFCFCC; }
+  body { margin: 0; font-family: 'Sora', sans-serif; background: var(--paper); color: #15123B; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  a { color: #EB5D0B; text-decoration: none; }
+  a:hover { color: #15123B; }
+  input, textarea, button { font-family: inherit; }
+  @keyframes v3fade { from { opacity: 0; } to { opacity: 1; } }
+  [data-reveal].is-in { opacity: 1 !important; transform: none !important; }
+
+  /* Header/Navigation: identisch zur Landingpage (kompakter Sticky-Zustand) */
+  [data-hdr] [aria-label="Hauptnavigation"] {
+    width: min(94%, clamp(292px, 55cqw, 890px));
+    max-width: 100%;
+    min-width: max-content;
+  }
+  [data-hdrlogo] { position: absolute; left: clamp(16px, 4cqw, 64px); top: 50%; transform: translateY(-50%); }
+  [data-desknav][aria-current="page"] { color: #EB5D0B !important; }
+  /* Fragezeichen im Kontaktabschluss: Overlay, verankert in derselben
+     zentrierten 1440er-Spalte wie die Headline (identisch zur Leistungsseite). */
+  [data-kfz] > div { container-type: inline-size; }
+  @container horst (max-width: 1560px) {
+    [data-kfz] > div > span { font-size: 63cqw !important; }
+  }
+  @container horst (max-width: 1360px) {
+    [data-kfz] > div > span { font-size: 60cqw !important; }
+  }
+  [data-socialarrow] { transform: translateY(-0.5px); }
+  [data-social]:hover [data-socialarrow] { transform: translate(2.5px, -3px); opacity: 1; }
+
+  /* ── Galerie: strenges 2-Spalten-Raster ──
+     Alle Bilder gleich breit, gleich hoch, gleiches Seitenverhältnis,
+     konstante Abstände. Der Rhythmus entsteht allein über die Motive. */
+  [data-gitem] image-slot { transition: transform .7s cubic-bezier(.22,1,.36,1), filter .5s ease; }
+  @media (hover: hover) {
+    [data-gal][data-hover="1"] [data-gitem]:hover image-slot { transform: scale(1.014); filter: brightness(1.045); }
+  }
+  [data-gal][data-dichte="kompakt"] { row-gap: clamp(20px, 2cqw, 34px) !important; }
+
+  /* Mobile: eine Spalte, Reihenfolge bleibt erhalten. */
+  @container (max-width: 720px) {
+    [data-gal] { grid-template-columns: minmax(0, 1fr) !important; row-gap: clamp(20px, 4cqw, 32px) !important; }
+  }
+
+  @container (max-width: 1200px) {
+    [data-desknav] { display: none !important; }
+  }
+  @container (max-width: 900px) {
+    [data-menugrid] { grid-template-columns: 1fr !important; align-items: start !important; }
+    [data-menugrid] > div:first-of-type { order: 2; }
+    [data-menugrid] > div:last-of-type { order: 1; align-items: flex-start !important; padding-right: 0 !important; padding-bottom: 0 !important; }
+    [data-menugrid] > div:last-of-type a { justify-content: flex-start !important; }
+    [data-foot] { grid-template-columns: repeat(2, 1fr) !important; gap: 30px !important; }
+  }
+  @container (max-width: 640px) {
+    [data-hdr] { justify-content: space-between !important; }
+    [data-hdr] [aria-label="Hauptnavigation"] { width: auto !important; min-width: 0 !important; }
+    [data-hdrlogo] { position: static !important; transform: none !important; }
+    [data-foot] { grid-template-columns: 1fr !important; }
+  }
+  @container (max-width: 400px) {
+    [data-hdr] img { height: 32px !important; }
+    [data-hdr] [data-kontakt] { font-size: 11.5px !important; padding: 11px 13px !important; }
+    [data-hdr] nav { gap: 8px !important; }
+  }
+</style>
+</helmet>
+
+<div style="container:horst / inline-size; width:100%; background:var(--paper)">
+
+  <a href="#inhalt" style="position:absolute; left:-9999px; top:0; zIndex:300; background:#15123B; color:#fff; fontSize:13px; fontWeight:700; letterSpacing:0.08em; textTransform:uppercase; padding:12px 18px" style-focus="left:8px; top:8px">Zum Inhalt springen</a>
+
+  <header data-hdr="1" style="position:sticky; top:0; zIndex:70; background:color-mix(in srgb, var(--paper) 94%, transparent); backdropFilter:blur(16px); borderBottom:1px solid var(--line); display:flex; alignItems:center; justifyContent:center; gap:20px; padding:clamp(15px,1.5cqw,24px) clamp(18px,4cqw,64px)">
+    <a data-hdrlogo="1" href="{{ homeHref }}" aria-label="Horst Malerbetriebe – Startseite" style="display:block; flexShrink:0">
+      <img src="./assets/horst-logo.png" alt="Horst Malerbetriebe" width="1015" height="285" decoding="async" fetchpriority="high" style="height:clamp(34px,3.1cqw,50px); width:auto; display:block">
+    </a>
+    <nav aria-label="Hauptnavigation" style="display:flex; alignItems:center; justifyContent:space-between; gap:clamp(7px,1cqw,15px)">
+      <sc-for list="{{ topNav }}" as="t" hint-placeholder-count="5">
+        <a href="{{ t.href }}" data-desknav="1" aria-current="{{ t.current }}" style="color:#15123B; fontSize:13.5px; fontWeight:600; letterSpacing:0.14em; textTransform:uppercase; whiteSpace:nowrap" style-hover="color:#EB5D0B">{{ t.label }}</a>
+      </sc-for>
+      <a href="{{ kontaktHref }}" data-kontakt="1" style="background:#EB5D0B; color:#fff; fontSize:12.5px; fontWeight:700; letterSpacing:0.11em; textTransform:uppercase; padding:12px 20px; whiteSpace:nowrap; transition:background .25s ease" style-hover="background:#15123B; color:#fff">Kontakt</a>
+      <button type="button" onClick="{{ openMenu }}" aria-label="Menü öffnen" style="width:46px; height:46px; border:1px solid var(--line-2); background:var(--paper); cursor:pointer; display:flex; flexDirection:column; alignItems:center; justifyContent:center; gap:5px; padding:0; flexShrink:0; transition:all .25s ease" style-hover="background:#15123B; borderColor:#15123B">
+        <span style="display:block; width:18px; height:2px; background:#15123B"></span>
+        <span style="display:block; width:18px; height:2px; background:#EB5D0B"></span>
+        <span style="display:block; width:18px; height:2px; background:#15123B"></span>
+      </button>
+    </nav>
+  </header>
+
+  <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed; inset:0; zIndex:300; background:#15123B; color:#fff; padding:clamp(18px,3.63cqw,58px); display:grid; gridTemplateRows:auto 1fr; gap:clamp(24px,2.75cqw,44px); animation:v3fade .2s ease-out; overflow:auto">
+
+      <svg viewBox="0 0 1200 800" preserveAspectRatio="none" aria-hidden="true" style="position:absolute; inset:0; width:100%; height:100%; pointerEvents:none; zIndex:0">
+        <path d="M -40 640 C 240 620 300 430 520 372 C 720 320 760 176 1010 132 C 1120 112 1180 104 1260 96" fill="none" stroke="#EB5D0B" stroke-width="0.75" stroke-linecap="round" opacity="0.16" vector-effect="non-scaling-stroke"></path>
+        <path d="M -40 712 C 280 700 360 520 600 470 C 800 428 900 300 1260 238" fill="none" stroke="#EB5D0B" stroke-width="0.75" stroke-linecap="round" opacity="0.1" vector-effect="non-scaling-stroke"></path>
+      </svg>
+
+      <div style="position:relative; zIndex:1; display:flex; justifyContent:space-between; alignItems:center; gap:16px">
+        <span style="fontSize:11.5px; fontWeight:700; letterSpacing:0.24em; textTransform:uppercase; color:#EB5D0B">Horst Malerbetriebe · Kempen</span>
+        <button type="button" onClick="{{ closeMenu }}" aria-label="Menü schließen" style="width:46px; height:46px; border:1px solid rgba(255,255,255,.28); background:transparent; color:#fff; fontSize:23px; lineHeight:0.94; cursor:pointer; flexShrink:0; transition:all .2s ease" style-hover="background:#EB5D0B; borderColor:#EB5D0B">×</button>
+      </div>
+
+      <div data-menugrid="1" style="position:relative; zIndex:1; display:grid; gridTemplateColumns:minmax(180px,.68fr) 1.32fr; gap:clamp(28px,4.5cqw,72px); alignItems:end">
+
+        <div style="display:flex; flexDirection:column; gap:clamp(22px,2.13cqw,34px); alignSelf:end">
+          <span style="fontSize:clamp(20px,1.88cqw,30px); fontWeight:800; textTransform:uppercase; color:#EB5D0B; letterSpacing:-0.02em; lineHeight:1">Mit Herz<br>dabei.</span>
+          <span style="fontSize:14.5px; lineHeight:1.6; color:rgba(255,255,255,.6)">Industriering Ost 56 · 47906 Kempen<br>info@horst-malerbetriebe.de<br>+49 2152 510 600</span>
+          <div style="display:flex; flexDirection:column; gap:clamp(8px,0.75cqw,12px)">
+            <span style="display:flex; alignItems:center; gap:9px; fontSize:11px; fontWeight:700; letterSpacing:0.2em; textTransform:uppercase; color:#EB5D0B">
+              <span aria-hidden="true" style="width:22px; height:2px; background:#EB5D0B; flexShrink:0"></span>
+              Folgt uns
+            </span>
+            <div style="display:flex; flexDirection:column; gap:2px; marginLeft:-4px">
+              <sc-for list="{{ menuSocial }}" as="s" hint-placeholder-count="4">
+                <a href="{{ s.href }}" data-social="1" style="display:flex; alignItems:center; gap:9px; color:rgba(255,255,255,.92); fontSize:clamp(17px,1.32cqw,21px); fontWeight:700; letterSpacing:-0.01em; lineHeight:1; textTransform:uppercase; textDecoration:none; padding:11px 4px; transition:color .2s ease" style-hover="color:#EB5D0B"><span style="display:block">{{ s.label }}</span><span data-socialarrow="1" aria-hidden="true" style="flexShrink:0; display:flex; alignItems:center; justifyContent:center; width:13px; height:13px; fontSize:13px; lineHeight:1; fontWeight:600; opacity:.62; transition:transform .25s cubic-bezier(.22,1,.36,1), opacity .2s ease">↗</span></a>
+              </sc-for>
+            </div>
+          </div>
+          <div style="display:flex; flexDirection:column; gap:9px; borderTop:1px solid rgba(255,255,255,.14); paddingTop:16px">
+            <sc-for list="{{ menuLegal }}" as="l" hint-placeholder-count="2">
+              <a href="{{ l.href }}" style="color:rgba(255,255,255,.55); fontSize:12.5px; fontWeight:600; letterSpacing:0.1em; textTransform:uppercase; textDecoration:none; transition:color .2s ease" style-hover="color:#EB5D0B">{{ l.label }}</a>
+            </sc-for>
+          </div>
+        </div>
+
+        <div style="display:flex; flexDirection:column; alignItems:flex-end; justifyContent:center; gap:clamp(14px,1.63cqw,26px); alignSelf:center; paddingRight:clamp(8px,4cqw,64px); paddingBottom:clamp(18px,3.5cqw,56px)">
+          <sc-for list="{{ menuLinks }}" as="m" hint-placeholder-count="8">
+            <a href="{{ m.href }}" onClick="{{ closeMenu }}" style="display:flex; alignItems:baseline; justifyContent:flex-end; gap:16px; color:#fff; fontSize:clamp(29px,3.56cqw,57px); fontWeight:800; textTransform:uppercase; lineHeight:1; letterSpacing:-0.025em; textDecoration:none; transition:color .2s ease, transform .3s cubic-bezier(.22,1,.36,1)" style-hover="color:#EB5D0B; transform:translateX(-12px)">
+              <span style="fontSize:11.5px; fontWeight:700; letterSpacing:0.16em; color:rgba(255,255,255,.35)">{{ m.no }}</span>
+              <span>{{ m.label }}</span>
+            </a>
+          </sc-for>
+        </div>
+
+      </div>
+    </div>
+  </sc-if>
+
+  <main id="inhalt">
+
+    <section aria-label="Impressionen – Einführung" style="position:relative; background:var(--paper); padding:clamp(52px,7cqw,112px) clamp(18px,4cqw,64px) clamp(34px,3.4cqw,54px)">
+      <div style="maxWidth:1098px; margin:0 auto; display:flex; flexDirection:column; gap:clamp(20px,2.25cqw,34px)">
+        <div style="display:flex; flexDirection:column; gap:clamp(16px,1.75cqw,26px)">
+          <span data-reveal="1" style="display:flex; alignItems:center; gap:11px; fontSize:clamp(0.66rem,0.84cqw,0.84rem); fontWeight:700; letterSpacing:0.2em; textTransform:uppercase; color:#15123B; opacity:0; transform:translateY(16px); transition:opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1)">
+            <span aria-hidden="true" style="width:30px; height:3px; background:#EB5D0B; flexShrink:0"></span>
+            Impressionen
+          </span>
+          <h1 data-reveal="1" data-reveal-delay="80" style="margin:0 auto; maxWidth:20ch; textAlign:center; fontSize:clamp(1.85rem,4.3cqw,4.2rem); fontWeight:800; letterSpacing:-0.035em; lineHeight:0.99; textTransform:uppercase; color:#15123B; textWrap:balance; opacity:0; transform:translateY(20px); transition:opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1)">Unsere Arbeit. <span style="color:#EB5D0B">In Bildern.</span></h1>
+        </div>
+        <p data-reveal="1" data-reveal-delay="150" style="margin:0 auto; maxWidth:52ch; textAlign:center; fontSize:clamp(16.5px,1.18cqw,18.5px); lineHeight:1.72; color:#17171C; textWrap:pretty; opacity:0; transform:translateY(16px); transition:opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1)">Projekte, Materialien und die Menschen dahinter – kurze Einblicke in den Alltag bei Horst.</p>
+      </div>
+    </section>
+
+    <section id="galerie" aria-label="Bildergalerie" style="position:relative; background:var(--paper); padding:0 clamp(18px,4cqw,64px) clamp(72px,9cqw,150px)">
+      <div style="width:100%; maxWidth:1250px; margin:0 auto; display:flex; flexDirection:column; gap:clamp(26px,3.2cqw,56px)">
+
+        <div style="display:flex; flexWrap:wrap; alignItems:baseline; justifyContent:space-between; gap:12px; borderTop:1px solid var(--line); paddingTop:clamp(14px,1.5cqw,24px)">
+          <span style="display:flex; alignItems:center; gap:11px; fontSize:clamp(0.66rem,0.84cqw,0.84rem); fontWeight:700; letterSpacing:0.2em; textTransform:uppercase; color:#15123B">
+            <span aria-hidden="true" style="width:30px; height:3px; background:#EB5D0B; flexShrink:0"></span>
+            Galerie
+          </span>
+          <span style="fontSize:12.5px; fontWeight:700; letterSpacing:0.16em; textTransform:uppercase; color:#8C889F; fontVariantNumeric:tabular-nums">{{ counter }}</span>
+        </div>
+
+        <div data-gal="1" data-dichte="{{ dichteFlag }}" data-hover="{{ hoverFlag }}" style="width:100%; display:grid; gridTemplateColumns:repeat(2,minmax(0,1fr)); columnGap:clamp(16px,2.2cqw,34px); rowGap:clamp(28px,3.2cqw,54px); alignItems:start">
+          <sc-for list="{{ bilder }}" as="g" hint-placeholder-count="12">
+            <figure data-gitem="1" data-reveal="1" style="margin:0; minWidth:0; display:flex; flexDirection:column; gap:clamp(9px,0.9cqw,14px); opacity:0; transform:translateY(22px); transition:opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1)">
+              <image-slot id="{{ g.slotId }}" src="{{ g.src }}" shape="rounded" radius="{{ radius }}" fit="cover" placeholder="{{ g.hint }}" style="display:block; width:100%; minWidth:0; aspectRatio:16/9"></image-slot>
+              <sc-if value="{{ g.showCap }}" hint-placeholder-val="{{ false }}">
+                <figcaption style="display:flex; alignItems:baseline; gap:10px; fontSize:11.5px; fontWeight:700; letterSpacing:0.16em; textTransform:uppercase; color:#8C889F">
+                  <span style="color:#EB5D0B; fontVariantNumeric:tabular-nums">{{ g.no }}</span>
+                  <span style="color:#8C889F; letterSpacing:0.14em">{{ g.cap }}</span>
+                </figcaption>
+              </sc-if>
+            </figure>
+          </sc-for>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="kontakt-abschluss" aria-label="Kontakt" style="position:relative; overflow:hidden; background:#15123B; color:#fff; padding:clamp(54px,6.8cqw,112px) clamp(18px,4cqw,64px) clamp(58px,7.2cqw,120px)">
+      <div data-kfz="1" aria-hidden="true" style="position:absolute; inset:0; padding:0 clamp(18px,4cqw,64px); display:flex; justifyContent:center; pointerEvents:none; userSelect:none; zIndex:0">
+        <div style="position:relative; width:100%; maxWidth:1440px">
+          <span style="position:absolute; right:4%; top:0.0755em; fontSize:68cqw; fontWeight:800; lineHeight:0.66; letterSpacing:-0.04em; color:transparent; WebkitTextStroke:2px rgba(235,93,11,0.22)">?</span>
+        </div>
+      </div>
+      <div style="position:relative; zIndex:2; maxWidth:1440px; margin:0 auto; display:flex; flexDirection:column; gap:clamp(30px,3.5cqw,56px)">
+        <div style="display:flex; flexDirection:column; gap:clamp(16px,1.75cqw,26px)">
+          <span style="display:flex; alignItems:center; gap:11px; fontSize:clamp(0.66rem,0.84cqw,0.84rem); fontWeight:700; letterSpacing:0.2em; textTransform:uppercase; color:#EB5D0B">
+            <span aria-hidden="true" style="width:30px; height:3px; background:#EB5D0B; flexShrink:0"></span>
+            Kontakt
+          </span>
+          <h2 style="margin:0; fontSize:clamp(1.92rem,4.74cqw,4.56rem); fontWeight:800; letterSpacing:-0.035em; lineHeight:0.98; textTransform:uppercase; color:#fff; textWrap:balance">Projekt im Kopf?<br>Sprechen wir <span style="color:#EB5D0B">drüber.</span></h2>
+        </div>
+        <div style="display:flex; flexDirection:column; gap:clamp(6px,0.75cqw,12px)">
+          <a href="tel:+492152510600" style="alignSelf:flex-start; fontSize:clamp(1.46rem,2.82cqw,3.01rem); fontWeight:800; letterSpacing:-0.035em; lineHeight:1.12; color:#fff; fontVariantNumeric:tabular-nums; transition:color .25s ease" style-hover="color:#EB5D0B">+49 2152 510 600</a>
+          <a href="mailto:info@horst-malerbetriebe.de" style="alignSelf:flex-start; maxWidth:100%; overflowWrap:anywhere; fontSize:clamp(1.17rem,2.39cqw,2.55rem); fontWeight:800; letterSpacing:-0.035em; lineHeight:1.12; color:#fff; transition:color .25s ease" style-hover="color:#EB5D0B">info@horst-malerbetriebe.de</a>
+        </div>
+        <div style="display:flex; flexWrap:wrap; alignItems:center; gap:clamp(12px,1.25cqw,20px)">
+          <a href="{{ kontaktHref }}" style="display:flex; alignItems:center; gap:12px; background:#EB5D0B; border:1px solid #EB5D0B; color:#fff; fontSize:clamp(0.74rem,0.86cqw,0.86rem); fontWeight:700; letterSpacing:0.11em; textTransform:uppercase; padding:clamp(15px,1.23cqw,19.6px) clamp(23.5px,2.21cqw,35.3px); whiteSpace:nowrap; transition:all .25s ease" style-hover="background:#fff; color:#EB5D0B; borderColor:#fff">Beratung anfragen →</a>
+          <a href="tel:+492152510600" style="display:flex; alignItems:center; gap:12px; background:transparent; border:1px solid rgba(255,255,255,.34); color:#fff; fontSize:clamp(0.74rem,0.86cqw,0.86rem); fontWeight:700; letterSpacing:0.11em; textTransform:uppercase; padding:clamp(15px,1.23cqw,19.6px) clamp(23.5px,2.21cqw,35.3px); whiteSpace:nowrap; transition:all .25s ease" style-hover="background:#fff; color:#15123B; borderColor:#fff">Direkt anrufen →</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer style="position:relative; background:var(--paper); padding:clamp(76px,8cqw,128px) clamp(18px,4cqw,64px) 32px; display:flex; flexDirection:column; gap:clamp(30px,4cqw,64px)">
+    <img src="./assets/horst-logo.png" alt="" width="1015" height="285" loading="lazy" decoding="async" style="height:clamp(44px,4.25cqw,68px); width:auto; alignSelf:flex-start; display:block">
+    <div data-foot="1" style="display:grid; gridTemplateColumns:repeat(4,1fr); gap:clamp(24px,2.5cqw,40px)">
+      <sc-for list="{{ footerCols }}" as="col" hint-placeholder-count="4">
+        <div style="display:flex; flexDirection:column; gap:14px">
+          <span style="fontSize:13px; fontWeight:800; letterSpacing:0.1em; textTransform:uppercase; color:#15123B">{{ col.title }}</span>
+          <div style="display:flex; flexDirection:column; gap:9px">
+            <sc-for list="{{ col.items }}" as="it" hint-placeholder-count="6">
+              <a href="{{ it.href }}" style="fontSize:16.5px; lineHeight:1.35; color:#17171C; transition:color .2s ease" style-hover="color:#EB5D0B">{{ it.label }}</a>
+            </sc-for>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+    <span style="fontSize:15px; color:#8C889F">© 2026 G. Horst Malerbetriebe GmbH</span>
+  </footer>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;bildRadius&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:6,&quot;min&quot;:0,&quot;max&quot;:28,&quot;unit&quot;:&quot;px&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Galerie&quot;},&quot;zeigeCaptions&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Galerie&quot;},&quot;dichte&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;Ruhig&quot;,&quot;options&quot;:[&quot;Ruhig&quot;,&quot;Kompakt&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Galerie&quot;},&quot;hoverEffekt&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Galerie&quot;}}">
+class Component extends DCLogic {
+  HOME = "Horst%20Malerbetriebe%20v5%20(7.0).dc.html";
+  LEIST = "LEISTUNGEN%20(3.0).dc.html";
+  UEBER = "%C3%9CBER%20UNS%201.0.dc.html";
+  SELF = "IMPRESSIONEN%201.0.dc.html";
+
+  state = { menuOpen: false };
+
+  componentDidMount() {
+    this.io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (!e.isIntersecting) return;
+        const el = e.target;
+        const d = parseInt(el.getAttribute("data-reveal-delay") || "0", 10);
+        setTimeout(() => el.classList.add("is-in"), d);
+        this.io.unobserve(el);
+      });
+    }, { rootMargin: "0px 0px -10% 0px", threshold: 0.06 });
+    this.scan();
+    this.rescan = [200, 700, 1600].map((t) => setTimeout(() => this.scan(), t));
+    this.onKey = (e) => { if (e.key === "Escape") this.setState({ menuOpen: false }); };
+    document.addEventListener("keydown", this.onKey);
+  }
+
+  componentDidUpdate() {
+    this.scan();
+    document.body.style.overflow = this.state.menuOpen ? "hidden" : "";
+  }
+
+  componentWillUnmount() {
+    if (this.io) this.io.disconnect();
+    (this.rescan || []).forEach(clearTimeout);
+    document.removeEventListener("keydown", this.onKey);
+    document.body.style.overflow = "";
+  }
+
+  scan = () => {
+    if (!this.io) return;
+    document.querySelectorAll("[data-reveal]:not(.is-in)").forEach((el) => this.io.observe(el));
+  };
+
+  /* ── Galerie ──────────────────────────────────────────────────────────────
+     Ein Eintrag pro Bildplatz, in der Reihenfolge des 2-Spalten-Rasters
+     (links, rechts, links, rechts …). Alle Bildrahmen sind identisch – die
+     Abwechslung entsteht ausschließlich über die Motive.
+     Zum Austauschen nur `src` ändern (oder das Bild direkt im Editor auf den
+     Platz ziehen – die Zuordnung bleibt über `slotId` erhalten). Neue Bilder
+     einfach unten anhängen; sie füllen das Raster automatisch weiter.
+     Alle Motive sind vorläufige Platzhalter aus dem bestehenden Bildbestand.
+  ───────────────────────────────────────────────────────────────────────── */
+  G = [
+    { src: "assets/impression-1.webp",               cap: "Arbeitsmoment · Vor Ort", hint: "Arbeitsmoment vor Ort" },
+    { src: "assets/referenz-treppenhaus.webp",       cap: "Treppenhaus · Innen",     hint: "Treppenhaus / Innenbereich" },
+    { src: "assets/leistung-05-oberflaechen.webp",   cap: "Oberfläche · Detail",     hint: "Oberfläche im Detail" },
+    { src: "assets/impression-2.webp",               cap: "Baustelle · Fassade",     hint: "Baustelle / Fassade" },
+    { src: "assets/referenz-fassadensanierung.webp", cap: "Fassade · Außen",         hint: "Fassade außen" },
+    { src: "assets/impression-3.webp",               cap: "Innenraum · Gestaltet",   hint: "Innenraum nach der Gestaltung" },
+    { src: "assets/teaser-oberflaechen.webp",        cap: "Struktur · Muster",       hint: "Struktur / Muster" },
+    { src: "assets/uu-team-wide.webp",               cap: "Team · Werkstatt",        hint: "Team in der Werkstatt" },
+    { src: "assets/referenz-betonoptik.webp",        cap: "Betonoptik · Wandfläche", hint: "Betonoptik / Wandfläche" },
+    { src: "assets/impression-4.webp",               cap: "Mitarbeiter · Bei der Arbeit", hint: "Mitarbeiter bei der Arbeit" },
+    { src: "assets/thema-leistungen.webp",           cap: "Werkzeug · Material",     hint: "Werkzeug oder Material" },
+    { src: "assets/leistung-08-firmensitz.webp",     cap: "Firmensitz · Kempen",     hint: "Firmensitz Kempen" },
+    { src: "assets/impression-5.webp",               cap: "Weiteres Motiv",          hint: "Weiteres Motiv" },
+    { src: "assets/thema-ueber-uns.webp",            cap: "Detail · Kante",          hint: "Detailaufnahme" },
+    { src: "assets/referenz-treppenhaus.webp",       cap: "Fertiger Bereich",        hint: "Fertiger Bereich" },
+    { src: "assets/team.jpg",                        cap: "Team · Momentaufnahme",   hint: "Team-Moment" },
+    { src: "assets/thema-karriere.webp",             cap: "Ausbildung · Nachwuchs",  hint: "Ausbildung / Nachwuchs" },
+    { src: "assets/impression-1.webp",               cap: "Farbe · Mischung",        hint: "Farbe anmischen" },
+    { src: "assets/referenz-fassadensanierung.webp", cap: "Gerüst · Höhenarbeit",    hint: "Gerüst / Hubarbeitsbühne" },
+    { src: "assets/leistung-05-oberflaechen.webp",   cap: "Oberfläche · Struktur",   hint: "Oberfläche im Detail" },
+    { src: "assets/impression-2.webp",               cap: "Raum · Nach der Arbeit",  hint: "Raum nach der Gestaltung" },
+    { src: "assets/teaser-oberflaechen.webp",        cap: "Besondere Oberfläche",    hint: "Besondere Oberfläche" },
+    { src: "assets/impression-3.webp",               cap: "Maschine · Im Einsatz",   hint: "Maschine im Einsatz" },
+    { src: "assets/referenz-betonoptik.webp",        cap: "Struktur · Detail",       hint: "Struktur im Detail" },
+    { src: "assets/thema-leistungen.webp",           cap: "Material · Lager",        hint: "Material / Lager" },
+    { src: "assets/uu-team-wide.webp",               cap: "Baustelle · Überblick",   hint: "Baustelle im Überblick" },
+    { src: "assets/impression-4.webp",               cap: "Detail · Übergang",       hint: "Detail / Übergang" },
+    { src: "assets/leistung-08-firmensitz.webp",     cap: "Gebäude · Raum",          hint: "Gebäude / Raum" },
+    { src: "assets/referenz-treppenhaus.webp",       cap: "Innenraum · Fertig",      hint: "Fertiger Innenraum" },
+    { src: "assets/impression-5.webp",               cap: "Arbeitsprozess",          hint: "Arbeitsprozess" },
+    { src: "assets/thema-ueber-uns.webp",            cap: "Werkzeug · Detail",       hint: "Werkzeug im Detail" },
+    { src: "assets/team.jpg",                        cap: "Team · Horst",            hint: "Team von Horst" }
+  ];
+
+  /* Fest hinterlegte Bilder: aus dem Editor eingesetzte Motive, als echte
+     Dateien im Projekt gesichert – so bleiben sie bei jedem Neuladen erhalten. */
+  FIX = {
+    "imp-01": "assets/fix-imp-01.webp",
+    "imp-02": "assets/fix-imp-02.webp",
+    "imp-05": "assets/bild-imp-05.webp",
+    "imp-06": "assets/bild-imp-06.webp",
+    "imp-07": "assets/bild-imp-07.webp",
+    "imp-08": "assets/bild-imp-08.webp",
+    "imp-09": "assets/bild-imp-09.webp",
+    "imp-10": "assets/bild-imp-10.webp",
+    "imp-11": "assets/bild-imp-11.webp",
+    "imp-12": "assets/bild-imp-12.webp",
+    "imp-13": "assets/bild-imp-13.webp",
+    "imp-14": "assets/bild-imp-14.webp",
+    "imp-16": "assets/fix-imp-16.webp",
+    "imp-17": "assets/bild-imp-17.webp",
+    "imp-18": "assets/bild-imp-18.webp",
+    "imp-20": "assets/bild-imp-20.webp",
+    "imp-21": "assets/bild-imp-21.webp",
+    "imp-23": "assets/bild-imp-23.webp",
+    "imp-25": "assets/bild-imp-25.webp",
+    "imp-26": "assets/bild-imp-26.webp",
+    "imp-27": "assets/fix-imp-27.webp",
+    "imp-28": "assets/bild-imp-28.webp",
+    "imp-29": "assets/fix-imp-29.webp",
+    "imp-30": "assets/bild-imp-30.webp",
+    "imp-31": "assets/fix-imp-31.webp"
+  };
+
+  renderVals() {
+    const home = (hash) => this.HOME + (hash || "");
+    const caps = this.props.zeigeCaptions ?? true;
+    const dichte = (this.props.dichte ?? "Ruhig") === "Kompakt" ? "kompakt" : "ruhig";
+
+    return {
+      radius: String(this.props.bildRadius ?? 6),
+      dichteFlag: dichte,
+      hoverFlag: (this.props.hoverEffekt ?? true) ? "1" : "0",
+      counter: "01 / " + String(this.G.length).padStart(2, "0"),
+
+      bilder: this.G.map((g, i) => {
+        const no = String(i + 1).padStart(2, "0");
+        const slotId = "imp-" + no;
+        return {
+          no: no,
+          slotId: slotId,
+          src: this.FIX[slotId] || g.src,
+          hint: g.hint,
+          // Platzhalter-Beschriftung: echte Bildtitel folgen später.
+          cap: "Bildtitel folgt",
+          showCap: caps
+        };
+      }),
+
+      menuOpen: this.state.menuOpen === true,
+      openMenu: () => this.setState({ menuOpen: true }),
+      closeMenu: () => this.setState({ menuOpen: false }),
+      homeHref: home(),
+      kontaktHref: home("#kontakt"),
+
+      topNav: [
+        { label: "Start", href: home(), current: "false" },
+        { label: "Leistungen", href: this.LEIST, current: "false" },
+        { label: "Über uns", href: this.UEBER, current: "false" },
+        { label: "Farbe & Struktur", href: "farbe-struktur%203.0.dc.html", current: "false" },
+        { label: "Projekte", href: home("#projekte"), current: "false" },
+        { label: "Impressionen", href: this.SELF, current: "page" },
+        { label: "Karriere", href: home("#ausbildung"), current: "false" }
+      ],
+      menuLinks: [
+        { no: "01", label: "Startseite", href: home() },
+        { no: "02", label: "Leistungen", href: this.LEIST },
+        { no: "03", label: "Farbe & Struktur", href: "farbe-struktur%203.0.dc.html" },
+        { no: "04", label: "Über uns", href: this.UEBER },
+        { no: "05", label: "Projekte", href: home("#projekte") },
+        { no: "06", label: "Impressionen", href: this.SELF },
+        { no: "07", label: "Karriere", href: home("#ausbildung") },
+        { no: "08", label: "Kontakt", href: home("#kontakt") }
+      ],
+      menuSocial: [
+        { label: "Instagram", href: home() },
+        { label: "TikTok", href: home() },
+        { label: "Facebook", href: home() },
+        { label: "Google", href: home() }
+      ],
+      menuLegal: [
+        { label: "Impressum", href: "impressum.dc.html" },
+        { label: "Datenschutz", href: "datenschutz.dc.html" }
+      ],
+
+      footerCols: [
+        { title: "Kontakt", items: [
+          { label: "Burkhardt Horst", href: home("#kontakt") },
+          { label: "Geschäftsführer", href: home("#kontakt") },
+          { label: "Tel. +49 2152 510 600", href: "tel:+492152510600" },
+          { label: "Industriering Ost 56", href: home("#kontakt") },
+          { label: "47906 Kempen", href: home("#kontakt") },
+          { label: "info@horst-malerbetriebe.de", href: "mailto:info@horst-malerbetriebe.de" }
+        ]},
+        { title: "Navigation", items: [
+          { label: "Startseite", href: home() },
+          { label: "Leistungen", href: this.LEIST },
+          { label: "Projekte", href: "projekte.dc.html" },
+          { label: "Farbe & Struktur", href: "farbe-struktur%203.0.dc.html" },
+          { label: "Über uns", href: this.UEBER },
+          { label: "Impressionen", href: this.SELF },
+          { label: "Karriere", href: "karriere.dc.html" },
+          { label: "Kontakt", href: home("#kontakt") }
+        ]},
+        { title: "Informationen", items: [
+          { label: "Impressum", href: "impressum.dc.html" },
+          { label: "Datenschutz", href: "datenschutz.dc.html" }
+        ]},
+        { title: "Links", items: [
+          { label: "Instagram", href: home() },
+          { label: "Facebook", href: home() },
+          { label: "TikTok", href: home() },
+          { label: "Google", href: home() }
+        ]}
+      ]
+    };
+  }
+}
+
+</script>
+</body>
+</html>
