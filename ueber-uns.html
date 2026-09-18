@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#F5F5F3">
+<meta name="description" content="Horst Malerbetriebe in Kempen: Familienbetrieb seit 1962, heute in dritter Generation. 16 Mitarbeiter, Meisterbetrieb, Handwerk mit Handschrift.">
+<title>Über uns · Horst Malerbetriebe</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+  html { scroll-behavior: smooth; }
+  :root { --paper: #F5F5F3; --paper-alt: #EFEFEC; --paper-tint: #E8E8E5; --line: #E2E2DF; --line-2: #D9D9D6; --line-3: #CFCFCC; }
+  body { margin: 0; font-family: 'Sora', sans-serif; background: var(--paper); color: #15123B; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  a { color: #EB5D0B; text-decoration: none; }
+  a:hover { color: #15123B; }
+  input, textarea, button { font-family: inherit; }
+  @keyframes v3fade { from { opacity: 0; } to { opacity: 1; } }
+  [data-reveal].is-in { opacity: 1 !important; transform: none !important; }
+  @container (max-width: 1200px) {
+    [data-desknav] { display: none !important; }
+  }
+  [data-hdr] [aria-label="Hauptnavigation"] {
+    width: min(94%, clamp(292px, 55cqw, 890px));
+    max-width: 100%;
+    min-width: max-content;
+  }
+  [data-hdrlogo] { position: absolute; left: clamp(16px, 4cqw, 64px); top: 50%; transform: translateY(-50%); }
+  [data-desknav][aria-current="page"] { color: #EB5D0B !important; }
+  [data-kfz] > div { container-type: inline-size; }
+  [data-socialarrow] { transform: translateY(-0.5px); }
+  [data-social]:hover [data-socialarrow] { transform: translate(2.5px, -3px); opacity: 1; }
+  @container horst (max-width: 1360px) {
+    [data-kfz] > div > span { font-size: 74cqw !important; }
+  }
+  @container (max-width: 900px) {
+    [data-menugrid] { grid-template-columns: 1fr !important; align-items: start !important; }
+    [data-menugrid] > div:first-of-type { order: 2; }
+    [data-menugrid] > div:last-of-type { order: 1; align-items: flex-start !important; padding-right: 0 !important; padding-bottom: 0 !important; }
+    [data-menugrid] > div:last-of-type a { justify-content: flex-start !important; }
+  }
+  /* Motive vollständig zeigen: kein Beschnitt an den Kanten */
+  [data-slider-stage] img { object-fit: contain !important; object-position: center center !important; }
+  @container (max-width: 640px) {
+    [data-slider-stage] { aspect-ratio: 4 / 3 !important; max-height: none !important; }
+    [data-slider-dot] { width: 16px !important; height: 16px !important; }
+    [data-slider-dots] { gap: 16px !important; }
+    [data-hdr] { justify-content: space-between !important; }
+    [data-hdr] [aria-label="Hauptnavigation"] { width: auto !important; min-width: 0 !important; }
+    [data-hdrlogo] { position: static !important; transform: none !important; }
+  }
+  @container (max-width: 400px) {
+    [data-hdr] img { height: 32px !important; }
+    [data-hdr] [data-kontakt] { font-size: 11.5px !important; padding: 11px 13px !important; }
+    [data-hdr] nav { gap: 8px !important; }
+  }
+  /* Laptop-Bereich: Headline verkleinern, damit "DREI GENERATIONEN," mit klarem
+     Abstand im Bildrahmen endet (Rahmenbreite ist hier höhenbegrenzt). */
+  @media (min-width: 1200px) and (max-width: 1600px) {
+    /* Symmetrisch: Größe folgt der kleineren Begrenzung – Viewport oder
+       höhenbegrenzte Rahmenbreite (--hero-fw). */
+    [data-hero-text] h1 { font-size: min(4.43cqw, calc(var(--hero-fw, 200vw) * 0.0481)) !important; }
+    [data-hero-label] { font-size: min(0.98cqw, calc(var(--hero-fw, 200vw) * 0.0106)) !important; }
+  }
+  @container (max-width: 900px) {
+    [data-hero-root] { height: auto !important; min-height: 0 !important; }
+    [data-hero-frame] { aspect-ratio: 1600/1067 !important; }
+    [data-hero-text] { max-width: 88% !important; }
+    [data-hero-text] h1 { font-size: clamp(1.35rem, 5.4cqw, 2.2rem) !important; }
+    [data-hero-shade-band] { height: 50% !important; }
+    /* Mobil: Zickzack auflösen – Linie links, alle Einträge rechts darunter */
+    [data-timeline-track] { left: 6px !important; margin-left: 0 !important; }
+    [data-timeline-row] { grid-template-columns: 14px 1fr !important; column-gap: 18px !important; }
+    [data-timeline-dot] { grid-column: 1 !important; width: 14px !important; height: 14px !important; }
+    [data-timeline-cell] { grid-column: 2 !important; margin-top: 0 !important; align-items: flex-start !important; text-align: left !important; }
+    [data-timeline] > div:last-child { gap: 36px !important; }
+    [data-zitat-img] { position: static !important; width: 100% !important; height: auto !important; margin-bottom: 30px !important; }
+    [data-zitat-img] image-slot { height: auto !important; aspect-ratio: 4 / 5 !important; }
+    [data-zitat-fade] { display: none !important; }
+    [data-zitat] { margin-left: 0 !important; margin-right: 0 !important; display: block !important; }
+    [data-zitat-text] { width: auto !important; max-width: none !important; }
+    [data-zitat-q] { font-size: clamp(1.5rem, 6.6cqw, 2.3rem) !important; }
+    [data-zitat-glyph] { font-size: clamp(4.5rem, 19.8cqw, 6.9rem) !important; }
+    [data-foot] { grid-template-columns: repeat(2, 1fr) !important; gap: 30px !important; }
+  }
+  @container (max-width: 620px) {
+    [data-facts] { grid-template-columns: 1fr !important; }
+    [data-foot] { grid-template-columns: 1fr !important; }
+  }
+</style>
+</helmet>
+
+<div style="container:horst / inline-size; width:100%; background:var(--paper)">
+
+  <a href="#inhalt" style="position:absolute; left:-9999px; top:0; zIndex:300; background:#15123B; color:#fff; fontSize:13px; fontWeight:700; letterSpacing:0.08em; textTransform:uppercase; padding:12px 18px" style-focus="left:8px; top:8px">Zum Inhalt springen</a>
+
+  <header data-nav="1" data-hdr="1" style="position:sticky; top:0; zIndex:70; background:color-mix(in srgb, var(--paper) 94%, transparent); backdropFilter:blur(16px); borderBottom:1px solid var(--line); display:flex; alignItems:center; justifyContent:center; gap:20px; padding:clamp(15px,1.5cqw,24px) clamp(18px,4cqw,64px)">
+    <a data-hdrlogo="1" href="{{ homeHref }}" aria-label="Horst Malerbetriebe – Startseite" style="display:block; flexShrink:0">
+      <img src="./assets/horst-logo.png" alt="Horst Malerbetriebe" width="1015" height="285" decoding="async" fetchpriority="high" style="height:clamp(34px,3.1cqw,50px); width:auto; display:block">
+    </a>
+    <nav aria-label="Hauptnavigation" style="display:flex; alignItems:center; justifyContent:space-between; gap:clamp(7px,1cqw,15px)">
+      <sc-for list="{{ topNav }}" as="t" hint-placeholder-count="6">
+        <a href="{{ t.href }}" data-desknav="1" aria-current="{{ t.current }}" style="color:#15123B; fontSize:13.5px; fontWeight:600; letterSpacing:0.14em; textTransform:uppercase; whiteSpace:nowrap" style-hover="color:#EB5D0B">{{ t.label }}</a>
+      </sc-for>
+      <a href="{{ kontaktHref }}" data-kontakt="1" style="background:#EB5D0B; color:#fff; fontSize:12.5px; fontWeight:700; letterSpacing:0.11em; textTransform:uppercase; padding:12px 20px; whiteSpace:nowrap; transition:background .25s ease" style-hover="background:#15123B; color:#fff">Kontakt</a>
+      <button type="button" onClick="{{ openMenu }}" aria-label="Menü öffnen" style="width:46px; height:46px; border:1px solid var(--line-2); background:var(--paper); cursor:pointer; display:flex; flexDirection:column; alignItems:center; justifyContent:center; gap:5px; padding:0; flexShrink:0; transition:all .25s ease" style-hover="background:#15123B; borderColor:#15123B">
+        <span style="display:block; width:18px; height:2px; background:#15123B"></span>
+        <span style="display:block; width:18px; height:2px; background:#EB5D0B"></span>
+        <span style="display:block; width:18px; height:2px; background:#15123B"></span>
+      </button>
+    </nav>
+  </header>
+
+  <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed; inset:0; zIndex:300; background:#15123B; color:#fff; padding:clamp(18px,3.63cqw,58px); display:grid; gridTemplateRows:auto 1fr; gap:clamp(24px,2.75cqw,44px); animation:v3fade .2s ease-out; overflow:auto">
+
+      <svg viewBox="0 0 1200 800" preserveAspectRatio="none" aria-hidden="true" style="position:absolute; inset:0; width:100%; height:100%; pointerEvents:none; zIndex:0">
+        <path d="M -40 640 C 240 620 300 430 520 372 C 720 320 760 176 1010 132 C 1120 112 1180 104 1260 96" fill="none" stroke="#EB5D0B" stroke-width="0.75" stroke-linecap="round" opacity="0.16" vector-effect="non-scaling-stroke"></path>
+        <path d="M -40 712 C 280 700 360 520 600 470 C 800 428 900 300 1260 238" fill="none" stroke="#EB5D0B" stroke-width="0.75" stroke-linecap="round" opacity="0.1" vector-effect="non-scaling-stroke"></path>
+      </svg>
+
+      <div style="position:relative; zIndex:1; display:flex; justifyContent:space-between; alignItems:center; gap:16px">
+        <span style="fontSize:11.5px; fontWeight:700; letterSpacing:0.24em; textTransform:uppercase; color:#EB5D0B">Horst Malerbetriebe · Kempen</span>
+        <button type="button" onClick="{{ closeMenu }}" aria-label="Menü schließen" style="width:46px; height:46px; border:1px solid rgba(255,255,255,.28); background:transparent; color:#fff; fontSize:23px; lineHeight:0.94; cursor:pointer; flexShrink:0; transition:all .2s ease" style-hover="background:#EB5D0B; borderColor:#EB5D0B">×</button>
+      </div>
+
+      <div data-menugrid="1" style="position:relative; zIndex:1; display:grid; gridTemplateColumns:minmax(180px,.68fr) 1.32fr; gap:clamp(28px,4.5cqw,72px); alignItems:end">
+
+        <div style="display:flex; flexDirection:column; gap:clamp(22px,2.13cqw,34px); alignSelf:end">
+          <span style="fontSize:clamp(20px,1.88cqw,30px); fontWeight:800; textTransform:uppercase; color:#EB5D0B; letterSpacing:-0.02em; lineHeight:1">Mit Herz<br>dabei.</span>
+          <span style="fontSize:14.5px; lineHeight:1.6; color:rgba(255,255,255,.6)">Industriering Ost 56 · 47906 Kempen<br>info@horst-malerbetriebe.de<br>+49 2152 510 600</span>
+          <div style="display:flex; flexDirection:column; gap:clamp(8px,0.75cqw,12px)">
+            <span style="display:flex; alignItems:center; gap:9px; fontSize:11px; fontWeight:700; letterSpacing:0.2em; textTransform:uppercase; color:#EB5D0B">
+              <span aria-hidden="true" style="width:22px; height:2px; background:#EB5D0B; flexShrink:0"></span>
+              Folgt uns
+            </span>
+            <div style="display:flex; flexDirection:column; gap:2px; marginLeft:-4px">
+              <sc-for list="{{ menuSocial }}" as="s" hint-placeholder-count="4">
+                <a href="{{ s.href }}" data-social="1" style="display:flex; alignItems:center; gap:9px; color:rgba(255,255,255,.92); fontSize:clamp(17px,1.32cqw,21px); fontWeight:700; letterSpacing:-0.01em; lineHeight:1; textTransform:uppercase; textDecoration:none; padding:11px 4px; transition:color .2s ease" style-hover="color:#EB5D0B"><span style="display:block">{{ s.label }}</span><span data-socialarrow="1" aria-hidden="true" style="flexShrink:0; display:flex; alignItems:center; justifyContent:center; width:13px; height:13px; fontSize:13px; lineHeight:1; fontWeight:600; opacity:.62; transition:transform .25s cubic-bezier(.22,1,.36,1), opacity .2s ease">↗</span></a>
+              </sc-for>
+            </div>
+          </div>
+          <div style="display:flex; flexDirection:column; gap:9px; borderTop:1px solid rgba(255,255,255,.14); paddingTop:16px">
+            <sc-for list="{{ menuLegal }}" as="l" hint-placeholder-count="2">
+              <a href="{{ l.href }}" style="color:rgba(255,255,255,.55); fontSize:12.5px; fontWeight:600; letterSpacing:0.1em; textTransform:uppercase; textDecoration:none; transition:color .2s ease" style-hover="color:#EB5D0B">{{ l.label }}</a>
+            </sc-for>
+          </div>
+        </div>
+
+        <div style="display:flex; flexDirection:column; alignItems:flex-end; justifyContent:center; gap:clamp(14px,1.63cqw,26px); alignSelf:center; paddingRight:clamp(8px,4cqw,64px); paddingBottom:clamp(18px,3.5cqw,56px)">
+          <sc-for list="{{ menuLinks }}" as="m" hint-placeholder-count="8">
+            <a href="{{ m.href }}" onClick="{{ closeMenu }}" style="display:flex; alignItems:baseline; justifyContent:flex-end; gap:16px; color:#fff; fontSize:clamp(29px,3.56cqw,57px); fontWeight:800; textTransform:uppercase; lineHeight:1; letterSpacing:-0.025em; textDecoration:none; transition:color .2s ease, transform .3s cubic-bezier(.22,1,.36,1)" style-hover="color:#EB5D0B; transform:translateX(-12px)">
+              <span style="fontSize:11.5px; fontWeight:700; letterSpacing:0.16em; color:rgba(255,255,255,.35)">{{ m.no }}</span>
+              <span>{{ m.label }}</span>
+            </a>
+          </sc-for>
+        </div>
+
+      </div>
+    </div>
+  </sc-if>
+
+  <main id="inhalt">
+
+    <section data-hero-root="1" aria-label="Über uns" style="position:relative; boxSizing:border-box; display:flex; alignItems:center; justifyContent:center; background:var(--paper); width:100%; height:var(--hero-h,calc(100vh - 80px)); minHeight:460px; padding:clamp(26px,2.1cqw,40px) clamp(18px,4cqw,64px)">
+      <div data-hero-frame="1" style="position:relative; width:min(100%, var(--hero-fw, 100%)); marginInline:auto; aspectRatio:16/9; background:#15123B; overflow:hidden; borderRadius:0">
+      <div data-hero-media="1" style="position:absolute; left:var(--hero-media-left,0px); top:var(--hero-media-top,0px); width:100%; height:var(--hero-media-h,100%); transformOrigin:center; transform:var(--hero-img-t,none)">
+        <image-slot id="uu-team-wide" src="assets/ueber-uns-hero-vier-generationen.jpg" shape="rect" radius="0" fit="cover" placeholder="Vier Generationen in der Werkstatt – Querformat" style="display:block; width:100%; height:100%; borderRadius:0"></image-slot>
+      </div>
+      <div aria-hidden="true" data-hero-shade-band="1" style="position:absolute; left:0; right:0; bottom:0; height:40%; pointerEvents:none; opacity:var(--hero-shade,1); background:linear-gradient(to top, rgb(8,6,26) 0%, rgba(8,6,26,0.985) 6%, rgba(8,6,26,0.95) 13%, rgba(8,6,26,0.89) 21%, rgba(8,6,26,0.8) 29%, rgba(8,6,26,0.68) 38%, rgba(8,6,26,0.55) 47%, rgba(8,6,26,0.41) 56%, rgba(8,6,26,0.28) 65%, rgba(8,6,26,0.17) 74%, rgba(8,6,26,0.09) 82%, rgba(8,6,26,0.04) 89%, rgba(8,6,26,0.01) 95%, rgba(8,6,26,0) 100%)"></div>
+      <div data-hero-text="1" style="position:absolute; left:0; bottom:0; maxWidth:min(700px,54%,calc(100% - 150px)); display:flex; flexDirection:column; gap:clamp(6px,0.58cqw,9px); padding:clamp(24px,3.2cqw,56px); paddingBottom:clamp(8px,0.7cqw,12px); transformOrigin:left bottom; transform:var(--hero-text-t,translate(0px,0px) scale(1))">
+        <span data-hero-label="1" style="display:flex; alignItems:center; gap:11px; fontSize:clamp(0.72rem,0.96cqw,0.96rem); fontWeight:700; letterSpacing:0.2em; textTransform:uppercase; color:#FFFFFF">
+          <span style="width:34px; height:3px; background:#EB5D0B; flexShrink:0"></span>
+          Über uns
+        </span>
+        <h1 style="margin:0; fontSize:clamp(1.78rem,4.25cqw,4.3rem); fontWeight:800; letterSpacing:-0.03em; lineHeight:1.04; textTransform:uppercase; color:#FFFFFF; whiteSpace:nowrap">Drei Generationen,<br>eine <span style="color:#EB5D0B">Handschrift.</span></h1>
+      </div>
+      </div>
+    </section>
+
+    <section aria-label="Einleitung" style="position:relative; background:var(--paper); padding:clamp(48px,6.5cqw,104px) clamp(18px,4cqw,64px) clamp(88px,11cqw,176px)">
+      <div style="maxWidth:min(1240px,100%); margin:0 auto; display:flex; flexDirection:column; gap:clamp(38px,4.5cqw,72px)">
+        <div style="display:flex; flexDirection:column; gap:clamp(24px,3cqw,48px); width:100%">
+          <span data-reveal="1" style="display:flex; alignItems:center; gap:11px; width:100%; maxWidth:min(1080px,100%); marginInline:auto; fontSize:clamp(0.66rem,0.84cqw,0.84rem); fontWeight:700; letterSpacing:0.2em; textTransform:uppercase; color:#15123B; opacity:0; transform:translateY(14px); transition:opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1)">
+            <span style="width:30px; height:3px; background:#EB5D0B; flexShrink:0"></span>
+            Der Betrieb
+          </span>
+
+          <p data-reveal="1" data-reveal-delay="90" style="margin:0 auto; width:100%; maxWidth:min(1240px,100%); textAlign:center; fontSize:max(1.06rem, calc(min(1240px, 100cqw - 2 * clamp(18px, 4cqw, 64px)) * 0.0338)); fontWeight:400; letterSpacing:-0.02em; lineHeight:1.34; color:#17171C; textWrap:pretty; opacity:0; transform:translateY(20px); transition:opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1)"><strong style="font-weight: 800; color: rgb(21, 18, 59);">Seit 19** in Kempen.<br>Dieselbe Familie, dieselbe Adresse.</strong><br>Wir schauen uns jede Baustelle selbst an, wir machen Zusagen, die wir halten, und wir übergeben Räume so, wie wir sie selbst haben wollten. Drei Generationen, ein Anspruch.</p>
+        </div>
+
+        <div data-facts="1" style="width:100%; maxWidth:min(1080px,100%); marginInline:auto; display:grid; gridTemplateColumns:repeat(3,1fr); gap:clamp(20px,2.5cqw,40px); borderTop:1px solid var(--line); paddingTop:clamp(26px,3.25cqw,52px)">
+          <sc-for list="{{ facts }}" as="f" hint-placeholder-count="3">
+            <div data-reveal="1" style="display:flex; flexDirection:column; gap:9px; opacity:0; transform:translateY(16px); transition:opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1)">
+              <span style="fontSize:11px; fontWeight:700; letterSpacing:0.2em; textTransform:uppercase; color:#EB5D0B">{{ f.no }}</span>
+              <span style="fontSize:clamp(17px,1.5cqw,22px); fontWeight:700; letterSpacing:-0.015em; lineHeight:1.2; textTransform:uppercase; color:#15123B">{{ f.titel }}</span>
+              <p style="margin:0; maxWidth:34ch; fontSize:15.5px; lineHeight:1.64; color:#17171C; textWrap:pretty">{{ f.text }}</p>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+
+    <section aria-label="Impressionen" style="position:relative; background:var(--paper); padding:clamp(20px,3cqw,48px) clamp(18px,4cqw,64px) clamp(80px,10cqw,160px)">
+      <div data-reveal="1" style="maxWidth:1440px; margin:0 auto; display:flex; flexDirection:column; gap:clamp(18px,2cqw,32px); opacity:0; transform:translateY(20px); transition:opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1)">
+        <div data-slider-stage="1" onMouseEnter="{{ sliderPause }}" onMouseLeave="{{ sliderResume }}" onTouchStart="{{ sliderTouchStart }}" onTouchEnd="{{ sliderTouchEnd }}" style="position:relative; width:100%; maxWidth:1085px; marginInline:auto; aspectRatio:16/9; background:var(--paper-alt); borderRadius:0; overflow:hidden">
+          <sc-for list="{{ slides }}" as="s" hint-placeholder-count="4">
+            <div style="{{ s.style }}">
+              <image-slot id="{{ s.slot }}" src="{{ s.src }}" shape="rect" fit="cover" placeholder="{{ s.label }}" style="display:block; width:100%; height:100%"></image-slot>
+            </div>
+          </sc-for>
+        </div>
+        <div data-slider-dots="1" role="tablist" aria-label="Bildauswahl" style="display:flex; justifyContent:center; alignItems:center; gap:12px">
+          <sc-for list="{{ slides }}" as="s" hint-placeholder-count="4">
+            <button type="button" data-slider-dot="1" role="tab" aria-label="{{ s.label }}" aria-selected="{{ s.active }}" onClick="{{ s.go }}" style="{{ s.dotStyle }}"></button>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+
+    <section aria-label="Chronik" style="position:relative; background:var(--paper-alt); padding:clamp(60px,8cqw,128px) clamp(18px,4cqw,64px)">
+      <div style="maxWidth:1440px; margin:0 auto">
+        <div style="display:flex; flexDirection:column; gap:clamp(36px,4.5cqw,72px)">
+          <div style="display:flex; flexDirection:column; gap:clamp(14px,1.5cqw,24px)">
+            <span data-reveal="1" style="display:flex; alignItems:center; gap:11px; fontSize:clamp(0.66rem,0.84cqw,0.84rem); fontWeight:700; letterSpacing:0.2em; textTransform:uppercase; color:#15123B; opacity:0; transform:translateY(16px); transition:opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1)">
+              <span style="width:30px; height:3px; background:#EB5D0B; flexShrink:0"></span>
+              Seit 1962
+            </span>
+            <h2 data-reveal="1" data-reveal-delay="80" style="margin:0; maxWidth:22ch; fontSize:clamp(1.7rem,3.2cqw,3.2rem); fontWeight:800; letterSpacing:-0.03em; lineHeight:1.02; textTransform:uppercase; color:#15123B; opacity:0; transform:translateY(18px); transition:opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1)">DREI GENERATIONEN. <br>EINE GESCHICHTE.</h2>
+          </div>
+          <div ref="{{ chronikRef }}" data-timeline="1" style="position:relative; width:100%">
+            <div data-timeline-track="1" style="position:absolute; top:10px; bottom:10px; left:50%; marginLeft:-1px; width:2px; background:var(--line-2)">
+              <div style="{{ chronikFillStyle }}"></div>
+            </div>
+            <div style="display:flex; flexDirection:column; gap:clamp(56px,6.5cqw,112px)">
+              <sc-for list="{{ chronik }}" as="c" hint-placeholder-count="5">
+                <div data-timeline-row="1" style="position:relative; display:grid; gridTemplateColumns:1fr 20px 1fr; columnGap:clamp(24px,3cqw,52px); alignItems:start">
+                  <span data-timeline-dot="1" style="{{ c.dotStyle }}"></span>
+                  <div data-timeline-cell="1" style="{{ c.cellStyle }}">
+                    <span style="fontSize:clamp(24px,2.4cqw,38px); fontWeight:800; letterSpacing:0.01em; lineHeight:1; color:#EB5D0B; fontVariantNumeric:tabular-nums">{{ c.jahr }}</span>
+                    <span style="fontSize:clamp(18px,1.6cqw,25px); fontWeight:700; letterSpacing:-0.015em; lineHeight:1.18; color:#15123B">{{ c.titel }}</span>
+                    <p style="margin:0; maxWidth:46ch; fontSize:15.5px; lineHeight:1.66; color:#17171C; textWrap:pretty">{{ c.text }}</p>
+                  </div>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section aria-label="Zitat" style="position:relative; overflow:hidden; background:#15123B; color:#fff; padding:clamp(64px,8cqw,128px) clamp(18px,4cqw,64px)">
+      <div data-zitat-img="1" style="position:absolute; left:0; top:0; bottom:0; width:38%; border:0; borderRadius:0; boxShadow:none; overflow:hidden">
+        <image-slot id="uu-zitat-eric" src="assets/uu-zitat-eric.webp" shape="rect" fit="cover" placeholder="BILD: Porträt Eric Horst" style="display:block; width:100%; height:100%; objectFit:cover; objectPosition:50% 42%; border:0; borderRadius:0; boxShadow:none"></image-slot>
+        <span data-zitat-fade="1" aria-hidden="true" style="position:absolute; left:0; right:0; top:0; height:11%; pointerEvents:none; background:linear-gradient(to bottom, #15123B 0%, rgba(21,18,59,0.55) 38%, rgba(21,18,59,0) 100%)"></span>
+        <span data-zitat-fade="1" aria-hidden="true" style="position:absolute; left:0; right:0; bottom:0; height:16%; pointerEvents:none; background:linear-gradient(to top, #15123B 0%, rgba(21,18,59,0.5) 40%, rgba(21,18,59,0) 100%)"></span>
+        <span data-zitat-fade="1" aria-hidden="true" style="position:absolute; left:0; top:0; bottom:0; width:10%; pointerEvents:none; background:linear-gradient(to right, #15123B 0%, rgba(21,18,59,0.5) 40%, rgba(21,18,59,0) 100%)"></span>
+        <span data-zitat-fade="1" aria-hidden="true" style="position:absolute; right:0; top:0; bottom:0; width:25%; pointerEvents:none; background:linear-gradient(to left, #15123B 0%, rgba(21,18,59,0) 100%)"></span>
+      </div>
+      <div data-zitat="1" style="position:relative; marginLeft:calc(50cqw - clamp(18px,4cqw,64px)); marginRight:calc(-1 * clamp(18px,4cqw,64px)); display:flex; justifyContent:center">
+        <div data-zitat-text="1" style="width:fit-content; maxWidth:100%; display:flex; flexDirection:column; alignItems:flex-start; gap:clamp(16px,1.9cqw,30px)">
+          <span style="display:flex; alignItems:center; gap:11px; fontSize:clamp(0.66rem,0.84cqw,0.84rem); fontWeight:700; letterSpacing:0.2em; textTransform:uppercase; color:#EB5D0B">
+            <span style="width:30px; height:3px; background:#EB5D0B; flexShrink:0"></span>
+            Haltung
+          </span>
+          <div data-zitat-move="1" ref="{{ zitatMoveRef }}" style="display:flex; flexDirection:column; alignItems:flex-start; gap:clamp(16px,1.9cqw,30px); transformOrigin:left center; willChange:transform">
+            <span data-zitat-glyph="1" aria-hidden="true" style="display:block; fontSize:clamp(5.7rem,12cqw,12.3rem); fontWeight:800; lineHeight:1; letterSpacing:-0.03em; color:rgba(255,255,255,0.15); marginTop:clamp(6px,0.8cqw,16px); marginBottom:clamp(4px,0.7cqw,14px); transform:translateY(0.72em) rotate(180deg); transformOrigin:center">„</span>
+            <blockquote data-zitat-q="1" style="margin:0; fontSize:clamp(1.9rem,3.7cqw,3.9rem); fontWeight:800; letterSpacing:-0.03em; lineHeight:1.02; textTransform:uppercase; color:#fff">Kreativ gedacht.<br>Ein<span style="color:#EB5D0B">wand</span>frei<br>gemacht!</blockquote>
+            <span style="marginTop:clamp(8px,1.1cqw,18px); fontSize:clamp(12.9px,1.04cqw,15.35px); fontWeight:600; letterSpacing:0.02em; color:#B9B7C6">Eric Horst — Junior-Chef</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section aria-label="Unternehmensvideo" style="position:relative; background:var(--paper); padding:clamp(96px,11cqw,176px) clamp(18px,4cqw,64px) clamp(112px,13.5cqw,216px)">
+      <div style="maxWidth:1440px; margin:0 auto; display:flex; flexDirection:column; gap:clamp(24px,3cqw,48px)">
+        <span data-reveal="1" style="display:flex; alignItems:center; gap:11px; alignSelf:flex-start; fontSize:clamp(0.66rem,0.84cqw,0.84rem); fontWeight:700; letterSpacing:0.2em; textTransform:uppercase; color:#15123B; opacity:0; transform:translateY(16px); transition:opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1)">
+          <span style="width:30px; height:3px; background:#EB5D0B; flexShrink:0"></span>
+          Der Betrieb im Film
+        </span>
+        <div data-reveal="1" data-reveal-delay="80" style="position:relative; width:100%; maxWidth:1040px; marginInline:auto; aspectRatio:16/9; background:#15123B; borderRadius:0; overflow:hidden; opacity:0; transform:translateY(20px); transition:opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1)">
+          <video ref="{{ filmRef }}" src="./assets/firmenvideo.mp4" poster="./assets/team-gruppenbild-breit.webp" playsinline="playsinline" preload="metadata" muted="muted" loop="loop" style="position:absolute; inset:0; width:100%; height:100%; objectFit:cover; display:block; background:#15123B"></video>
+          <sc-if value="{{ filmIdle }}" hint-placeholder-val="{{ true }}">
+            <button type="button" onClick="{{ startFilm }}" aria-label="Unternehmensvideo abspielen" style="position:absolute; inset:0; display:flex; alignItems:center; justifyContent:center; width:100%; height:100%; border:0; padding:0; background:rgba(21,18,59,.28); cursor:pointer" style-hover="background:rgba(21,18,59,.16)">
+              <span style="display:flex; alignItems:center; justifyContent:center; width:clamp(64px,6cqw,96px); height:clamp(64px,6cqw,96px); background:#EB5D0B; borderRadius:0">
+                <svg viewBox="0 0 24 24" aria-hidden="true" style="width:34%; height:34%; display:block; fill:#fff">
+                  <path d="M6 3.5 20.5 12 6 20.5z"></path>
+                </svg>
+              </span>
+            </button>
+          </sc-if>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontakt-abschluss" aria-label="Kontakt" style="position:relative; overflow:hidden; background:#15123B; color:#fff; padding:clamp(52.9px,6.66cqw,109.8px) clamp(18px,4cqw,64px) clamp(56.8px,7.06cqw,117.6px)">
+      <div data-kfz="1" aria-hidden="true" style="position:absolute; inset:0; padding:0 clamp(18px,4cqw,64px); display:flex; justifyContent:center; pointerEvents:none; userSelect:none; zIndex:0">
+        <div style="position:relative; width:100%; maxWidth:1440px">
+          <span style="position:absolute; right:11%; top:50%; transform:translateY(-50%); fontSize:70cqw; fontWeight:800; lineHeight:0.66; letterSpacing:-0.04em; color:transparent; WebkitTextStroke:2px rgba(235,93,11,0.22)">?</span>
+        </div>
+      </div>
+      <div style="position:relative; zIndex:2; maxWidth:1440px; margin:0 auto; display:flex; flexDirection:column; gap:clamp(28.8px,3.36cqw,53.8px)">
+        <div style="display:flex; flexDirection:column; gap:clamp(15.4px,1.686cqw,25px)">
+          <span style="display:flex; alignItems:center; gap:10.6px; fontSize:clamp(0.634rem,0.807cqw,0.807rem); fontWeight:700; letterSpacing:0.2em; textTransform:uppercase; color:#EB5D0B">
+            <span aria-hidden="true" style="width:29.4px; height:2.9px; background:#EB5D0B; flexShrink:0"></span>
+            Kontakt
+          </span>
+          <h2 style="margin:0; fontSize:clamp(1.84rem,4.56cqw,4.38rem); fontWeight:800; letterSpacing:-0.035em; lineHeight:0.98; textTransform:uppercase; color:#fff; textWrap:balance">Projekt im Kopf?<br>Sprechen wir <span style="color:#EB5D0B">drüber.</span></h2>
+        </div>
+        <div style="display:flex; flexDirection:column; gap:clamp(5.78px,0.72cqw,11.56px)">
+          <a href="tel:+492152510600" style="alignSelf:flex-start; fontSize:clamp(1.4rem,2.7cqw,2.89rem); fontWeight:800; letterSpacing:-0.035em; lineHeight:1.12; color:#fff; fontVariantNumeric:tabular-nums; transition:color .25s ease" style-hover="color:#EB5D0B">+49 2152 510 600</a>
+          <a href="mailto:info@horst-malerbetriebe.de" style="alignSelf:flex-start; maxWidth:100%; overflowWrap:anywhere; fontSize:clamp(1.13rem,2.29cqw,2.45rem); fontWeight:800; letterSpacing:-0.035em; lineHeight:1.12; color:#fff; transition:color .25s ease" style-hover="color:#EB5D0B">info@horst-malerbetriebe.de</a>
+        </div>
+        <div style="display:flex; flexWrap:wrap; alignItems:center; gap:clamp(11.56px,1.2cqw,19.2px)">
+          <a href="{{ kontaktHref }}" style="display:flex; alignItems:center; gap:12px; background:#EB5D0B; border:1px solid #EB5D0B; color:#fff; fontSize:clamp(0.711rem,0.826cqw,0.826rem); fontWeight:700; letterSpacing:0.11em; textTransform:uppercase; padding:clamp(14.4px,1.186cqw,18.8px) clamp(22.5px,2.127cqw,33.9px); whiteSpace:nowrap; transition:all .25s ease" style-hover="background:#fff; color:#EB5D0B; borderColor:#fff">Beratung anfragen →</a>
+          <a href="tel:+492152510600" style="display:flex; alignItems:center; gap:12px; background:transparent; border:1px solid rgba(255,255,255,.34); color:#fff; fontSize:clamp(0.711rem,0.826cqw,0.826rem); fontWeight:700; letterSpacing:0.11em; textTransform:uppercase; padding:clamp(14.4px,1.186cqw,18.8px) clamp(22.5px,2.127cqw,33.9px); whiteSpace:nowrap; transition:all .25s ease" style-hover="background:#fff; color:#15123B; borderColor:#fff">Direkt anrufen →</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer style="position:relative; background:var(--paper); padding:clamp(108px,11.4cqw,182px) clamp(18px,4cqw,64px) 32px; display:flex; flexDirection:column; gap:clamp(30px,4cqw,64px)">
+    <img src="./assets/horst-logo.png" alt="" width="1015" height="285" loading="lazy" decoding="async" style="height:clamp(44px,4.25cqw,68px); width:auto; alignSelf:flex-start; display:block">
+    <div data-foot="1" style="display:grid; gridTemplateColumns:repeat(4,1fr); gap:clamp(24px,2.5cqw,40px)">
+      <sc-for list="{{ footerCols }}" as="col" hint-placeholder-count="4">
+        <div style="display:flex; flexDirection:column; gap:14px">
+          <span style="fontSize:13px; fontWeight:800; letterSpacing:0.1em; textTransform:uppercase; color:#15123B">{{ col.title }}</span>
+          <div style="display:flex; flexDirection:column; gap:9px">
+            <sc-for list="{{ col.items }}" as="it" hint-placeholder-count="6">
+              <a href="{{ it.href }}" style="fontSize:16.5px; lineHeight:1.35; color:#17171C; transition:color .2s ease" style-hover="color:#EB5D0B">{{ it.label }}</a>
+            </sc-for>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+    <span style="fontSize:15px; color:#8C889F">© 2026 G. Horst Malerbetriebe GmbH</span>
+  </footer>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;heroHeight&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:100,&quot;min&quot;:60,&quot;max&quot;:100,&quot;step&quot;:1,&quot;unit&quot;:&quot;% Sichtfeld&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Hero – Bild&quot;},&quot;heroImageScale&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:100,&quot;min&quot;:100,&quot;max&quot;:160,&quot;step&quot;:1,&quot;unit&quot;:&quot;%&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Hero – Bild&quot;},&quot;heroImageX&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:0,&quot;min&quot;:-25,&quot;max&quot;:25,&quot;step&quot;:1,&quot;unit&quot;:&quot;%&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Hero – Bild&quot;},&quot;heroImageY&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:9,&quot;min&quot;:-25,&quot;max&quot;:25,&quot;step&quot;:1,&quot;unit&quot;:&quot;%&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Hero – Bild&quot;},&quot;heroShade&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:100,&quot;min&quot;:40,&quot;max&quot;:130,&quot;step&quot;:2,&quot;unit&quot;:&quot;%&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Hero – Bild&quot;},&quot;heroTextScale&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:150,&quot;min&quot;:60,&quot;max&quot;:160,&quot;step&quot;:1,&quot;unit&quot;:&quot;%&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Hero – Textblock&quot;},&quot;heroTextX&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:60,&quot;min&quot;:-300,&quot;max&quot;:300,&quot;step&quot;:2,&quot;unit&quot;:&quot;px&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Hero – Textblock&quot;},&quot;heroTextY&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:-10,&quot;min&quot;:-300,&quot;max&quot;:300,&quot;step&quot;:2,&quot;unit&quot;:&quot;px&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Hero – Textblock&quot;},&quot;zitatX&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:-222,&quot;min&quot;:-400,&quot;max&quot;:400,&quot;step&quot;:2,&quot;unit&quot;:&quot;px&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Zitat – Textblock&quot;},&quot;zitatY&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:100,&quot;min&quot;:-200,&quot;max&quot;:200,&quot;step&quot;:2,&quot;unit&quot;:&quot;px&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Zitat – Textblock&quot;},&quot;zitatScale&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:132,&quot;min&quot;:60,&quot;max&quot;:150,&quot;step&quot;:1,&quot;unit&quot;:&quot;%&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Zitat – Textblock&quot;}}">
+class Component extends DCLogic {
+  DC = /\.dc\.html/.test(location.href);
+  X = (s) => s + (this.DC ? ".dc.html" : ".html");
+  HOME = this.X("index");
+  LEIST = this.X("leistungen");
+  SELF = this.X("ueber-uns");
+  IMPR = this.X("impressionen");
+  FS = this.X("farbe-struktur");
+  state = { menuOpen: false, filmStarted: false, slide: 0, sliderPaused: false, chronikFill: 0, dotsOn: [] };
+
+  SLIDES = [
+    { label: "BILD: Slider 01", src: "" },
+    { label: "BILD: Slider 02", src: "assets/uu-slider-02.webp" },
+    { label: "BILD: Slider 03", src: "" },
+    { label: "BILD: Slider 04", src: "" }
+  ];
+
+  reducedMotion = () => {
+    try { return window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) { return false; }
+  };
+
+  // Autowechsel alle 6s; pausiert bei Hover und bei reduzierter Bewegung.
+  sliderTick = () => {
+    if (this.state.sliderPaused || this.reducedMotion()) return;
+    this.setState((s) => ({ slide: (s.slide + 1) % this.SLIDES.length }));
+  };
+
+  startSlider = () => {
+    clearInterval(this.sliderTimer);
+    if (this.reducedMotion()) return;
+    this.sliderTimer = setInterval(this.sliderTick, 6000);
+  };
+
+  goSlide = (i) => {
+    this.setState({ slide: i });
+    this.startSlider();
+  };
+
+  sliderPause = () => this.setState({ sliderPaused: true });
+  sliderResume = () => this.setState({ sliderPaused: false });
+
+  sliderTouchStart = (e) => {
+    const t = e.touches && e.touches[0];
+    this.touchX = t ? t.clientX : null;
+  };
+
+  sliderTouchEnd = (e) => {
+    const t = e.changedTouches && e.changedTouches[0];
+    if (this.touchX == null || !t) return;
+    const dx = t.clientX - this.touchX;
+    this.touchX = null;
+    if (Math.abs(dx) < 40) return;
+    const n = this.SLIDES.length;
+    this.goSlide((this.state.slide + (dx < 0 ? 1 : n - 1)) % n);
+  };
+
+  // Vorschau: stummer Loop (bzw. Standbild bei reduzierter Bewegung).
+  // Erst der Klick startet von vorn mit Ton.
+  // Ein abgelöstes <video> spielt in Chrome weiter (auch mit Ton) — beim
+  // Neu-Mounten (Hot-Reload/Re-Render) entstand so überlagerter Ton.
+  killFilm = (v) => {
+    if (!v) return;
+    try {
+      v.pause();
+      v.muted = true;
+      v.removeAttribute("autoplay");
+      v.removeAttribute("src");
+      v.load();
+    } catch (e) {}
+  };
+
+  // Vorschau: stummer Loop (bzw. Standbild bei reduzierter Bewegung).
+  // Ton gibt es ausschließlich nach echtem Klick auf Play.
+  filmRef = (el) => {
+    const prev = this.filmEl;
+    if (prev && prev !== el) this.killFilm(prev);
+    this.filmEl = el || null;
+    if (!el) return;
+    el.playsInline = true;
+    if (this.state.filmStarted) {
+      // Nach einem Remount nicht von selbst weiterlaufen: Ton nur per Klick.
+      el.loop = false;
+      el.controls = true;
+      el.muted = false;
+      el.pause();
+      return;
+    }
+    el.controls = false;
+    el.loop = true;
+    el.muted = true;
+    el.volume = 0;
+    if (this.reducedMotion()) { el.pause(); return; }
+    const p = el.play();
+    if (p && p.catch) p.catch(() => {});
+  };
+
+  startFilm = () => {
+    if (this.state.filmStarted) return;
+    this.setState({ filmStarted: true }, () => {
+      const v = this.filmEl;
+      if (!v) return;
+      v.loop = false;
+      v.controls = true;
+      v.currentTime = 0;
+      v.muted = false;
+      v.volume = 1;
+      const p = v.play();
+      if (p && p.catch) p.catch(() => { v.muted = true; v.play(); });
+    });
+  };
+
+  // Scroll-Fortschritt der Chronik-Linie (0..1). Texte bleiben immer sichtbar.
+  chronikRef = (el) => {
+    this.chronikEl = el;
+    if (el) this.updateChronik();
+  };
+
+  // Füllung folgt exakt der Bildschirmmitte: Punkt in der Mitte = Linie bis dorthin.
+  updateChronik = () => {
+    const el = this.chronikEl;
+    if (!el) return;
+    const track = el.querySelector("[data-timeline-track]");
+    if (!track) return;
+    const tr = track.getBoundingClientRect();
+    if (tr.height === 0) return;
+    const anchor = window.innerHeight / 2;
+    const px = Math.max(0, Math.min(tr.height, anchor - tr.top));
+    const dots = Array.prototype.map.call(
+      el.querySelectorAll("[data-timeline-dot]"),
+      (d) => {
+        const dr = d.getBoundingClientRect();
+        return dr.top + dr.height / 2 <= anchor + 0.5;
+      }
+    );
+    const changed = Math.abs(px - this.state.chronikFill) > 0.5
+      || dots.some((v, i) => v !== this.state.dotsOn[i])
+      || dots.length !== this.state.dotsOn.length;
+    if (changed) this.setState({ chronikFill: px, dotsOn: dots });
+  };
+
+  // rAF-Schleife statt Scroll-Events: funktioniert auch, wenn der Scroll in
+  // einem Container statt am window passiert oder Events gethrottlet werden.
+  chronikLoop = () => {
+    this.updateChronik();
+    this.chronikRaf = requestAnimationFrame(this.chronikLoop);
+  };
+
+  componentDidMount() {
+    this.startSlider();
+    this.chronikRaf = requestAnimationFrame(this.chronikLoop);
+    try {
+      this.mqMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+      this.onMotion = () => this.startSlider();
+      this.mqMotion.addEventListener("change", this.onMotion);
+    } catch (e) {}
+    this.io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (!e.isIntersecting) return;
+        const el = e.target;
+        const d = parseInt(el.getAttribute("data-reveal-delay") || "0", 10);
+        setTimeout(() => el.classList.add("is-in"), d);
+        this.io.unobserve(el);
+      });
+    }, { rootMargin: "0px 0px -12% 0px", threshold: 0.08 });
+    this.scan();
+    this.rescan = [200, 700, 1600].map((t) => setTimeout(() => this.scan(), t));
+    this.syncHero();
+    this.syncZitat();
+  }
+
+  componentDidUpdate() { this.syncHero(); this.syncZitat(); }
+
+  zitatMoveRef = (el) => {
+    this.zitatMoveEl = el || null;
+    this.syncZitat();
+  };
+
+  syncZitat = () => {
+    const el = this.zitatMoveEl;
+    if (!el) return;
+    const p = this.props || {};
+    const x = p.zitatX ?? 0;
+    const y = p.zitatY ?? 0;
+    const s = (p.zitatScale ?? 100) / 100;
+    el.style.transform = `translate(${x}px, ${-y}px) scale(${s})`;
+  };
+
+  syncHero = () => {
+    const el = document.querySelector("[data-hero-root]");
+    if (!el) return;
+    const p = this.props || {};
+    const zoom = Math.max(100, p.heroImageScale ?? 100) / 100;
+    const nav = document.querySelector("[data-nav]");
+    const navH = nav ? Math.round(nav.getBoundingClientRect().height) : 80;
+    const fill = (p.heroHeight ?? 100) / 100;
+    el.style.setProperty("--nav-h", navH + "px");
+    el.style.setProperty("--hero-h", `calc((100vh - ${navH}px) * ${fill})`);
+    el.style.setProperty("--hero-shade", String((p.heroShade ?? 100) / 100));
+    const frame = el.querySelector("[data-hero-frame]");
+    const cs = getComputedStyle(el);
+    const avail = el.clientHeight - parseFloat(cs.paddingTop || 0) - parseFloat(cs.paddingBottom || 0);
+    if (avail > 0) el.style.setProperty("--hero-fw", Math.floor(avail * 16 / 9) + "px");
+    const box = (frame || el).getBoundingClientRect();
+    const cap = (v, m) => Math.max(-m, Math.min(m, v));
+    const mediaH = box.width / (1600 / 1067);
+    const overflow = Math.max(0, mediaH - box.height);
+    const extraY = (zoom - 1) * mediaH / 2;
+    const extraX = (zoom - 1) * box.width / 2;
+    const wantTop = -overflow / 2 + ((p.heroImageY ?? 9) / 100) * box.height;
+    const top = Math.max(-overflow - extraY, Math.min(extraY, wantTop));
+    const left = cap(((p.heroImageX ?? 0) / 100) * box.width, extraX);
+    el.style.setProperty("--hero-media-h", mediaH + "px");
+    el.style.setProperty("--hero-media-top", top + "px");
+    el.style.setProperty("--hero-media-left", left + "px");
+    el.style.setProperty("--hero-img-t", `scale(${zoom})`);
+    el.style.setProperty("--hero-text-t", `translate(${p.heroTextX ?? 0}px, ${-(p.heroTextY ?? 0)}px) scale(${(p.heroTextScale ?? 100) / 100})`);
+    if (!this._heroResize) {
+      this._heroResize = () => this.syncHero();
+      window.addEventListener("resize", this._heroResize);
+    }
+  };
+
+  componentWillUnmount() {
+    this.killFilm(this.filmEl);
+    this.filmEl = null;
+    clearInterval(this.sliderTimer);
+    if (this.chronikRaf) cancelAnimationFrame(this.chronikRaf);
+    if (this.mqMotion && this.onMotion) this.mqMotion.removeEventListener("change", this.onMotion);
+    if (this.io) this.io.disconnect();
+    (this.rescan || []).forEach(clearTimeout);
+  }
+
+  scan = () => {
+    if (!this.io) return;
+    document.querySelectorAll("[data-reveal]:not(.is-in)").forEach((el) => this.io.observe(el));
+  };
+
+  renderVals() {
+    const home = (hash) => this.HOME + (hash || "");
+    const reduced = this.reducedMotion();
+
+    const dotStyle = (i) => {
+      const on = reduced || !!this.state.dotsOn[i];
+      return {
+        gridColumn: "2", width: 20, height: 20, borderRadius: "50%", marginTop: 2, justifySelf: "center",
+        background: on ? "#EB5D0B" : "var(--paper-alt)",
+        border: "2px solid " + (on ? "#EB5D0B" : "#C9C9C4"),
+        boxShadow: "0 0 0 5px var(--paper-alt)",
+        transition: reduced ? "none" : "background .3s ease, border-color .3s ease",
+        zIndex: 1
+      };
+    };
+    // Abwechselnd rechts/links, vertikal versetzt → Zickzack
+    const cellStyle = (i) => {
+      const right = i % 2 === 0;
+      return {
+        gridColumn: right ? "3" : "1",
+        gridRow: "1",
+        display: "flex", flexDirection: "column", gap: 10,
+        alignItems: right ? "flex-start" : "flex-end",
+        textAlign: right ? "left" : "right",
+        marginTop: right ? 0 : "clamp(28px,3.5cqw,64px)"
+      };
+    };
+    return {
+      slides: this.SLIDES.map((sl, i) => {
+        const active = this.state.slide === i;
+        return {
+          label: sl.label,
+          src: sl.src,
+          slot: "uu-slider-" + (i + 1),
+          active,
+          go: () => this.goSlide(i),
+          style: {
+            position: "absolute", inset: 0, opacity: active ? 1 : 0,
+            transition: "opacity .6s cubic-bezier(.4,0,.2,1)",
+            pointerEvents: active ? "auto" : "none"
+          },
+          dotStyle: {
+            width: 11, height: 11, padding: 0, borderRadius: "50%", border: 0, cursor: "pointer",
+            background: active ? "#EB5D0B" : "#CFCFCC",
+            transition: "background .3s ease"
+          }
+        };
+      }),
+      sliderPause: this.sliderPause,
+      sliderResume: this.sliderResume,
+      sliderTouchStart: this.sliderTouchStart,
+      sliderTouchEnd: this.sliderTouchEnd,
+      zitatMoveRef: this.zitatMoveRef,
+      filmRef: this.filmRef,
+      startFilm: this.startFilm,
+      filmStarted: this.state.filmStarted,
+      filmAutoplay: !this.state.filmStarted && !this.reducedMotion(),
+      filmIdle: !this.state.filmStarted,
+      menuOpen: this.state.menuOpen,
+      openMenu: () => this.setState({ menuOpen: true }),
+      closeMenu: () => this.setState({ menuOpen: false }),
+
+      homeHref: home(),
+      kontaktHref: home("#kontakt"),
+
+      topNav: [
+        { label: "Start", href: home(), current: "false" },
+        { label: "Leistungen", href: this.LEIST, current: "false" },
+        { label: "Über uns", href: this.SELF, current: "page" },
+        { label: "Projekte", href: home("#projekte"), current: "false" },
+        { label: "Impressionen", href: this.IMPR, current: "false" },
+        { label: "Karriere", href: home("#ausbildung"), current: "false" }
+      ],
+      menuLinks: [
+        { no: "01", label: "Startseite", href: home() },
+        { no: "02", label: "Leistungen", href: this.LEIST },
+        { no: "03", label: "Farbe & Struktur", href: this.FS },
+        { no: "04", label: "Über uns", href: this.SELF },
+        { no: "05", label: "Projekte", href: home("#projekte") },
+        { no: "06", label: "Impressionen", href: this.IMPR },
+        { no: "07", label: "Karriere", href: home("#ausbildung") },
+        { no: "08", label: "Kontakt", href: home("#kontakt") }
+      ],
+      menuSocial: [
+        { label: "Instagram", href: home() },
+        { label: "TikTok", href: home() },
+        { label: "Facebook", href: home() },
+        { label: "Google", href: home() }
+      ],
+      menuLegal: [
+        { label: "Impressum", href: this.X("impressum") },
+        { label: "Datenschutz", href: this.X("datenschutz") }
+      ],
+
+      facts: [
+        { no: "01", titel: "Kempen und drumherum", text: "Viele Häuser hier kennen wir schon. Manche haben wir in zwei Generationen gestrichen." },
+        { no: "02", titel: "Zwei Meister im Betrieb", text: "Dazu ein Diplom-Betriebswirt und ein staatlich geprüfter Bodenleger. Qualifikation, die man an der Ausführung sieht." },
+        { no: "03", titel: "Alles aus einer Hand", text: "Von der Beratung bis zur Übergabe ein Ansprechpartner. Innen, außen, Fassade, Gerüst." },
+      ],
+
+      chronikRef: this.chronikRef,
+      chronikFillStyle: {
+        position: "absolute", left: 0, top: 0, width: "100%",
+        height: reduced ? "100%" : Math.round(this.state.chronikFill) + "px",
+        background: "#EB5D0B",
+        transition: "none"
+      },
+      chronik: [
+        { jahr: "1962", titel: "Die Gründung", text: "Am 1. März 1962 macht sich Günter Horst in Grefrath selbstständig – nach Gesellenprüfung und Meisterschule in Düsseldorf. Ein Ein-Mann-Betrieb mit einem klaren Anspruch." },
+        { jahr: "19**", titel: "Umzug nach Kempen", text: "Der Betrieb wächst. Für mehr Platz und alles unter einem Dach entsteht ein eigenes Firmengebäude in Kempen." },
+        { jahr: "1989", titel: "Jüngster Meister in NRW", text: "Burkhard Horst legt die Meisterprüfung ab – als jüngster Meister des Malerhandwerks in Nordrhein-Westfalen. Es folgen die Qualifikationen zum staatlich geprüften Bodenleger und der S.I.V.V.-Schein für Betoninstandsetzung." },
+        { jahr: "1993", titel: "Zweite Generation", text: "Aus dem Familienbetrieb wird die Günter Horst Malerbetriebe GmbH, geführt von Günter und Burkhard Horst. Vater und Sohn, ein Betrieb." },
+        { jahr: "Heute", titel: "Dritte Generation", text: "Eric Horst führt den Betrieb in dritter Generation – als Diplom-Betriebswirt, Maler- und Lackierermeister und staatlich geprüfter Bodenleger. Sein Bruder Luis startet nun ebenfalls seine Ausbildung im Familienbetrieb." }
+      ].map((c, i) => ({ ...c, dotStyle: dotStyle(i), cellStyle: cellStyle(i) })),
+
+      footerCols: [
+        { title: "Kontakt", items: [
+          { label: "Burkhardt Horst", href: home("#kontakt") },
+          { label: "Geschäftsführer", href: home("#kontakt") },
+          { label: "Tel. +49 2152 510 600", href: "tel:+492152510600" },
+          { label: "Industriering Ost 56", href: home("#kontakt") },
+          { label: "47906 Kempen", href: home("#kontakt") },
+          { label: "info@horst-malerbetriebe.de", href: "mailto:info@horst-malerbetriebe.de" }
+        ]},
+        { title: "Navigation", items: [
+          { label: "Startseite", href: home() },
+          { label: "Leistungen", href: this.LEIST },
+          { label: "Projekte", href: home("#projekte") },
+          { label: "Farbe & Struktur", href: this.FS },
+          { label: "Über uns", href: this.SELF },
+          { label: "Impressionen", href: this.IMPR },
+          { label: "Karriere", href: home("#ausbildung") },
+          { label: "Kontakt", href: home("#kontakt") }
+        ]},
+        { title: "Informationen", items: [
+          { label: "Impressum", href: this.X("impressum") },
+          { label: "Datenschutz", href: this.X("datenschutz") }
+        ]},
+        { title: "Links", items: [
+          { label: "Instagram", href: home() },
+          { label: "Facebook", href: home() },
+          { label: "TikTok", href: home() },
+          { label: "Google", href: home() }
+        ]}
+      ]
+    };
+  }
+}
+
+</script>
+</body>
+</html>
