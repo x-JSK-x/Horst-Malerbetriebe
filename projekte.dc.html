@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#F5F5F3">
+<meta name="description" content="Projekte von Horst Malerbetriebe in Kempen: eine Auswahl an Arbeiten für unsere Kunden – von der Praxis bis zum Restaurant.">
+<title>Projekte · Horst Malerbetriebe</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  :root { --paper: #F5F5F3; --paper-alt: #EFEFEC; --paper-tint: #E8E8E5; --line: #E2E2DF; --line-2: #D9D9D6; --line-3: #CFCFCC; --section-space: clamp(72px, 10cqw, 160px); }
+  body { margin: 0; font-family: 'Sora', sans-serif; background: var(--paper); color: #15123B; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  a { color: #EB5D0B; text-decoration: none; }
+  a:hover { color: #15123B; }
+  @keyframes v3fade { from { opacity: 0; } to { opacity: 1; } }
+
+  [data-hdr] [aria-label="Hauptnavigation"] { width: min(94%, clamp(292px, 55cqw, 890px)); max-width: 100%; min-width: max-content; }
+  [data-hdrlogo] { position: absolute; left: clamp(16px, 4cqw, 64px); top: 50%; transform: translateY(-50%); }
+  [data-desknav][aria-current="page"] { color: #EB5D0B !important; }
+  [data-socialarrow] { transform: translateY(-0.5px); }
+  [data-social]:hover [data-socialarrow] { transform: translate(2.5px, -3px); opacity: 1; }
+
+  [data-kfz] > div { container-type: inline-size; }
+  @container horst (max-width: 1560px) { [data-kfz] > div > span { font-size: 63cqw !important; } }
+  @container horst (max-width: 1360px) { [data-kfz] > div > span { font-size: 60cqw !important; } }
+
+  @media (prefers-reduced-motion: reduce) { [data-pherotext], [data-phscrim], [data-phglow], [data-pgrad] { opacity: 1 !important; transform: none !important; } }
+  @container (max-width: 1200px) { [data-desknav] { display: none !important; } }
+  @media (min-width: 1200px) and (max-width: 1600px) {
+    [data-kk="sec"] { padding-top: calc(var(--section-space) * 0.7) !important; padding-bottom: calc(var(--section-space) * 0.7) !important; }
+    [data-kk="wrap"] { gap: clamp(21px,2.45cqw,39px) !important; }
+    [data-kk="head"] { gap: clamp(11px,1.2cqw,18px) !important; }
+    [data-kk="h2"] { font-size: clamp(1.632rem,4.029cqw,3.876rem) !important; }
+    [data-kk="contacts"] { gap: clamp(5px,0.64cqw,10px) !important; }
+    [data-kk="tel"] { font-size: clamp(1.241rem,2.397cqw,2.559rem) !important; }
+    [data-kk="mail"] { font-size: clamp(0.995rem,2.032cqw,2.168rem) !important; }
+  }
+  @container (max-width: 900px) {
+    [data-menugrid] { grid-template-columns: 1fr !important; align-items: start !important; }
+    [data-menugrid] > div:first-of-type { order: 2; }
+    [data-menugrid] > div:last-of-type { order: 1; align-items: flex-start !important; padding-right: 0 !important; padding-bottom: 0 !important; }
+    [data-menugrid] > div:last-of-type a { justify-content: flex-start !important; }
+    [data-foot] { grid-template-columns: repeat(2, 1fr) !important; gap: 30px !important; }
+    [data-phero] { height: auto !important; min-height: 0 !important; padding-top: clamp(40px, 9cqw, 72px) !important; padding-bottom: 0 !important; }
+    [data-pheroinner] { height: auto !important; }
+    [data-phstage] { position: static !important; height: auto !important; padding: 0 !important; display: block !important; }
+    [data-phscrim], [data-phglow] { display: none !important; }
+    [data-pgrad], [data-pfade] { display: none !important; }
+    [data-pheroh1], [data-pherop] { text-shadow: none !important; }
+    [data-pherotext] { position: static !important; opacity: 1 !important; transform: none !important; order: 0 !important; align-self: stretch !important; margin-top: 0 !important; gap: clamp(16px,1.6cqw,26px) !important; padding: 0 0 clamp(26px, 6cqw, 40px) !important; }
+    [data-pheroh1] { font-size: clamp(2.4rem,5.4cqw,5.6rem) !important; letter-spacing: -0.035em !important; text-align: left !important; }
+    [data-pheroline] { white-space: normal !important; }
+    [data-pherobr] { display: inline !important; white-space: normal !important; }
+    [data-pherop] { text-align: left !important; align-self: stretch !important; max-width: 56ch !important; margin: 0 !important; font-size: clamp(16px,1.3cqw,20px) !important; }
+    [data-pherolabel] { margin-bottom: 0 !important; }
+    [data-pstrips] { order: 0 !important; }
+    [data-phero] { padding-left: clamp(18px,4cqw,64px) !important; padding-right: clamp(18px,4cqw,64px) !important; }
+    [data-pherolabel] { font-size: 0.75rem !important; align-self: flex-start !important; }
+    [data-pstrips] { grid-template-columns: repeat(2, minmax(0,1fr)) !important; height: auto !important; }
+    [data-pstrip] { height: auto !important; aspect-ratio: 3 / 4 !important; }
+    [data-pblock] { grid-template-columns: minmax(0,1fr) !important; }
+    [data-pimg] { order: 0 !important; display: flex !important; flex-direction: column !important; gap: 16px !important; grid-column: 1 !important; grid-row: auto !important; }
+    [data-ptext] { grid-column: 1 !important; grid-row: auto !important; }
+    [data-pblock] { grid-template-rows: none !important; }
+    [data-car-item] { flex-basis: calc((100% - 16px) / 1.5) !important; }
+    [data-car-prev], [data-car-next] { display: none !important; }
+  }
+  @container (max-width: 640px) {
+    [data-car-dot] { width: 16px !important; height: 16px !important; }
+    [data-car-dots] { gap: 16px !important; }
+    [data-hdr] { justify-content: space-between !important; }
+    [data-hdr] [aria-label="Hauptnavigation"] { width: auto !important; min-width: 0 !important; }
+    [data-hdrlogo] { position: static !important; transform: none !important; }
+  }
+  @container (max-width: 620px) {
+    [data-foot] { grid-template-columns: 1fr !important; }
+  }
+  @container (max-width: 400px) {
+    [data-hdr] img { height: 32px !important; }
+    [data-hdr] [data-kontakt] { font-size: 11.5px !important; padding: 11px 13px !important; }
+    [data-hdr] nav { gap: 8px !important; }
+  }
+</style>
+</helmet>
+
+<div style="container:horst / inline-size; width:100%; background:var(--paper)">
+
+  <a href="#inhalt" style="position:absolute; left:-9999px; top:0; zIndex:300; background:#15123B; color:#fff; fontSize:13px; fontWeight:700; letterSpacing:0.08em; textTransform:uppercase; padding:12px 18px" style-focus="left:8px; top:8px">Zum Inhalt springen</a>
+
+  <header data-hdr="1" style="position:sticky; top:0; zIndex:70; background:color-mix(in srgb, var(--paper) 94%, transparent); backdropFilter:blur(16px); borderBottom:1px solid var(--line); display:flex; alignItems:center; justifyContent:center; gap:20px; padding:clamp(15px,1.5cqw,24px) clamp(18px,4cqw,64px)">
+    <a data-hdrlogo="1" href="{{ homeHref }}" aria-label="Horst Malerbetriebe – Startseite" style="display:block; flexShrink:0">
+      <img src="./assets/horst-logo.png" alt="Horst Malerbetriebe" width="1015" height="285" decoding="async" fetchpriority="high" style="height:clamp(34px,3.1cqw,50px); width:auto; display:block">
+    </a>
+    <nav aria-label="Hauptnavigation" style="display:flex; alignItems:center; justifyContent:space-between; gap:clamp(7px,1cqw,15px)">
+      <sc-for list="{{ topNav }}" as="t" hint-placeholder-count="6">
+        <a href="{{ t.href }}" data-desknav="1" aria-current="{{ t.current }}" style="color:#15123B; fontSize:13.5px; fontWeight:600; letterSpacing:0.14em; textTransform:uppercase; whiteSpace:nowrap" style-hover="color:#EB5D0B">{{ t.label }}</a>
+      </sc-for>
+      <a href="{{ kontaktHref }}" data-kontakt="1" style="background:#EB5D0B; color:#fff; fontSize:12.5px; fontWeight:700; letterSpacing:0.11em; textTransform:uppercase; padding:12px 20px; whiteSpace:nowrap; transition:background .25s ease" style-hover="background:#15123B; color:#fff">Kontakt</a>
+      <button type="button" onClick="{{ openMenu }}" aria-label="Menü öffnen" style="width:46px; height:46px; border:1px solid var(--line-2); background:var(--paper); cursor:pointer; display:flex; flexDirection:column; alignItems:center; justifyContent:center; gap:5px; padding:0; flexShrink:0; transition:all .25s ease" style-hover="background:#15123B; borderColor:#15123B">
+        <span style="display:block; width:18px; height:2px; background:#15123B"></span>
+        <span style="display:block; width:18px; height:2px; background:#EB5D0B"></span>
+        <span style="display:block; width:18px; height:2px; background:#15123B"></span>
+      </button>
+    </nav>
+  </header>
+
+  <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed; inset:0; zIndex:300; background:#15123B; color:#fff; padding:clamp(18px,3.63cqw,58px); display:grid; gridTemplateRows:auto 1fr; gap:clamp(24px,2.75cqw,44px); animation:v3fade .2s ease-out; overflow:auto">
+      <svg viewBox="0 0 1200 800" preserveAspectRatio="none" aria-hidden="true" style="position:absolute; inset:0; width:100%; height:100%; pointerEvents:none; zIndex:0">
+        <path d="M -40 640 C 240 620 300 430 520 372 C 720 320 760 176 1010 132 C 1120 112 1180 104 1260 96" fill="none" stroke="#EB5D0B" stroke-width="0.75" stroke-linecap="round" opacity="0.16" vector-effect="non-scaling-stroke"></path>
+        <path d="M -40 712 C 280 700 360 520 600 470 C 800 428 900 300 1260 238" fill="none" stroke="#EB5D0B" stroke-width="0.75" stroke-linecap="round" opacity="0.1" vector-effect="non-scaling-stroke"></path>
+      </svg>
+      <div style="position:relative; zIndex:1; display:flex; justifyContent:space-between; alignItems:center; gap:16px">
+        <span style="fontSize:11.5px; fontWeight:700; letterSpacing:0.24em; textTransform:uppercase; color:#EB5D0B">Horst Malerbetriebe · Kempen</span>
+        <button type="button" onClick="{{ closeMenu }}" aria-label="Menü schließen" style="width:46px; height:46px; border:1px solid rgba(255,255,255,.28); background:transparent; color:#fff; fontSize:23px; lineHeight:0.94; cursor:pointer; flexShrink:0; transition:all .2s ease" style-hover="background:#EB5D0B; borderColor:#EB5D0B">×</button>
+      </div>
+      <div data-menugrid="1" style="position:relative; zIndex:1; display:grid; gridTemplateColumns:minmax(180px,.68fr) 1.32fr; gap:clamp(28px,4.5cqw,72px); alignItems:end">
+        <div style="display:flex; flexDirection:column; gap:clamp(22px,2.13cqw,34px); alignSelf:end">
+          <span style="fontSize:clamp(20px,1.88cqw,30px); fontWeight:800; textTransform:uppercase; color:#EB5D0B; letterSpacing:-0.02em; lineHeight:1">Mit Herz<br>dabei.</span>
+          <span style="fontSize:14.5px; lineHeight:1.6; color:rgba(255,255,255,.6)">Industriering Ost 56 · 47906 Kempen<br>info@horst-malerbetriebe.de<br>+49 2152 510 600</span>
+          <div style="display:flex; flexDirection:column; gap:clamp(8px,0.75cqw,12px)">
+            <span style="display:flex; alignItems:center; gap:9px; fontSize:11px; fontWeight:700; letterSpacing:0.2em; textTransform:uppercase; color:#EB5D0B">
+              <span aria-hidden="true" style="width:22px; height:2px; background:#EB5D0B; flexShrink:0"></span>
+              Folgt uns
+            </span>
+            <div style="display:flex; flexDirection:column; gap:2px; marginLeft:-4px">
+              <sc-for list="{{ menuSocial }}" as="s" hint-placeholder-count="4">
+                <a href="{{ s.href }}" data-social="1" style="display:flex; alignItems:center; gap:9px; color:rgba(255,255,255,.92); fontSize:clamp(17px,1.32cqw,21px); fontWeight:700; letterSpacing:-0.01em; lineHeight:1; textTransform:uppercase; textDecoration:none; padding:11px 4px; transition:color .2s ease" style-hover="color:#EB5D0B"><span style="display:block">{{ s.label }}</span><span data-socialarrow="1" aria-hidden="true" style="flexShrink:0; display:flex; alignItems:center; justifyContent:center; width:13px; height:13px; fontSize:13px; lineHeight:1; fontWeight:600; opacity:.62; transition:transform .25s cubic-bezier(.22,1,.36,1), opacity .2s ease">↗</span></a>
+              </sc-for>
+            </div>
+          </div>
+          <div style="display:flex; flexDirection:column; gap:9px; borderTop:1px solid rgba(255,255,255,.14); paddingTop:16px">
+            <sc-for list="{{ menuLegal }}" as="l" hint-placeholder-count="2">
+              <a href="{{ l.href }}" style="color:rgba(255,255,255,.55); fontSize:12.5px; fontWeight:600; letterSpacing:0.1em; textTransform:uppercase; textDecoration:none; transition:color .2s ease" style-hover="color:#EB5D0B">{{ l.label }}</a>
+            </sc-for>
+          </div>
+        </div>
+        <div style="display:flex; flexDirection:column; alignItems:flex-end; justifyContent:center; gap:clamp(14px,1.63cqw,26px); alignSelf:center; paddingRight:clamp(8px,4cqw,64px); paddingBottom:clamp(18px,3.5cqw,56px)">
+          <sc-for list="{{ menuLinks }}" as="m" hint-placeholder-count="8">
+            <a href="{{ m.href }}" onClick="{{ closeMenu }}" style="display:flex; alignItems:baseline; justifyContent:flex-end; gap:16px; color:#fff; fontSize:clamp(29px,3.56cqw,57px); fontWeight:800; textTransform:uppercase; lineHeight:1; letterSpacing:-0.025em; textDecoration:none; transition:color .2s ease, transform .3s cubic-bezier(.22,1,.36,1)" style-hover="color:#EB5D0B; transform:translateX(-12px)">
+              <span style="fontSize:11.5px; fontWeight:700; letterSpacing:0.16em; color:rgba(255,255,255,.35)">{{ m.no }}</span>
+              <span>{{ m.label }}</span>
+            </a>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <main id="inhalt">
+
+    <section data-phero="1" data-screen-label="Hero" aria-label="Ausgewählte Projekte" style="position:relative; overflow:clip; background:#15123B; color:#fff; height:calc(100dvh - var(--hdr-h, 77px))">
+      <div data-phstage="1" style="position:relative; height:100%; boxSizing:border-box; display:flex; flexDirection:column; justifyContent:center; padding:clamp(24px,2.5cqw,48px) clamp(18px,3cqw,64px)">
+      <div data-pheroinner="1" style="position:relative; width:100%; maxWidth:1728px; margin:0 auto; display:flex; flexDirection:column">
+        <div data-pherotext="1" style="position:absolute; inset:0; justifyContent:center; opacity:calc(1 - var(--hp, 0)); transform:translateY(calc(var(--hp, 0) * -40px)); zIndex:3; paddingLeft:clamp(14px,1.3cqw,22px); paddingRight:clamp(14px,1.3cqw,22px); display:flex; flexDirection:column; gap:0; pointerEvents:none">
+          <span data-pherolabel="1" style="marginBottom:clamp(8px,0.8cqw,12px); alignSelf:center; display:flex; alignItems:center; gap:11px; fontSize:clamp(0.72rem,0.96cqw,0.96rem); fontWeight:700; letterSpacing:0.2em; lineHeight:1; textTransform:uppercase; color:#EB5D0B">
+            <span aria-hidden="true" style="width:34px; height:3px; background:#EB5D0B; flexShrink:0"></span>
+            Projekte
+          </span>
+          <h1 data-pheroh1="1" style="margin:0; fontSize:clamp(2.86rem,6.344cqw,6.552rem); fontWeight:800; letterSpacing:-0.015em; lineHeight:0.98; textTransform:uppercase; color:#fff; textAlign:center; textShadow:0 2px 28px rgba(21,18,59,.5)"><span data-pheroline="1" style="display:block; whiteSpace:nowrap">Mit <span style="color:#EB5D0B">Herz</span></span><span data-pheroline="1" style="display:block; whiteSpace:nowrap">Gemacht.</span></h1>
+          <p data-pherop="1" style="margin:clamp(14px,1.5cqw,24px) 0 0; alignSelf:center; maxWidth:680px; textAlign:center; fontSize:clamp(15px,1.1cqw,17px); lineHeight:1.62; color:#DCDAE6; textWrap:pretty; textShadow:0 1px 16px rgba(21,18,59,.6)"><span data-pherobr="1" style="display:block; whiteSpace:nowrap">Ob Restaurants, Fassaden, Zahnarztpraxen oder Kanzleien:</span> <span data-pherobr="1" style="display:block; whiteSpace:nowrap">Projekte, bei denen Handwerk auf Anspruch trifft.</span></p>
+        </div>
+
+        <div data-pstrips="1" style="order:1; display:grid; gridTemplateColumns:repeat(4, minmax(0,1fr)); gap:16px">
+          <a href="{{ strip01 }}" data-pstrip="1" aria-label="Zu Projekt 01 springen: La Piazza" style="position:relative; display:block; minWidth:0; height:min(calc(0.52 * (min(100cqw - 2 * clamp(18px,7.5cqw,128px), 1440px) - 48px)), calc(100dvh - var(--hdr-h, 77px) - 2 * clamp(24px,2.5cqw,48px) )); overflow:hidden; color:#fff">
+            <image-slot id="projekte-hero-streifen-01" role="img" aria-label="La Piazza Restaurant" shape="rect" fit="cover" placeholder="BILD: Projekt 01 Streifen" style="position:absolute; inset:0; display:block; width:100%; height:100%"></image-slot>
+            <span data-pgrad="1" aria-hidden="true" style="position:absolute; left:0; right:0; bottom:0; height:35%; zIndex:1; opacity:calc(1 - var(--hp, 0)); pointerEvents:none; background:linear-gradient(180deg, rgba(21,18,59,0) 0%, rgba(21,18,59,.28) 100%)"></span>
+            <span data-pfade="1" aria-hidden="true" style="position:absolute; left:0; right:0; bottom:0; height:30%; zIndex:1; pointerEvents:none; background:linear-gradient(180deg, rgba(21,18,59,0) 0%, rgba(21,18,59,.03) 12%, rgba(21,18,59,.1) 25%, rgba(21,18,59,.22) 38%, rgba(21,18,59,.38) 50%, rgba(21,18,59,.56) 62%, rgba(21,18,59,.74) 74%, rgba(21,18,59,.88) 85%, rgba(21,18,59,.97) 94%, #15123B 100%)"></span>
+            <span aria-hidden="true" style="position:absolute; top:clamp(14px,1.3cqw,22px); left:clamp(14px,1.3cqw,22px); zIndex:2; fontSize:12px; fontWeight:700; letterSpacing:0.2em; lineHeight:1; color:#fff; fontVariantNumeric:tabular-nums; pointerEvents:none">01</span>
+          </a>
+          <a href="{{ strip02 }}" data-pstrip="1" aria-label="Zu Projekt 02 springen: Fassade Kempen" style="position:relative; display:block; minWidth:0; height:min(calc(0.52 * (min(100cqw - 2 * clamp(18px,7.5cqw,128px), 1440px) - 48px)), calc(100dvh - var(--hdr-h, 77px) - 2 * clamp(24px,2.5cqw,48px) )); overflow:hidden; color:#fff">
+            <image-slot id="projekte-hero-streifen-02" role="img" aria-label="Fassade Kempen" shape="rect" fit="cover" placeholder="BILD: Projekt 02 Streifen" style="position:absolute; inset:0; display:block; width:100%; height:100%"></image-slot>
+            <span data-pgrad="1" aria-hidden="true" style="position:absolute; left:0; right:0; bottom:0; height:35%; zIndex:1; opacity:calc(1 - var(--hp, 0)); pointerEvents:none; background:linear-gradient(180deg, rgba(21,18,59,0) 0%, rgba(21,18,59,.28) 100%)"></span>
+            <span data-pfade="1" aria-hidden="true" style="position:absolute; left:0; right:0; bottom:0; height:30%; zIndex:1; pointerEvents:none; background:linear-gradient(180deg, rgba(21,18,59,0) 0%, rgba(21,18,59,.03) 12%, rgba(21,18,59,.1) 25%, rgba(21,18,59,.22) 38%, rgba(21,18,59,.38) 50%, rgba(21,18,59,.56) 62%, rgba(21,18,59,.74) 74%, rgba(21,18,59,.88) 85%, rgba(21,18,59,.97) 94%, #15123B 100%)"></span>
+            <span aria-hidden="true" style="position:absolute; top:clamp(14px,1.3cqw,22px); left:clamp(14px,1.3cqw,22px); zIndex:2; fontSize:12px; fontWeight:700; letterSpacing:0.2em; lineHeight:1; color:#fff; fontVariantNumeric:tabular-nums; pointerEvents:none">02</span>
+          </a>
+          <a href="{{ strip03 }}" data-pstrip="1" aria-label="Zu Projekt 03 springen: Thelen &amp; Wirth" style="position:relative; display:block; minWidth:0; height:min(calc(0.52 * (min(100cqw - 2 * clamp(18px,7.5cqw,128px), 1440px) - 48px)), calc(100dvh - var(--hdr-h, 77px) - 2 * clamp(24px,2.5cqw,48px) )); overflow:hidden; color:#fff">
+            <image-slot id="projekte-hero-streifen-03" role="img" aria-label="Zahnarztpraxis Thelen &amp; Wirth" shape="rect" fit="cover" placeholder="BILD: Projekt 03 Streifen" style="position:absolute; inset:0; display:block; width:100%; height:100%"></image-slot>
+            <span data-pgrad="1" aria-hidden="true" style="position:absolute; left:0; right:0; bottom:0; height:35%; zIndex:1; opacity:calc(1 - var(--hp, 0)); pointerEvents:none; background:linear-gradient(180deg, rgba(21,18,59,0) 0%, rgba(21,18,59,.28) 100%)"></span>
+            <span data-pfade="1" aria-hidden="true" style="position:absolute; left:0; right:0; bottom:0; height:30%; zIndex:1; pointerEvents:none; background:linear-gradient(180deg, rgba(21,18,59,0) 0%, rgba(21,18,59,.03) 12%, rgba(21,18,59,.1) 25%, rgba(21,18,59,.22) 38%, rgba(21,18,59,.38) 50%, rgba(21,18,59,.56) 62%, rgba(21,18,59,.74) 74%, rgba(21,18,59,.88) 85%, rgba(21,18,59,.97) 94%, #15123B 100%)"></span>
+            <span aria-hidden="true" style="position:absolute; top:clamp(14px,1.3cqw,22px); left:clamp(14px,1.3cqw,22px); zIndex:2; fontSize:12px; fontWeight:700; letterSpacing:0.2em; lineHeight:1; color:#fff; fontVariantNumeric:tabular-nums; pointerEvents:none">03</span>
+          </a>
+          <a href="{{ strip04 }}" data-pstrip="1" aria-label="Zu Projekt 04 springen: Latzel Steuerberater" style="position:relative; display:block; minWidth:0; height:min(calc(0.52 * (min(100cqw - 2 * clamp(18px,7.5cqw,128px), 1440px) - 48px)), calc(100dvh - var(--hdr-h, 77px) - 2 * clamp(24px,2.5cqw,48px) )); overflow:hidden; color:#fff">
+            <image-slot id="projekte-hero-streifen-04" role="img" aria-label="Latzel Steuerberater" shape="rect" fit="cover" placeholder="BILD: Projekt 04 Streifen" style="position:absolute; inset:0; display:block; width:100%; height:100%"></image-slot>
+            <span data-pgrad="1" aria-hidden="true" style="position:absolute; left:0; right:0; bottom:0; height:35%; zIndex:1; opacity:calc(1 - var(--hp, 0)); pointerEvents:none; background:linear-gradient(180deg, rgba(21,18,59,0) 0%, rgba(21,18,59,.28) 100%)"></span>
+            <span data-pfade="1" aria-hidden="true" style="position:absolute; left:0; right:0; bottom:0; height:30%; zIndex:1; pointerEvents:none; background:linear-gradient(180deg, rgba(21,18,59,0) 0%, rgba(21,18,59,.03) 12%, rgba(21,18,59,.1) 25%, rgba(21,18,59,.22) 38%, rgba(21,18,59,.38) 50%, rgba(21,18,59,.56) 62%, rgba(21,18,59,.74) 74%, rgba(21,18,59,.88) 85%, rgba(21,18,59,.97) 94%, #15123B 100%)"></span>
+            <span aria-hidden="true" style="position:absolute; top:clamp(14px,1.3cqw,22px); left:clamp(14px,1.3cqw,22px); zIndex:2; fontSize:12px; fontWeight:700; letterSpacing:0.2em; lineHeight:1; color:#fff; fontVariantNumeric:tabular-nums; pointerEvents:none">04</span>
+          </a>
+        </div>
+        <span data-phscrim="1" aria-hidden="true" style="position:absolute; inset:0; zIndex:2; background:rgba(21,18,59,.47); opacity:calc(1 - var(--hp, 0)); pointerEvents:none"></span>
+        <span data-phglow="1" aria-hidden="true" style="position:absolute; left:50%; top:50%; width:66%; height:min(100%, 36cqw); transform:translate(-50%,-50%); zIndex:2; background:radial-gradient(closest-side, rgba(21,18,59,.35) 0%, rgba(21,18,59,.34) 68%, rgba(21,18,59,.14) 88%, rgba(21,18,59,0) 100%); opacity:calc(1 - var(--hp, 0)); pointerEvents:none"></span>
+      </div>
+      </div>
+    </section>
+
+    <section data-screen-label="Projekte" aria-label="Projekte im Detail" style="position:relative; background:var(--paper); padding:var(--section-space) clamp(18px,4cqw,64px)">
+      <div style="maxWidth:1440px; margin:0 auto; display:flex; flexDirection:column">
+
+        <article id="projekt-01" data-pblock="1" data-screen-label="Projekt 01" style="scrollMarginTop:calc(var(--hdr-h, 77px) + 24px); display:grid; gridTemplateColumns:minmax(0,55fr) minmax(0,45fr); gridTemplateRows:auto auto; columnGap:clamp(32px,5.5cqw,104px); rowGap:clamp(28px,3cqw,44px); alignItems:start; padding:0 0 60px">
+          <div data-pimg="1" style="gridColumn:1; gridRow:1 / span 2; display:grid; gridTemplateRows:subgrid; rowGap:16px; minWidth:0">
+            <image-slot id="projekt-01-hauptbild" role="img" aria-label="La Piazza Restaurant, Wandgestaltung" shape="rect" fit="cover" placeholder="BILD: Projekt 01 – Hauptbild" style="display:block; width:100%; aspectRatio:3/2"></image-slot>
+            <div data-car="1" aria-roledescription="Karussell" aria-label="Weitere Bilder La Piazza Restaurant" style="display:flex; flexDirection:column; gap:12px; minWidth:0">
+              <div data-car-view="1" style="position:relative; overflow:hidden; touchAction:pan-y">
+                <div data-car-track="1" style="display:flex; gap:16px">
+                <div data-car-item="1" style="position:relative; flex:0 0 calc((100% - 16px) / 2); minWidth:0; aspectRatio:3/2; order:0"><image-slot id="projekt-01-detail-1" role="img" aria-label="La Piazza Restaurant, Detailansicht 1" shape="rect" fit="cover" placeholder="BILD: Projekt 01 – Detail 1" style="position:absolute; inset:0; display:block; width:100%; height:100%"></image-slot></div>
+                <div data-car-item="1" style="position:relative; flex:0 0 calc((100% - 16px) / 2); minWidth:0; aspectRatio:3/2; order:1"><image-slot id="projekt-01-detail-2" role="img" aria-label="La Piazza Restaurant, Detailansicht 2" shape="rect" fit="cover" placeholder="BILD: Projekt 01 – Detail 2" style="position:absolute; inset:0; display:block; width:100%; height:100%"></image-slot></div>
+                <div data-car-item="1" style="position:relative; flex:0 0 calc((100% - 16px) / 2); minWidth:0; aspectRatio:3/2; order:2"><image-slot id="projekt-01-detail-3" role="img" aria-label="La Piazza Restaurant, Detailansicht 3" shape="rect" fit="cover" placeholder="BILD: Projekt 01 – Detail 3" style="position:absolute; inset:0; display:block; width:100%; height:100%"></image-slot></div>
+                <div data-car-item="1" style="position:relative; flex:0 0 calc((100% - 16px) / 2); minWidth:0; aspectRatio:3/2; order:3"><image-slot id="projekt-01-detail-4" role="img" aria-label="La Piazza Restaurant, Detailansicht 4" shape="rect" fit="cover" placeholder="BILD: Projekt 01 – Detail 4" style="position:absolute; inset:0; display:block; width:100%; height:100%"></image-slot></div>
+                <div data-car-item="1" style="position:relative; flex:0 0 calc((100% - 16px) / 2); minWidth:0; aspectRatio:3/2; order:4"><image-slot id="projekt-01-detail-5" role="img" aria-label="La Piazza Restaurant, Detailansicht 5" shape="rect" fit="cover" placeholder="BILD: Projekt 01 – Detail 5" style="position:absolute; inset:0; display:block; width:100%; height:100%"></image-slot></div>
+                </div>
+              <button type="button" data-car-prev="1" aria-label="Vorheriges Bild" style="position:absolute; left:0; top:50%; transform:translateY(-50%); zIndex:2; width:40px; height:40px; display:flex; alignItems:center; justifyContent:center; padding:0; border:0; borderRadius:0; background:#15123B; cursor:pointer; transition:background .2s ease" style-hover="background:#EB5D0B"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true" style="display:block"><path d="M9 2 L4 7 L9 12" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"></path></svg></button>
+              <button type="button" data-car-next="1" aria-label="Nächstes Bild" style="position:absolute; right:0; top:50%; transform:translateY(-50%); zIndex:2; width:40px; height:40px; display:flex; alignItems:center; justifyContent:center; padding:0; border:0; borderRadius:0; background:#15123B; cursor:pointer; transition:background .2s ease" style-hover="background:#EB5D0B"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true" style="display:block"><path d="M5 2 L10 7 L5 12" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"></path></svg></button>
+              </div>
+              <div data-car-dots="1" style="display:flex; justifyContent:center; alignItems:center; gap:12px">
+              <button type="button" data-car-dot="1" aria-label="Bild 1 anzeigen" aria-current="true" style="width:11px; height:11px; padding:0; borderRadius:50%; border:0; cursor:pointer; background:#EB5D0B; transition:background .25s ease"></button>
+              <button type="button" data-car-dot="1" aria-label="Bild 2 anzeigen" aria-current="false" style="width:11px; height:11px; padding:0; borderRadius:50%; border:0; cursor:pointer; background:#CFCFCC; transition:background .25s ease"></button>
+              <button type="button" data-car-dot="1" aria-label="Bild 3 anzeigen" aria-current="false" style="width:11px; height:11px; padding:0; borderRadius:50%; border:0; cursor:pointer; background:#CFCFCC; transition:background .25s ease"></button>
+              <button type="button" data-car-dot="1" aria-label="Bild 4 anzeigen" aria-current="false" style="width:11px; height:11px; padding:0; borderRadius:50%; border:0; cursor:pointer; background:#CFCFCC; transition:background .25s ease"></button>
+              <button type="button" data-car-dot="1" aria-label="Bild 5 anzeigen" aria-current="false" style="width:11px; height:11px; padding:0; borderRadius:50%; border:0; cursor:pointer; background:#CFCFCC; transition:background .25s ease"></button>
+              </div>
+            </div>
+          </div>
+          <div data-ptext="1" style="gridColumn:2; gridRow:1; alignSelf:center; display:flex; flexDirection:column; alignItems:flex-start; gap:clamp(14px,1.4cqw,22px); minWidth:0">
+            <span style="display:flex; alignItems:center; gap:11px; fontSize:clamp(0.66rem,0.84cqw,0.84rem); fontWeight:700; letterSpacing:0.2em; textTransform:uppercase; color:#EB5D0B">
+              <span aria-hidden="true" style="width:30px; height:3px; background:#EB5D0B; flexShrink:0"></span>
+              Restaurant
+            </span>
+            <h2 style="margin:0; fontSize:clamp(1.6rem,2.9cqw,2.9rem); fontWeight:800; letterSpacing:-0.03em; lineHeight:1.02; textTransform:uppercase; color:#15123B; textWrap:balance">La Piazza</h2>
+            <p style="margin:0; maxWidth:44ch; fontSize:clamp(15.5px,1.15cqw,18px); lineHeight:1.68; color:#5B5970; textWrap:pretty">[Projektbeschreibung]</p>
+            <a href="#" target="_blank" rel="noopener noreferrer" style="marginTop:clamp(4px,0.6cqw,10px); display:flex; alignItems:center; gap:10px; fontSize:clamp(0.74rem,0.86cqw,0.86rem); fontWeight:700; letterSpacing:0.11em; textTransform:uppercase; color:#EB5D0B; borderBottom:2px solid #EB5D0B; paddingBottom:6px" style-hover="color:#15123B; borderColor:#15123B">Zur Website →</a>
+          </div>
+        </article>
+
+        <article id="projekt-02" data-pblock="1" data-screen-label="Projekt 02" style="scrollMarginTop:calc(var(--hdr-h, 77px) + 24px); display:grid; gridTemplateColumns:minmax(0,45fr) minmax(0,55fr); gridTemplateRows:auto auto; columnGap:clamp(32px,5.5cqw,104px); rowGap:clamp(28px,3cqw,44px); alignItems:start; borderTop:1px solid var(--line-3); padding:60px 0">
+          <div data-pimg="1" style="order:2; gridColumn:2; gridRow:1 / span 2; display:grid; gridTemplateRows:subgrid; rowGap:16px; minWidth:0">
+            <image-slot id="projekt-02-hauptbild" role="img" aria-label="Fassade Kempen, Fassadengestaltung" shape="rect" fit="cover" placeholder="BILD: Projekt 02 – Hauptbild" style="display:block; width:100%; aspectRatio:3/2"></image-slot>
+            <div data-car="1" aria-roledescription="Karussell" aria-label="Weitere Bilder Fassade Kempen" style="display:flex; flexDirection:column; gap:12px; minWidth:0">
+              <div data-car-view="1" style="position:relative; overflow:hidden; touchAction:pan-y">
+                <div data-car-track="1" style="display:flex; gap:16px">
+                <div data-car-item="1" style="position:relative; flex:0 0 calc((100% - 16px) / 2); minWidth:0; aspectRatio:3/2; order:0"><image-slot id="projekt-02-detail-1" role="img" aria-label="Fassade Kempen, Detailansicht 1" shape="rect" fit="cover" placeholder="BILD: Projekt 02 – Detail 1" style="position:absolute; inset:0; display:block; width:100%; height:100%"></image-slot></div>
+                <div data-car-item="1" style="position:relative; flex:0 0 calc((100% - 16px) / 2); minWidth:0; aspectRatio:3/2; order:1"><image-slot id="projekt-02-detail-2" role="img" aria-label="Fassade Kempen, Detailansicht 2" shape="rect" fit="cover" placeholder="BILD: Projekt 02 – Detail 2" style="position:absolute; inset:0; display:block; width:100%; height:100%"></image-slot></div>
+                <div data-car-item="1" style="position:relative; flex:0 0 calc((100% - 16px) / 2); minWidth:0; aspectRatio:3/2; order:2"><image-slot id="projekt-02-detail-3" role="img" aria-label="Fassade Kempen, Detailansicht 3" shape="rect" fit="cover" placeholder="BILD: Projekt 02 – Detail 3" style="position:absolute; inset:0; display:block; width:100%; height:100%"></image-slot></div>
+                <div data-car-item="1" style="position:relative; flex:0 0 calc((100% - 16px) / 2); minWidth:0; aspectRatio:3/2; order:3"><image-slot id="projekt-02-detail-4" role="img" aria-label="Fassade Kempen, Detailansicht 4" shape="rect" fit="cover" placeholder="BILD: Projekt 02 – Detail 4" style="position:absolute; inset:0; display:block; width:100%; height:100%"></image-slot></div>
+                <div data-car-item="1" style="position:relative; flex:0 0 calc((100% - 16px) / 2); minWidth:0; aspectRatio:3/2; order:4"><image-slot id="projekt-02-detail-5" role="img" aria-label="Fassade Kempen, Detailansicht 5" shape="rect" fit="cover" placeholder="BILD: Projekt 02 – Detail 5" style="position:absolute; inset:0; display:block; width:100%; height:100%"></image-slot></div>
+                </div>
+              <button type="button" data-car-prev="1" aria-label="Vorheriges Bild" style="position:absolute; left:0; top:50%; transform:translateY(-50%); zIndex:2; width:40px; height:40px; display:flex; alignItems:center; justifyContent:center; padding:0; border:0; borderRadius:0; background:#15123B; cursor:pointer; transition:background .2s ease" style-hover="background:#EB5D0B"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true" style="display:block"><path d="M9 2 L4 7 L9 12" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"></path></svg></button>
+              <button type="button" data-car-next="1" aria-label="Nächstes Bild" style="position:absolute; right:0; top:50%; transform:translateY(-50%); zIndex:2; width:40px; height:40px; display:flex; alignItems:center; justifyContent:center; padding:0; border:0; borderRadius:0; background:#15123B; cursor:pointer; transition:background .2s ease" style-hover="background:#EB5D0B"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true" style="display:block"><path d="M5 2 L10 7 L5 12" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"></path></svg></button>
+              </div>
+              <div data-car-dots="1" style="display:flex; justifyContent:center; alignItems:center; gap:12px">
+              <button type="button" data-car-dot="1" aria-label="Bild 1 anzeigen" aria-current="true" style="width:11px; height:11px; padding:0; borderRadius:50%; border:0; cursor:pointer; background:#EB5D0B; transition:background .25s ease"></button>
+              <button type="button" data-car-dot="1" aria-label="Bild 2 anzeigen" aria-current="false" style="width:11px; height:11px; padding:0; borderRadius:50%; border:0; cursor:pointer; background:#CFCFCC; transition:background .25s ease"></button>
+              <button type="button" data-car-dot="1" aria-label="Bild 3 anzeigen" aria-current="false" style="width:11px; height:11px; padding:0; borderRadius:50%; border:0; cursor:pointer; background:#CFCFCC; transition:background .25s ease"></button>
+              <button type="button" data-car-dot="1" aria-label="Bild 4 anzeigen" aria-current="false" style="width:11px; height:11px; padding:0; borderRadius:50%; border:0; cursor:pointer; background:#CFCFCC; transition:background .25s ease"></button>
+              <button type="button" data-car-dot="1" aria-label="Bild 5 anzeigen" aria-current="false" style="width:11px; height:11px; padding:0; borderRadius:50%; border:0; cursor:pointer; background:#CFCFCC; transition:background .25s ease"></button>
+              </div>
+            </div>
+          </div>
+          <div data-ptext="1" style="gridColumn:1; gridRow:1; alignSelf:center; display:flex; flexDirection:column; alignItems:flex-start; gap:clamp(14px,1.4cqw,22px); minWidth:0">
+            <span style="display:flex; alignItems:center; gap:11px; fontSize:clamp(0.66rem,0.84cqw,0.84rem); fontWeight:700; letterSpacing:0.2em; textTransform:uppercase; color:#EB5D0B">
+              <span aria-hidden="true" style="width:30px; height:3px; background:#EB5D0B; flexShrink:0"></span>
+              Fassade
+            </span>
+            <h2 style="margin:0; fontSize:clamp(1.6rem,2.9cqw,2.9rem); fontWeight:800; letterSpacing:-0.03em; lineHeight:1.02; textTransform:uppercase; color:#15123B; textWrap:balance">ALTBAU IN KEMPEN</h2>
+            <p style="margin:0; maxWidth:44ch; fontSize:clamp(15.5px,1.15cqw,18px); lineHeight:1.68; color:#5B5970; textWrap:pretty">[Projektbeschreibung]</p>
+          </div>
+        </article>
+
+        <article id="projekt-03" data-pblock="1" data-screen-label="Projekt 03" style="scrollMarginTop:calc(var(--hdr-h, 77px) + 24px); display:grid; gridTemplateColumns:minmax(0,55fr) minmax(0,45fr); gridTemplateRows:auto auto; columnGap:clamp(32px,5.5cqw,104px); rowGap:clamp(28px,3cqw,44px); alignItems:start; borderTop:1px solid var(--line-3); padding:60px 0">
+          <div data-pimg="1" style="gridColumn:1; gridRow:1 / span 2; display:grid; gridTemplateRows:subgrid; rowGap:16px; minWidth:0">
+            <image-slot id="projekt-03-hauptbild" role="img" aria-label="Zahnarztpraxis Thelen &amp; Wirth, Innenraumgestaltung" shape="rect" fit="cover" placeholder="BILD: Projekt 03 – Hauptbild" style="display:block; width:100%; aspectRatio:3/2"></image-slot>
+            <div data-car="1" aria-roledescription="Karussell" aria-label="Weitere Bilder Zahnarztpraxis Thelen &amp; Wirth" style="display:flex; flexDirection:column; gap:12px; minWidth:0">
+              <div data-car-view="1" style="position:relative; overflow:hidden; touchAction:pan-y">
+                <div data-car-track="1" style="display:flex; gap:16px">
+                <div data-car-item="1" style="position:relative; flex:0 0 calc((100% - 16px) / 2); minWidth:0; aspectRatio:3/2; order:0"><image-slot id="projekt-03-detail-1" role="img" aria-label="Zahnarztpraxis Thelen &amp; Wirth, Detailansicht 1" shape="rect" fit="cover" placeholder="BILD: Projekt 03 – Detail 1" style="position:absolute; inset:0; display:block; width:100%; height:100%"></image-slot></div>
+                <div data-car-item="1" style="position:relative; flex:0 0 calc((100% - 16px) / 2); minWidth:0; aspectRatio:3/2; order:1"><image-slot id="projekt-03-detail-2" role="img" aria-label="Zahnarztpraxis Thelen &amp; Wirth, Detailansicht 2" shape="rect" fit="cover" placeholder="BILD: Projekt 03 – Detail 2" style="position:absolute; inset:0; display:block; width:100%; height:100%"></image-slot></div>
+                <div data-car-item="1" style="position:relative; flex:0 0 calc((100% - 16px) / 2); minWidth:0; aspectRatio:3/2; order:2"><image-slot id="projekt-03-detail-3" role="img" aria-label="Zahnarztpraxis Thelen &amp; Wirth, Detailansicht 3" shape="rect" fit="cover" placeholder="BILD: Projekt 03 – Detail 3" style="position:absolute; inset:0; display:block; width:100%; height:100%"></image-slot></div>
+                <div data-car-item="1" style="position:relative; flex:0 0 calc((100% - 16px) / 2); minWidth:0; aspectRatio:3/2; order:3"><image-slot id="projekt-03-detail-4" role="img" aria-label="Zahnarztpraxis Thelen &amp; Wirth, Detailansicht 4" shape="rect" fit="cover" placeholder="BILD: Projekt 03 – Detail 4" style="position:absolute; inset:0; display:block; width:100%; height:100%"></image-slot></div>
+                <div data-car-item="1" style="position:relative; flex:0 0 calc((100% - 16px) / 2); minWidth:0; aspectRatio:3/2; order:4"><image-slot id="projekt-03-detail-5" role="img" aria-label="Zahnarztpraxis Thelen &amp; Wirth, Detailansicht 5" shape="rect" fit="cover" placeholder="BILD: Projekt 03 – Detail 5" style="position:absolute; inset:0; display:block; width:100%; height:100%"></image-slot></div>
+                </div>
+              <button type="button" data-car-prev="1" aria-label="Vorheriges Bild" style="position:absolute; left:0; top:50%; transform:translateY(-50%); zIndex:2; width:40px; height:40px; display:flex; alignItems:center; justifyContent:center; padding:0; border:0; borderRadius:0; background:#15123B; cursor:pointer; transition:background .2s ease" style-hover="background:#EB5D0B"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true" style="display:block"><path d="M9 2 L4 7 L9 12" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"></path></svg></button>
+              <button type="button" data-car-next="1" aria-label="Nächstes Bild" style="position:absolute; right:0; top:50%; transform:translateY(-50%); zIndex:2; width:40px; height:40px; display:flex; alignItems:center; justifyContent:center; padding:0; border:0; borderRadius:0; background:#15123B; cursor:pointer; transition:background .2s ease" style-hover="background:#EB5D0B"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true" style="display:block"><path d="M5 2 L10 7 L5 12" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"></path></svg></button>
+              </div>
+              <div data-car-dots="1" style="display:flex; justifyContent:center; alignItems:center; gap:12px">
+              <button type="button" data-car-dot="1" aria-label="Bild 1 anzeigen" aria-current="true" style="width:11px; height:11px; padding:0; borderRadius:50%; border:0; cursor:pointer; background:#EB5D0B; transition:background .25s ease"></button>
+              <button type="button" data-car-dot="1" aria-label="Bild 2 anzeigen" aria-current="false" style="width:11px; height:11px; padding:0; borderRadius:50%; border:0; cursor:pointer; background:#CFCFCC; transition:background .25s ease"></button>
+              <button type="button" data-car-dot="1" aria-label="Bild 3 anzeigen" aria-current="false" style="width:11px; height:11px; padding:0; borderRadius:50%; border:0; cursor:pointer; background:#CFCFCC; transition:background .25s ease"></button>
+              <button type="button" data-car-dot="1" aria-label="Bild 4 anzeigen" aria-current="false" style="width:11px; height:11px; padding:0; borderRadius:50%; border:0; cursor:pointer; background:#CFCFCC; transition:background .25s ease"></button>
+              <button type="button" data-car-dot="1" aria-label="Bild 5 anzeigen" aria-current="false" style="width:11px; height:11px; padding:0; borderRadius:50%; border:0; cursor:pointer; background:#CFCFCC; transition:background .25s ease"></button>
+              </div>
+            </div>
+          </div>
+          <div data-ptext="1" style="gridColumn:2; gridRow:1; alignSelf:center; display:flex; flexDirection:column; alignItems:flex-start; gap:clamp(14px,1.4cqw,22px); minWidth:0">
+            <span style="display:flex; alignItems:center; gap:11px; fontSize:clamp(0.66rem,0.84cqw,0.84rem); fontWeight:700; letterSpacing:0.2em; textTransform:uppercase; color:#EB5D0B">
+              <span aria-hidden="true" style="width:30px; height:3px; background:#EB5D0B; flexShrink:0"></span>
+              Zahnarztpraxis
+            </span>
+            <h2 style="margin:0; fontSize:clamp(1.6rem,2.9cqw,2.9rem); fontWeight:800; letterSpacing:-0.03em; lineHeight:1.02; textTransform:uppercase; color:#15123B; textWrap:balance">Thelen &amp; Wirth</h2>
+            <p style="margin:0; maxWidth:44ch; fontSize:clamp(15.5px,1.15cqw,18px); lineHeight:1.68; color:#5B5970; textWrap:pretty">[Projektbeschreibung]</p>
+            <a href="#" target="_blank" rel="noopener noreferrer" style="marginTop:clamp(4px,0.6cqw,10px); display:flex; alignItems:center; gap:10px; fontSize:clamp(0.74rem,0.86cqw,0.86rem); fontWeight:700; letterSpacing:0.11em; textTransform:uppercase; color:#EB5D0B; borderBottom:2px solid #EB5D0B; paddingBottom:6px" style-hover="color:#15123B; borderColor:#15123B">Zur Website →</a>
+          </div>
+        </article>
+
+        <article id="projekt-04" data-pblock="1" data-screen-label="Projekt 04" style="scrollMarginTop:calc(var(--hdr-h, 77px) + 24px); display:grid; gridTemplateColumns:minmax(0,45fr) minmax(0,55fr); gridTemplateRows:auto auto; columnGap:clamp(32px,5.5cqw,104px); rowGap:clamp(28px,3cqw,44px); alignItems:start; borderTop:1px solid var(--line-3); padding:60px 0 0">
+          <div data-pimg="1" style="order:2; gridColumn:2; gridRow:1 / span 2; display:grid; gridTemplateRows:subgrid; rowGap:16px; minWidth:0">
+            <image-slot id="projekt-04-hauptbild" role="img" aria-label="Latzel Steuerberater, Innenraumgestaltung" shape="rect" fit="cover" placeholder="BILD: Projekt 04 – Hauptbild" style="display:block; width:100%; aspectRatio:3/2"></image-slot>
+            <div data-car="1" aria-roledescription="Karussell" aria-label="Weitere Bilder Latzel Steuerberater" style="display:flex; flexDirection:column; gap:12px; minWidth:0">
+              <div data-car-view="1" style="position:relative; overflow:hidden; touchAction:pan-y">
+                <div data-car-track="1" style="display:flex; gap:16px">
+                <div data-car-item="1" style="position:relative; flex:0 0 calc((100% - 16px) / 2); minWidth:0; aspectRatio:3/2; order:0"><image-slot id="projekt-04-detail-1" role="img" aria-label="Latzel Steuerberater, Detailansicht 1" shape="rect" fit="cover" placeholder="BILD: Projekt 04 – Detail 1" style="position:absolute; inset:0; display:block; width:100%; height:100%"></image-slot></div>
+                <div data-car-item="1" style="position:relative; flex:0 0 calc((100% - 16px) / 2); minWidth:0; aspectRatio:3/2; order:1"><image-slot id="projekt-04-detail-2" role="img" aria-label="Latzel Steuerberater, Detailansicht 2" shape="rect" fit="cover" placeholder="BILD: Projekt 04 – Detail 2" style="position:absolute; inset:0; display:block; width:100%; height:100%"></image-slot></div>
+                <div data-car-item="1" style="position:relative; flex:0 0 calc((100% - 16px) / 2); minWidth:0; aspectRatio:3/2; order:2"><image-slot id="projekt-04-detail-3" role="img" aria-label="Latzel Steuerberater, Detailansicht 3" shape="rect" fit="cover" placeholder="BILD: Projekt 04 – Detail 3" style="position:absolute; inset:0; display:block; width:100%; height:100%"></image-slot></div>
+                <div data-car-item="1" style="position:relative; flex:0 0 calc((100% - 16px) / 2); minWidth:0; aspectRatio:3/2; order:3"><image-slot id="projekt-04-detail-4" role="img" aria-label="Latzel Steuerberater, Detailansicht 4" shape="rect" fit="cover" placeholder="BILD: Projekt 04 – Detail 4" style="position:absolute; inset:0; display:block; width:100%; height:100%"></image-slot></div>
+                <div data-car-item="1" style="position:relative; flex:0 0 calc((100% - 16px) / 2); minWidth:0; aspectRatio:3/2; order:4"><image-slot id="projekt-04-detail-5" role="img" aria-label="Latzel Steuerberater, Detailansicht 5" shape="rect" fit="cover" placeholder="BILD: Projekt 04 – Detail 5" style="position:absolute; inset:0; display:block; width:100%; height:100%"></image-slot></div>
+                </div>
+              <button type="button" data-car-prev="1" aria-label="Vorheriges Bild" style="position:absolute; left:0; top:50%; transform:translateY(-50%); zIndex:2; width:40px; height:40px; display:flex; alignItems:center; justifyContent:center; padding:0; border:0; borderRadius:0; background:#15123B; cursor:pointer; transition:background .2s ease" style-hover="background:#EB5D0B"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true" style="display:block"><path d="M9 2 L4 7 L9 12" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"></path></svg></button>
+              <button type="button" data-car-next="1" aria-label="Nächstes Bild" style="position:absolute; right:0; top:50%; transform:translateY(-50%); zIndex:2; width:40px; height:40px; display:flex; alignItems:center; justifyContent:center; padding:0; border:0; borderRadius:0; background:#15123B; cursor:pointer; transition:background .2s ease" style-hover="background:#EB5D0B"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true" style="display:block"><path d="M5 2 L10 7 L5 12" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"></path></svg></button>
+              </div>
+              <div data-car-dots="1" style="display:flex; justifyContent:center; alignItems:center; gap:12px">
+              <button type="button" data-car-dot="1" aria-label="Bild 1 anzeigen" aria-current="true" style="width:11px; height:11px; padding:0; borderRadius:50%; border:0; cursor:pointer; background:#EB5D0B; transition:background .25s ease"></button>
+              <button type="button" data-car-dot="1" aria-label="Bild 2 anzeigen" aria-current="false" style="width:11px; height:11px; padding:0; borderRadius:50%; border:0; cursor:pointer; background:#CFCFCC; transition:background .25s ease"></button>
+              <button type="button" data-car-dot="1" aria-label="Bild 3 anzeigen" aria-current="false" style="width:11px; height:11px; padding:0; borderRadius:50%; border:0; cursor:pointer; background:#CFCFCC; transition:background .25s ease"></button>
+              <button type="button" data-car-dot="1" aria-label="Bild 4 anzeigen" aria-current="false" style="width:11px; height:11px; padding:0; borderRadius:50%; border:0; cursor:pointer; background:#CFCFCC; transition:background .25s ease"></button>
+              <button type="button" data-car-dot="1" aria-label="Bild 5 anzeigen" aria-current="false" style="width:11px; height:11px; padding:0; borderRadius:50%; border:0; cursor:pointer; background:#CFCFCC; transition:background .25s ease"></button>
+              </div>
+            </div>
+          </div>
+          <div data-ptext="1" style="gridColumn:1; gridRow:1; alignSelf:center; display:flex; flexDirection:column; alignItems:flex-start; gap:clamp(14px,1.4cqw,22px); minWidth:0">
+            <span style="display:flex; alignItems:center; gap:11px; fontSize:clamp(0.66rem,0.84cqw,0.84rem); fontWeight:700; letterSpacing:0.2em; textTransform:uppercase; color:#EB5D0B">
+              <span aria-hidden="true" style="width:30px; height:3px; background:#EB5D0B; flexShrink:0"></span>
+              Steuerberatung
+            </span>
+            <h2 style="margin:0; fontSize:clamp(1.6rem,2.9cqw,2.9rem); fontWeight:800; letterSpacing:-0.03em; lineHeight:1.02; textTransform:uppercase; color:#15123B; textWrap:balance">Latzel Steuerberater</h2>
+            <p style="margin:0; maxWidth:44ch; fontSize:clamp(15.5px,1.15cqw,18px); lineHeight:1.68; color:#5B5970; textWrap:pretty">[Projektbeschreibung]</p>
+            <a href="#" target="_blank" rel="noopener noreferrer" style="marginTop:clamp(4px,0.6cqw,10px); display:flex; alignItems:center; gap:10px; fontSize:clamp(0.74rem,0.86cqw,0.86rem); fontWeight:700; letterSpacing:0.11em; textTransform:uppercase; color:#EB5D0B; borderBottom:2px solid #EB5D0B; paddingBottom:6px" style-hover="color:#15123B; borderColor:#15123B">Zur Website →</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="kontakt-abschluss" data-kk="sec" data-screen-label="Kontakt" aria-label="Kontakt" style="position:relative; overflow:hidden; background:#15123B; color:#fff; padding:var(--section-space) clamp(18px,4cqw,64px)">
+      <div data-kfz="1" aria-hidden="true" style="position:absolute; inset:0; containerType:size; padding:0 clamp(18px,4cqw,64px); display:flex; justifyContent:center; pointerEvents:none; userSelect:none; zIndex:0">
+        <div style="position:relative; containerType:size; width:100%; maxWidth:1440px">
+          <span style="position:absolute; right:calc(0.966 * (4% + 10px) + 110px - max(0px, (100vw - 1560px) * 0.25)); top:50%; transform:translateY(calc(-50% + 0.04em)); fontSize:151.3cqh; fontWeight:800; lineHeight:0.76; letterSpacing:-0.04em; color:transparent; WebkitTextStroke:2px rgba(235,93,11,0.22)">?</span>
+        </div>
+      </div>
+      <div data-kk="wrap" style="position:relative; zIndex:2; zoom:0.966; maxWidth:1491px; margin:0 auto; display:flex; flexDirection:column; gap:clamp(30px,3.5cqw,56px)">
+        <div data-kk="head" style="display:flex; flexDirection:column; gap:clamp(16px,1.75cqw,26px)">
+          <span style="display:flex; alignItems:center; gap:11px; fontSize:clamp(0.66rem,0.84cqw,0.84rem); fontWeight:700; letterSpacing:0.2em; textTransform:uppercase; color:#EB5D0B">
+            <span style="width:30px; height:3px; background:#EB5D0B; flexShrink:0"></span>
+            Kontakt
+          </span>
+          <h2 data-kk="h2" style="margin:0; fontSize:clamp(1.92rem,4.74cqw,4.56rem); fontWeight:800; letterSpacing:-0.035em; lineHeight:0.98; textTransform:uppercase; color:#fff; textWrap:balance">Projekt im Kopf?<br>Sprechen wir <span style="color:#EB5D0B">drüber.</span></h2>
+        </div>
+        <div data-kk="contacts" style="display:flex; flexDirection:column; gap:clamp(6px,0.75cqw,12px)">
+          <a data-kk="tel" href="tel:+492152510600" style="alignSelf:flex-start; fontSize:clamp(1.46rem,2.82cqw,3.01rem); fontWeight:800; letterSpacing:-0.035em; lineHeight:1.12; color:#fff; fontVariantNumeric:tabular-nums; transition:color .25s ease" style-hover="color:#EB5D0B">+49 2152 510 600</a>
+          <a data-kk="mail" href="mailto:info@horst-malerbetriebe.de" style="alignSelf:flex-start; maxWidth:100%; overflowWrap:anywhere; fontSize:clamp(1.17rem,2.39cqw,2.55rem); fontWeight:800; letterSpacing:-0.035em; lineHeight:1.12; color:#fff; transition:color .25s ease" style-hover="color:#EB5D0B">info@horst-malerbetriebe.de</a>
+        </div>
+        <div style="display:flex; flexWrap:wrap; alignItems:center; gap:clamp(12px,1.25cqw,20px)">
+          <a href="{{ kontaktHref }}" style="display:flex; alignItems:center; gap:12px; background:#EB5D0B; border:1px solid #EB5D0B; color:#fff; fontSize:clamp(0.74rem,0.86cqw,0.86rem); fontWeight:700; letterSpacing:0.11em; textTransform:uppercase; padding:clamp(15px,1.23cqw,19.6px) clamp(23.5px,2.21cqw,35.3px); whiteSpace:nowrap; transition:all .25s ease" style-hover="background:#fff; color:#EB5D0B; borderColor:#fff">Beratung anfragen →</a>
+          <a href="tel:+492152510600" style="display:flex; alignItems:center; gap:12px; background:transparent; border:1px solid rgba(255,255,255,.34); color:#fff; fontSize:clamp(0.74rem,0.86cqw,0.86rem); fontWeight:700; letterSpacing:0.11em; textTransform:uppercase; padding:clamp(15px,1.23cqw,19.6px) clamp(23.5px,2.21cqw,35.3px); whiteSpace:nowrap; transition:all .25s ease" style-hover="background:#fff; color:#15123B; borderColor:#fff">Direkt anrufen →</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer style="position:relative; background:var(--paper); padding:var(--section-space) clamp(18px,4cqw,64px) 32px; display:flex; flexDirection:column; gap:clamp(30px,4cqw,64px)">
+    <img src="./assets/horst-logo.png" alt="" width="1015" height="285" loading="lazy" decoding="async" style="height:clamp(44px,4.25cqw,68px); width:auto; alignSelf:flex-start; display:block">
+    <div data-foot="1" style="display:grid; gridTemplateColumns:repeat(4,1fr); gap:clamp(24px,2.5cqw,40px)">
+      <sc-for list="{{ footerCols }}" as="col" hint-placeholder-count="4">
+        <div style="display:flex; flexDirection:column; gap:14px">
+          <span style="fontSize:13px; fontWeight:800; letterSpacing:0.1em; textTransform:uppercase; color:#15123B">{{ col.title }}</span>
+          <div style="display:flex; flexDirection:column; gap:9px">
+            <sc-for list="{{ col.items }}" as="it" hint-placeholder-count="6">
+              <a href="{{ it.href }}" style="fontSize:16.5px; lineHeight:1.35; color:#17171C; transition:color .2s ease" style-hover="color:#EB5D0B">{{ it.label }}</a>
+            </sc-for>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+    <span style="fontSize:15px; color:#8C889F">© 2026 G. Horst Malerbetriebe GmbH</span>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  DC = /\.dc\.html/.test(location.href);
+  X = (s) => s + (this.DC ? ".dc.html" : ".html");
+  HOME = this.X("index");
+  LEIST = this.X("leistungen");
+  UEBER = (this.DC ? "ueber-uns%203.0.dc.html" : "ueber-uns.html");
+  IMPR = this.X("impressionen");
+  FS = this.X("farbe-struktur");
+  KARR = this.X("karriere");
+  SELF = this.X("projekte");
+
+  state = { menuOpen: false };
+
+  componentDidMount() {
+    this.setHdr = () => {
+      const el = document.querySelector("[data-hdr]");
+      const hh = el ? el.offsetHeight : 0;
+      if (hh > 0) document.documentElement.style.setProperty("--hdr-h", hh + "px");
+      if (el && this.hdrEl !== el && this.hdrRO) { this.hdrRO.disconnect(); this.hdrRO.observe(el); this.hdrEl = el; }
+    };
+    this.hdrRO = new ResizeObserver(() => this.setHdr());
+    this.setHdr();
+    requestAnimationFrame(() => requestAnimationFrame(this.setHdr));
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(this.setHdr);
+    window.addEventListener("load", this.setHdr);
+    window.addEventListener("resize", this.setHdr);
+    this.hdrTimer = setTimeout(this.setHdr, 600);
+    this.onHeroScroll = () => {
+      if (this.heroRaf) return;
+      this.heroRaf = requestAnimationFrame(() => {
+        this.heroRaf = 0;
+        const sec = document.querySelector("[data-phero]");
+        if (!sec) return;
+        const hdr = document.querySelector("[data-hdr]");
+        const top = hdr ? hdr.offsetHeight : 0;
+        const p = Math.max(0, Math.min(1, (top - sec.getBoundingClientRect().top) / (window.innerHeight * 0.3)));
+        sec.style.setProperty("--hp", p.toFixed(3));
+      });
+    };
+    window.addEventListener("scroll", this.onHeroScroll, { passive: true });
+    window.addEventListener("resize", this.onHeroScroll);
+    this.onHeroScroll();
+    this.onKey = (e) => { if (e.key === "Escape") this.setState({ menuOpen: false }); };
+    document.addEventListener("keydown", this.onKey);
+    this.initCarousels();
+    this.setBlockMargins = () => {
+      const hdr = document.querySelector("[data-hdr]");
+      const hh = hdr ? hdr.offsetHeight : 77;
+      const H = window.innerHeight - hh;
+      document.querySelectorAll("[data-pblock]").forEach((el) => {
+        const pt = parseFloat(getComputedStyle(el).paddingTop) || 0;
+        el.style.scrollMarginTop = Math.round(hh + 24 - pt) + "px";
+      });
+    };
+    this.setBlockMargins();
+    window.addEventListener("resize", this.setBlockMargins);
+    window.addEventListener("load", this.setBlockMargins);
+    this.marginTimer = setTimeout(this.setBlockMargins, 600);
+  }
+
+  initCarousels() {
+    const reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    this.cars = [];
+    document.querySelectorAll("[data-car]").forEach((root) => {
+      const view = root.querySelector("[data-car-view]");
+      const track = root.querySelector("[data-car-track]");
+      const items = Array.from(root.querySelectorAll("[data-car-item]"));
+      const dots = Array.from(root.querySelectorAll("[data-car-dot]"));
+      const N = items.length;
+      const c = { offset: 0, busy: false, paused: false };
+      const step = () => items[0].getBoundingClientRect().width + (parseFloat(getComputedStyle(track).columnGap) || 16);
+      const apply = () => {
+        items.forEach((it, i) => { it.style.order = String((i - c.offset + N) % N); });
+        dots.forEach((d, i) => { const on = i === c.offset; d.style.background = on ? "#EB5D0B" : "#CFCFCC"; d.setAttribute("aria-current", on ? "true" : "false"); });
+      };
+      const settle = (fn) => {
+        let done = false;
+        const end = () => { if (done) return; done = true; track.removeEventListener("transitionend", end); fn(); };
+        track.addEventListener("transitionend", end);
+        setTimeout(end, 560);
+      };
+      const next = () => {
+        if (c.busy) return;
+        if (reduced) { c.offset = (c.offset + 1) % N; apply(); return; }
+        c.busy = true;
+        track.style.transition = "transform 500ms cubic-bezier(.4,0,.2,1)";
+        track.style.transform = "translateX(" + (-step()) + "px)";
+        settle(() => {
+          c.offset = (c.offset + 1) % N; apply();
+          track.style.transition = "none"; track.style.transform = "translateX(0)";
+          void track.offsetWidth; c.busy = false;
+        });
+      };
+      const prev = () => {
+        if (c.busy) return;
+        c.offset = (c.offset - 1 + N) % N;
+        if (reduced) { apply(); return; }
+        c.busy = true;
+        track.style.transition = "none"; apply();
+        track.style.transform = "translateX(" + (-step()) + "px)";
+        void track.offsetWidth;
+        track.style.transition = "transform 500ms cubic-bezier(.4,0,.2,1)";
+        track.style.transform = "translateX(0)";
+        settle(() => { track.style.transition = "none"; c.busy = false; });
+      };
+      const go = (n) => {
+        if (c.busy || n === c.offset) return;
+        if (n === (c.offset + 1) % N) return next();
+        if (n === (c.offset - 1 + N) % N) return prev();
+        c.offset = n; apply();
+      };
+      const on = (el, ev, fn, opt) => { el.addEventListener(ev, fn, opt); c.off = (c.off || []).concat(() => el.removeEventListener(ev, fn, opt)); };
+      on(root.querySelector("[data-car-next]"), "click", next);
+      on(root.querySelector("[data-car-prev]"), "click", prev);
+      dots.forEach((d, i) => on(d, "click", () => go(i)));
+      on(view, "mouseenter", () => { c.paused = true; });
+      on(view, "mouseleave", () => { c.paused = false; });
+      on(root, "focusin", () => { c.paused = true; });
+      on(root, "focusout", () => { c.paused = false; });
+      let tx = null, ty = 0;
+      on(view, "touchstart", (e) => { tx = e.touches[0].clientX; ty = e.touches[0].clientY; c.paused = true; }, { passive: true });
+      on(view, "touchend", (e) => {
+        if (tx === null) return;
+        const dx = e.changedTouches[0].clientX - tx, dy = e.changedTouches[0].clientY - ty;
+        tx = null; c.paused = false;
+        if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) (dx < 0 ? next : prev)();
+      }, { passive: true });
+      apply();
+      if (!reduced) c.timer = setInterval(() => { if (!c.paused && !document.hidden) next(); }, 4000);
+      this.cars.push(c);
+    });
+  }
+
+  componentDidUpdate() {
+    document.body.style.overflow = this.state.menuOpen ? "hidden" : "";
+  }
+
+  componentWillUnmount() {
+    if (this.hdrRO) this.hdrRO.disconnect();
+    clearTimeout(this.hdrTimer);
+    window.removeEventListener("load", this.setHdr);
+    window.removeEventListener("resize", this.setHdr);
+    document.removeEventListener("keydown", this.onKey);
+    window.removeEventListener("scroll", this.onHeroScroll);
+    window.removeEventListener("resize", this.onHeroScroll);
+    cancelAnimationFrame(this.heroRaf);
+    (this.cars || []).forEach((c) => { clearInterval(c.timer); (c.off || []).forEach((f) => f()); });
+    window.removeEventListener("resize", this.setBlockMargins);
+    window.removeEventListener("load", this.setBlockMargins);
+    clearTimeout(this.marginTimer);
+    document.body.style.overflow = "";
+  }
+
+  renderVals() {
+    const home = (hash) => this.HOME + (hash || "");
+    return {
+      strip01: this.DC ? undefined : "#projekt-01",
+      strip02: this.DC ? undefined : "#projekt-02",
+      strip03: this.DC ? undefined : "#projekt-03",
+      strip04: this.DC ? undefined : "#projekt-04",
+      menuOpen: this.state.menuOpen === true,
+      openMenu: () => this.setState({ menuOpen: true }),
+      closeMenu: () => this.setState({ menuOpen: false }),
+      homeHref: home(),
+      kontaktHref: home("#kontakt"),
+
+      topNav: [
+        { label: "Start", href: home(), current: "false" },
+        { label: "Leistungen", href: this.LEIST, current: "false" },
+        { label: "Über uns", href: this.UEBER, current: "false" },
+        { label: "Projekte", href: this.SELF, current: "page" },
+        { label: "Impressionen", href: this.IMPR, current: "false" },
+        { label: "Karriere", href: this.KARR, current: "false" }
+      ],
+      menuLinks: [
+        { no: "01", label: "Startseite", href: home() },
+        { no: "02", label: "Leistungen", href: this.LEIST },
+        { no: "03", label: "Farbe & Struktur", href: this.FS },
+        { no: "04", label: "Über uns", href: this.UEBER },
+        { no: "05", label: "Projekte", href: this.SELF },
+        { no: "06", label: "Impressionen", href: this.IMPR },
+        { no: "07", label: "Karriere", href: this.KARR },
+        { no: "08", label: "Kontakt", href: home("#kontakt") }
+      ],
+      menuSocial: [
+        { label: "Instagram", href: home() },
+        { label: "TikTok", href: home() },
+        { label: "Facebook", href: home() },
+        { label: "Google", href: home() }
+      ],
+      menuLegal: [
+        { label: "Impressum", href: this.X("impressum") },
+        { label: "Datenschutz", href: this.X("datenschutz") }
+      ],
+
+      footerCols: [
+        { title: "Kontakt", items: [
+          { label: "Burkhardt Horst", href: home("#kontakt") },
+          { label: "Geschäftsführer", href: home("#kontakt") },
+          { label: "Tel. +49 2152 510 600", href: "tel:+492152510600" },
+          { label: "Industriering Ost 56", href: home("#kontakt") },
+          { label: "47906 Kempen", href: home("#kontakt") },
+          { label: "info@horst-malerbetriebe.de", href: "mailto:info@horst-malerbetriebe.de" }
+        ]},
+        { title: "Navigation", items: [
+          { label: "Startseite", href: home() },
+          { label: "Leistungen", href: this.LEIST },
+          { label: "Projekte", href: this.SELF },
+          { label: "Farbe & Struktur", href: this.FS },
+          { label: "Über uns", href: this.UEBER },
+          { label: "Impressionen", href: this.IMPR },
+          { label: "Karriere", href: this.KARR },
+          { label: "Kontakt", href: home("#kontakt") }
+        ]},
+        { title: "Informationen", items: [
+          { label: "Impressum", href: this.X("impressum") },
+          { label: "Datenschutz", href: this.X("datenschutz") }
+        ]},
+        { title: "Links", items: [
+          { label: "Instagram", href: home() },
+          { label: "Facebook", href: home() },
+          { label: "TikTok", href: home() },
+          { label: "Google", href: home() }
+        ]}
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>
